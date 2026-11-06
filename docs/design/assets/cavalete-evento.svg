@@ -1,0 +1,1484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1500" viewBox="0 0 800 1500">
+  <defs>
+    <linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1220"/>
+      <stop offset="55%" stop-color="#0F2A3A"/>
+      <stop offset="100%" stop-color="#0B1220"/>
+    </linearGradient>
+    <linearGradient id="topo" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0F766E"/>
+      <stop offset="100%" stop-color="#14B8A6"/>
+    </linearGradient>
+    <linearGradient id="linha" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#14B8A6"/>
+      <stop offset="100%" stop-color="#FACC15"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1500" fill="url(#fundo)"/>
+  <g fill="#334155" opacity="0.35">
+    <circle cx="4" cy="4" r="1"/>
+    <circle cx="36" cy="4" r="1"/>
+    <circle cx="68" cy="4" r="1"/>
+    <circle cx="100" cy="4" r="1"/>
+    <circle cx="132" cy="4" r="1"/>
+    <circle cx="164" cy="4" r="1"/>
+    <circle cx="196" cy="4" r="1"/>
+    <circle cx="228" cy="4" r="1"/>
+    <circle cx="260" cy="4" r="1"/>
+    <circle cx="292" cy="4" r="1"/>
+    <circle cx="324" cy="4" r="1"/>
+    <circle cx="356" cy="4" r="1"/>
+    <circle cx="388" cy="4" r="1"/>
+    <circle cx="420" cy="4" r="1"/>
+    <circle cx="452" cy="4" r="1"/>
+    <circle cx="484" cy="4" r="1"/>
+    <circle cx="516" cy="4" r="1"/>
+    <circle cx="548" cy="4" r="1"/>
+    <circle cx="580" cy="4" r="1"/>
+    <circle cx="612" cy="4" r="1"/>
+    <circle cx="644" cy="4" r="1"/>
+    <circle cx="676" cy="4" r="1"/>
+    <circle cx="708" cy="4" r="1"/>
+    <circle cx="740" cy="4" r="1"/>
+    <circle cx="772" cy="4" r="1"/>
+    <circle cx="4" cy="36" r="1"/>
+    <circle cx="36" cy="36" r="1"/>
+    <circle cx="68" cy="36" r="1"/>
+    <circle cx="100" cy="36" r="1"/>
+    <circle cx="132" cy="36" r="1"/>
+    <circle cx="164" cy="36" r="1"/>
+    <circle cx="196" cy="36" r="1"/>
+    <circle cx="228" cy="36" r="1"/>
+    <circle cx="260" cy="36" r="1"/>
+    <circle cx="292" cy="36" r="1"/>
+    <circle cx="324" cy="36" r="1"/>
+    <circle cx="356" cy="36" r="1"/>
+    <circle cx="388" cy="36" r="1"/>
+    <circle cx="420" cy="36" r="1"/>
+    <circle cx="452" cy="36" r="1"/>
+    <circle cx="484" cy="36" r="1"/>
+    <circle cx="516" cy="36" r="1"/>
+    <circle cx="548" cy="36" r="1"/>
+    <circle cx="580" cy="36" r="1"/>
+    <circle cx="612" cy="36" r="1"/>
+    <circle cx="644" cy="36" r="1"/>
+    <circle cx="676" cy="36" r="1"/>
+    <circle cx="708" cy="36" r="1"/>
+    <circle cx="740" cy="36" r="1"/>
+    <circle cx="772" cy="36" r="1"/>
+    <circle cx="4" cy="68" r="1"/>
+    <circle cx="36" cy="68" r="1"/>
+    <circle cx="68" cy="68" r="1"/>
+    <circle cx="100" cy="68" r="1"/>
+    <circle cx="132" cy="68" r="1"/>
+    <circle cx="164" cy="68" r="1"/>
+    <circle cx="196" cy="68" r="1"/>
+    <circle cx="228" cy="68" r="1"/>
+    <circle cx="260" cy="68" r="1"/>
+    <circle cx="292" cy="68" r="1"/>
+    <circle cx="324" cy="68" r="1"/>
+    <circle cx="356" cy="68" r="1"/>
+    <circle cx="388" cy="68" r="1"/>
+    <circle cx="420" cy="68" r="1"/>
+    <circle cx="452" cy="68" r="1"/>
+    <circle cx="484" cy="68" r="1"/>
+    <circle cx="516" cy="68" r="1"/>
+    <circle cx="548" cy="68" r="1"/>
+    <circle cx="580" cy="68" r="1"/>
+    <circle cx="612" cy="68" r="1"/>
+    <circle cx="644" cy="68" r="1"/>
+    <circle cx="676" cy="68" r="1"/>
+    <circle cx="708" cy="68" r="1"/>
+    <circle cx="740" cy="68" r="1"/>
+    <circle cx="772" cy="68" r="1"/>
+    <circle cx="4" cy="100" r="1"/>
+    <circle cx="36" cy="100" r="1"/>
+    <circle cx="68" cy="100" r="1"/>
+    <circle cx="100" cy="100" r="1"/>
+    <circle cx="132" cy="100" r="1"/>
+    <circle cx="164" cy="100" r="1"/>
+    <circle cx="196" cy="100" r="1"/>
+    <circle cx="228" cy="100" r="1"/>
+    <circle cx="260" cy="100" r="1"/>
+    <circle cx="292" cy="100" r="1"/>
+    <circle cx="324" cy="100" r="1"/>
+    <circle cx="356" cy="100" r="1"/>
+    <circle cx="388" cy="100" r="1"/>
+    <circle cx="420" cy="100" r="1"/>
+    <circle cx="452" cy="100" r="1"/>
+    <circle cx="484" cy="100" r="1"/>
+    <circle cx="516" cy="100" r="1"/>
+    <circle cx="548" cy="100" r="1"/>
+    <circle cx="580" cy="100" r="1"/>
+    <circle cx="612" cy="100" r="1"/>
+    <circle cx="644" cy="100" r="1"/>
+    <circle cx="676" cy="100" r="1"/>
+    <circle cx="708" cy="100" r="1"/>
+    <circle cx="740" cy="100" r="1"/>
+    <circle cx="772" cy="100" r="1"/>
+    <circle cx="4" cy="132" r="1"/>
+    <circle cx="36" cy="132" r="1"/>
+    <circle cx="68" cy="132" r="1"/>
+    <circle cx="100" cy="132" r="1"/>
+    <circle cx="132" cy="132" r="1"/>
+    <circle cx="164" cy="132" r="1"/>
+    <circle cx="196" cy="132" r="1"/>
+    <circle cx="228" cy="132" r="1"/>
+    <circle cx="260" cy="132" r="1"/>
+    <circle cx="292" cy="132" r="1"/>
+    <circle cx="324" cy="132" r="1"/>
+    <circle cx="356" cy="132" r="1"/>
+    <circle cx="388" cy="132" r="1"/>
+    <circle cx="420" cy="132" r="1"/>
+    <circle cx="452" cy="132" r="1"/>
+    <circle cx="484" cy="132" r="1"/>
+    <circle cx="516" cy="132" r="1"/>
+    <circle cx="548" cy="132" r="1"/>
+    <circle cx="580" cy="132" r="1"/>
+    <circle cx="612" cy="132" r="1"/>
+    <circle cx="644" cy="132" r="1"/>
+    <circle cx="676" cy="132" r="1"/>
+    <circle cx="708" cy="132" r="1"/>
+    <circle cx="740" cy="132" r="1"/>
+    <circle cx="772" cy="132" r="1"/>
+    <circle cx="4" cy="164" r="1"/>
+    <circle cx="36" cy="164" r="1"/>
+    <circle cx="68" cy="164" r="1"/>
+    <circle cx="100" cy="164" r="1"/>
+    <circle cx="132" cy="164" r="1"/>
+    <circle cx="164" cy="164" r="1"/>
+    <circle cx="196" cy="164" r="1"/>
+    <circle cx="228" cy="164" r="1"/>
+    <circle cx="260" cy="164" r="1"/>
+    <circle cx="292" cy="164" r="1"/>
+    <circle cx="324" cy="164" r="1"/>
+    <circle cx="356" cy="164" r="1"/>
+    <circle cx="388" cy="164" r="1"/>
+    <circle cx="420" cy="164" r="1"/>
+    <circle cx="452" cy="164" r="1"/>
+    <circle cx="484" cy="164" r="1"/>
+    <circle cx="516" cy="164" r="1"/>
+    <circle cx="548" cy="164" r="1"/>
+    <circle cx="580" cy="164" r="1"/>
+    <circle cx="612" cy="164" r="1"/>
+    <circle cx="644" cy="164" r="1"/>
+    <circle cx="676" cy="164" r="1"/>
+    <circle cx="708" cy="164" r="1"/>
+    <circle cx="740" cy="164" r="1"/>
+    <circle cx="772" cy="164" r="1"/>
+    <circle cx="4" cy="196" r="1"/>
+    <circle cx="36" cy="196" r="1"/>
+    <circle cx="68" cy="196" r="1"/>
+    <circle cx="100" cy="196" r="1"/>
+    <circle cx="132" cy="196" r="1"/>
+    <circle cx="164" cy="196" r="1"/>
+    <circle cx="196" cy="196" r="1"/>
+    <circle cx="228" cy="196" r="1"/>
+    <circle cx="260" cy="196" r="1"/>
+    <circle cx="292" cy="196" r="1"/>
+    <circle cx="324" cy="196" r="1"/>
+    <circle cx="356" cy="196" r="1"/>
+    <circle cx="388" cy="196" r="1"/>
+    <circle cx="420" cy="196" r="1"/>
+    <circle cx="452" cy="196" r="1"/>
+    <circle cx="484" cy="196" r="1"/>
+    <circle cx="516" cy="196" r="1"/>
+    <circle cx="548" cy="196" r="1"/>
+    <circle cx="580" cy="196" r="1"/>
+    <circle cx="612" cy="196" r="1"/>
+    <circle cx="644" cy="196" r="1"/>
+    <circle cx="676" cy="196" r="1"/>
+    <circle cx="708" cy="196" r="1"/>
+    <circle cx="740" cy="196" r="1"/>
+    <circle cx="772" cy="196" r="1"/>
+    <circle cx="4" cy="228" r="1"/>
+    <circle cx="36" cy="228" r="1"/>
+    <circle cx="68" cy="228" r="1"/>
+    <circle cx="100" cy="228" r="1"/>
+    <circle cx="132" cy="228" r="1"/>
+    <circle cx="164" cy="228" r="1"/>
+    <circle cx="196" cy="228" r="1"/>
+    <circle cx="228" cy="228" r="1"/>
+    <circle cx="260" cy="228" r="1"/>
+    <circle cx="292" cy="228" r="1"/>
+    <circle cx="324" cy="228" r="1"/>
+    <circle cx="356" cy="228" r="1"/>
+    <circle cx="388" cy="228" r="1"/>
+    <circle cx="420" cy="228" r="1"/>
+    <circle cx="452" cy="228" r="1"/>
+    <circle cx="484" cy="228" r="1"/>
+    <circle cx="516" cy="228" r="1"/>
+    <circle cx="548" cy="228" r="1"/>
+    <circle cx="580" cy="228" r="1"/>
+    <circle cx="612" cy="228" r="1"/>
+    <circle cx="644" cy="228" r="1"/>
+    <circle cx="676" cy="228" r="1"/>
+    <circle cx="708" cy="228" r="1"/>
+    <circle cx="740" cy="228" r="1"/>
+    <circle cx="772" cy="228" r="1"/>
+    <circle cx="4" cy="260" r="1"/>
+    <circle cx="36" cy="260" r="1"/>
+    <circle cx="68" cy="260" r="1"/>
+    <circle cx="100" cy="260" r="1"/>
+    <circle cx="132" cy="260" r="1"/>
+    <circle cx="164" cy="260" r="1"/>
+    <circle cx="196" cy="260" r="1"/>
+    <circle cx="228" cy="260" r="1"/>
+    <circle cx="260" cy="260" r="1"/>
+    <circle cx="292" cy="260" r="1"/>
+    <circle cx="324" cy="260" r="1"/>
+    <circle cx="356" cy="260" r="1"/>
+    <circle cx="388" cy="260" r="1"/>
+    <circle cx="420" cy="260" r="1"/>
+    <circle cx="452" cy="260" r="1"/>
+    <circle cx="484" cy="260" r="1"/>
+    <circle cx="516" cy="260" r="1"/>
+    <circle cx="548" cy="260" r="1"/>
+    <circle cx="580" cy="260" r="1"/>
+    <circle cx="612" cy="260" r="1"/>
+    <circle cx="644" cy="260" r="1"/>
+    <circle cx="676" cy="260" r="1"/>
+    <circle cx="708" cy="260" r="1"/>
+    <circle cx="740" cy="260" r="1"/>
+    <circle cx="772" cy="260" r="1"/>
+    <circle cx="4" cy="292" r="1"/>
+    <circle cx="36" cy="292" r="1"/>
+    <circle cx="68" cy="292" r="1"/>
+    <circle cx="100" cy="292" r="1"/>
+    <circle cx="132" cy="292" r="1"/>
+    <circle cx="164" cy="292" r="1"/>
+    <circle cx="196" cy="292" r="1"/>
+    <circle cx="228" cy="292" r="1"/>
+    <circle cx="260" cy="292" r="1"/>
+    <circle cx="292" cy="292" r="1"/>
+    <circle cx="324" cy="292" r="1"/>
+    <circle cx="356" cy="292" r="1"/>
+    <circle cx="388" cy="292" r="1"/>
+    <circle cx="420" cy="292" r="1"/>
+    <circle cx="452" cy="292" r="1"/>
+    <circle cx="484" cy="292" r="1"/>
+    <circle cx="516" cy="292" r="1"/>
+    <circle cx="548" cy="292" r="1"/>
+    <circle cx="580" cy="292" r="1"/>
+    <circle cx="612" cy="292" r="1"/>
+    <circle cx="644" cy="292" r="1"/>
+    <circle cx="676" cy="292" r="1"/>
+    <circle cx="708" cy="292" r="1"/>
+    <circle cx="740" cy="292" r="1"/>
+    <circle cx="772" cy="292" r="1"/>
+    <circle cx="4" cy="324" r="1"/>
+    <circle cx="36" cy="324" r="1"/>
+    <circle cx="68" cy="324" r="1"/>
+    <circle cx="100" cy="324" r="1"/>
+    <circle cx="132" cy="324" r="1"/>
+    <circle cx="164" cy="324" r="1"/>
+    <circle cx="196" cy="324" r="1"/>
+    <circle cx="228" cy="324" r="1"/>
+    <circle cx="260" cy="324" r="1"/>
+    <circle cx="292" cy="324" r="1"/>
+    <circle cx="324" cy="324" r="1"/>
+    <circle cx="356" cy="324" r="1"/>
+    <circle cx="388" cy="324" r="1"/>
+    <circle cx="420" cy="324" r="1"/>
+    <circle cx="452" cy="324" r="1"/>
+    <circle cx="484" cy="324" r="1"/>
+    <circle cx="516" cy="324" r="1"/>
+    <circle cx="548" cy="324" r="1"/>
+    <circle cx="580" cy="324" r="1"/>
+    <circle cx="612" cy="324" r="1"/>
+    <circle cx="644" cy="324" r="1"/>
+    <circle cx="676" cy="324" r="1"/>
+    <circle cx="708" cy="324" r="1"/>
+    <circle cx="740" cy="324" r="1"/>
+    <circle cx="772" cy="324" r="1"/>
+    <circle cx="4" cy="356" r="1"/>
+    <circle cx="36" cy="356" r="1"/>
+    <circle cx="68" cy="356" r="1"/>
+    <circle cx="100" cy="356" r="1"/>
+    <circle cx="132" cy="356" r="1"/>
+    <circle cx="164" cy="356" r="1"/>
+    <circle cx="196" cy="356" r="1"/>
+    <circle cx="228" cy="356" r="1"/>
+    <circle cx="260" cy="356" r="1"/>
+    <circle cx="292" cy="356" r="1"/>
+    <circle cx="324" cy="356" r="1"/>
+    <circle cx="356" cy="356" r="1"/>
+    <circle cx="388" cy="356" r="1"/>
+    <circle cx="420" cy="356" r="1"/>
+    <circle cx="452" cy="356" r="1"/>
+    <circle cx="484" cy="356" r="1"/>
+    <circle cx="516" cy="356" r="1"/>
+    <circle cx="548" cy="356" r="1"/>
+    <circle cx="580" cy="356" r="1"/>
+    <circle cx="612" cy="356" r="1"/>
+    <circle cx="644" cy="356" r="1"/>
+    <circle cx="676" cy="356" r="1"/>
+    <circle cx="708" cy="356" r="1"/>
+    <circle cx="740" cy="356" r="1"/>
+    <circle cx="772" cy="356" r="1"/>
+    <circle cx="4" cy="388" r="1"/>
+    <circle cx="36" cy="388" r="1"/>
+    <circle cx="68" cy="388" r="1"/>
+    <circle cx="100" cy="388" r="1"/>
+    <circle cx="132" cy="388" r="1"/>
+    <circle cx="164" cy="388" r="1"/>
+    <circle cx="196" cy="388" r="1"/>
+    <circle cx="228" cy="388" r="1"/>
+    <circle cx="260" cy="388" r="1"/>
+    <circle cx="292" cy="388" r="1"/>
+    <circle cx="324" cy="388" r="1"/>
+    <circle cx="356" cy="388" r="1"/>
+    <circle cx="388" cy="388" r="1"/>
+    <circle cx="420" cy="388" r="1"/>
+    <circle cx="452" cy="388" r="1"/>
+    <circle cx="484" cy="388" r="1"/>
+    <circle cx="516" cy="388" r="1"/>
+    <circle cx="548" cy="388" r="1"/>
+    <circle cx="580" cy="388" r="1"/>
+    <circle cx="612" cy="388" r="1"/>
+    <circle cx="644" cy="388" r="1"/>
+    <circle cx="676" cy="388" r="1"/>
+    <circle cx="708" cy="388" r="1"/>
+    <circle cx="740" cy="388" r="1"/>
+    <circle cx="772" cy="388" r="1"/>
+    <circle cx="4" cy="420" r="1"/>
+    <circle cx="36" cy="420" r="1"/>
+    <circle cx="68" cy="420" r="1"/>
+    <circle cx="100" cy="420" r="1"/>
+    <circle cx="132" cy="420" r="1"/>
+    <circle cx="164" cy="420" r="1"/>
+    <circle cx="196" cy="420" r="1"/>
+    <circle cx="228" cy="420" r="1"/>
+    <circle cx="260" cy="420" r="1"/>
+    <circle cx="292" cy="420" r="1"/>
+    <circle cx="324" cy="420" r="1"/>
+    <circle cx="356" cy="420" r="1"/>
+    <circle cx="388" cy="420" r="1"/>
+    <circle cx="420" cy="420" r="1"/>
+    <circle cx="452" cy="420" r="1"/>
+    <circle cx="484" cy="420" r="1"/>
+    <circle cx="516" cy="420" r="1"/>
+    <circle cx="548" cy="420" r="1"/>
+    <circle cx="580" cy="420" r="1"/>
+    <circle cx="612" cy="420" r="1"/>
+    <circle cx="644" cy="420" r="1"/>
+    <circle cx="676" cy="420" r="1"/>
+    <circle cx="708" cy="420" r="1"/>
+    <circle cx="740" cy="420" r="1"/>
+    <circle cx="772" cy="420" r="1"/>
+    <circle cx="4" cy="452" r="1"/>
+    <circle cx="36" cy="452" r="1"/>
+    <circle cx="68" cy="452" r="1"/>
+    <circle cx="100" cy="452" r="1"/>
+    <circle cx="132" cy="452" r="1"/>
+    <circle cx="164" cy="452" r="1"/>
+    <circle cx="196" cy="452" r="1"/>
+    <circle cx="228" cy="452" r="1"/>
+    <circle cx="260" cy="452" r="1"/>
+    <circle cx="292" cy="452" r="1"/>
+    <circle cx="324" cy="452" r="1"/>
+    <circle cx="356" cy="452" r="1"/>
+    <circle cx="388" cy="452" r="1"/>
+    <circle cx="420" cy="452" r="1"/>
+    <circle cx="452" cy="452" r="1"/>
+    <circle cx="484" cy="452" r="1"/>
+    <circle cx="516" cy="452" r="1"/>
+    <circle cx="548" cy="452" r="1"/>
+    <circle cx="580" cy="452" r="1"/>
+    <circle cx="612" cy="452" r="1"/>
+    <circle cx="644" cy="452" r="1"/>
+    <circle cx="676" cy="452" r="1"/>
+    <circle cx="708" cy="452" r="1"/>
+    <circle cx="740" cy="452" r="1"/>
+    <circle cx="772" cy="452" r="1"/>
+    <circle cx="4" cy="484" r="1"/>
+    <circle cx="36" cy="484" r="1"/>
+    <circle cx="68" cy="484" r="1"/>
+    <circle cx="100" cy="484" r="1"/>
+    <circle cx="132" cy="484" r="1"/>
+    <circle cx="164" cy="484" r="1"/>
+    <circle cx="196" cy="484" r="1"/>
+    <circle cx="228" cy="484" r="1"/>
+    <circle cx="260" cy="484" r="1"/>
+    <circle cx="292" cy="484" r="1"/>
+    <circle cx="324" cy="484" r="1"/>
+    <circle cx="356" cy="484" r="1"/>
+    <circle cx="388" cy="484" r="1"/>
+    <circle cx="420" cy="484" r="1"/>
+    <circle cx="452" cy="484" r="1"/>
+    <circle cx="484" cy="484" r="1"/>
+    <circle cx="516" cy="484" r="1"/>
+    <circle cx="548" cy="484" r="1"/>
+    <circle cx="580" cy="484" r="1"/>
+    <circle cx="612" cy="484" r="1"/>
+    <circle cx="644" cy="484" r="1"/>
+    <circle cx="676" cy="484" r="1"/>
+    <circle cx="708" cy="484" r="1"/>
+    <circle cx="740" cy="484" r="1"/>
+    <circle cx="772" cy="484" r="1"/>
+    <circle cx="4" cy="516" r="1"/>
+    <circle cx="36" cy="516" r="1"/>
+    <circle cx="68" cy="516" r="1"/>
+    <circle cx="100" cy="516" r="1"/>
+    <circle cx="132" cy="516" r="1"/>
+    <circle cx="164" cy="516" r="1"/>
+    <circle cx="196" cy="516" r="1"/>
+    <circle cx="228" cy="516" r="1"/>
+    <circle cx="260" cy="516" r="1"/>
+    <circle cx="292" cy="516" r="1"/>
+    <circle cx="324" cy="516" r="1"/>
+    <circle cx="356" cy="516" r="1"/>
+    <circle cx="388" cy="516" r="1"/>
+    <circle cx="420" cy="516" r="1"/>
+    <circle cx="452" cy="516" r="1"/>
+    <circle cx="484" cy="516" r="1"/>
+    <circle cx="516" cy="516" r="1"/>
+    <circle cx="548" cy="516" r="1"/>
+    <circle cx="580" cy="516" r="1"/>
+    <circle cx="612" cy="516" r="1"/>
+    <circle cx="644" cy="516" r="1"/>
+    <circle cx="676" cy="516" r="1"/>
+    <circle cx="708" cy="516" r="1"/>
+    <circle cx="740" cy="516" r="1"/>
+    <circle cx="772" cy="516" r="1"/>
+    <circle cx="4" cy="548" r="1"/>
+    <circle cx="36" cy="548" r="1"/>
+    <circle cx="68" cy="548" r="1"/>
+    <circle cx="100" cy="548" r="1"/>
+    <circle cx="132" cy="548" r="1"/>
+    <circle cx="164" cy="548" r="1"/>
+    <circle cx="196" cy="548" r="1"/>
+    <circle cx="228" cy="548" r="1"/>
+    <circle cx="260" cy="548" r="1"/>
+    <circle cx="292" cy="548" r="1"/>
+    <circle cx="324" cy="548" r="1"/>
+    <circle cx="356" cy="548" r="1"/>
+    <circle cx="388" cy="548" r="1"/>
+    <circle cx="420" cy="548" r="1"/>
+    <circle cx="452" cy="548" r="1"/>
+    <circle cx="484" cy="548" r="1"/>
+    <circle cx="516" cy="548" r="1"/>
+    <circle cx="548" cy="548" r="1"/>
+    <circle cx="580" cy="548" r="1"/>
+    <circle cx="612" cy="548" r="1"/>
+    <circle cx="644" cy="548" r="1"/>
+    <circle cx="676" cy="548" r="1"/>
+    <circle cx="708" cy="548" r="1"/>
+    <circle cx="740" cy="548" r="1"/>
+    <circle cx="772" cy="548" r="1"/>
+    <circle cx="4" cy="580" r="1"/>
+    <circle cx="36" cy="580" r="1"/>
+    <circle cx="68" cy="580" r="1"/>
+    <circle cx="100" cy="580" r="1"/>
+    <circle cx="132" cy="580" r="1"/>
+    <circle cx="164" cy="580" r="1"/>
+    <circle cx="196" cy="580" r="1"/>
+    <circle cx="228" cy="580" r="1"/>
+    <circle cx="260" cy="580" r="1"/>
+    <circle cx="292" cy="580" r="1"/>
+    <circle cx="324" cy="580" r="1"/>
+    <circle cx="356" cy="580" r="1"/>
+    <circle cx="388" cy="580" r="1"/>
+    <circle cx="420" cy="580" r="1"/>
+    <circle cx="452" cy="580" r="1"/>
+    <circle cx="484" cy="580" r="1"/>
+    <circle cx="516" cy="580" r="1"/>
+    <circle cx="548" cy="580" r="1"/>
+    <circle cx="580" cy="580" r="1"/>
+    <circle cx="612" cy="580" r="1"/>
+    <circle cx="644" cy="580" r="1"/>
+    <circle cx="676" cy="580" r="1"/>
+    <circle cx="708" cy="580" r="1"/>
+    <circle cx="740" cy="580" r="1"/>
+    <circle cx="772" cy="580" r="1"/>
+    <circle cx="4" cy="612" r="1"/>
+    <circle cx="36" cy="612" r="1"/>
+    <circle cx="68" cy="612" r="1"/>
+    <circle cx="100" cy="612" r="1"/>
+    <circle cx="132" cy="612" r="1"/>
+    <circle cx="164" cy="612" r="1"/>
+    <circle cx="196" cy="612" r="1"/>
+    <circle cx="228" cy="612" r="1"/>
+    <circle cx="260" cy="612" r="1"/>
+    <circle cx="292" cy="612" r="1"/>
+    <circle cx="324" cy="612" r="1"/>
+    <circle cx="356" cy="612" r="1"/>
+    <circle cx="388" cy="612" r="1"/>
+    <circle cx="420" cy="612" r="1"/>
+    <circle cx="452" cy="612" r="1"/>
+    <circle cx="484" cy="612" r="1"/>
+    <circle cx="516" cy="612" r="1"/>
+    <circle cx="548" cy="612" r="1"/>
+    <circle cx="580" cy="612" r="1"/>
+    <circle cx="612" cy="612" r="1"/>
+    <circle cx="644" cy="612" r="1"/>
+    <circle cx="676" cy="612" r="1"/>
+    <circle cx="708" cy="612" r="1"/>
+    <circle cx="740" cy="612" r="1"/>
+    <circle cx="772" cy="612" r="1"/>
+    <circle cx="4" cy="644" r="1"/>
+    <circle cx="36" cy="644" r="1"/>
+    <circle cx="68" cy="644" r="1"/>
+    <circle cx="100" cy="644" r="1"/>
+    <circle cx="132" cy="644" r="1"/>
+    <circle cx="164" cy="644" r="1"/>
+    <circle cx="196" cy="644" r="1"/>
+    <circle cx="228" cy="644" r="1"/>
+    <circle cx="260" cy="644" r="1"/>
+    <circle cx="292" cy="644" r="1"/>
+    <circle cx="324" cy="644" r="1"/>
+    <circle cx="356" cy="644" r="1"/>
+    <circle cx="388" cy="644" r="1"/>
+    <circle cx="420" cy="644" r="1"/>
+    <circle cx="452" cy="644" r="1"/>
+    <circle cx="484" cy="644" r="1"/>
+    <circle cx="516" cy="644" r="1"/>
+    <circle cx="548" cy="644" r="1"/>
+    <circle cx="580" cy="644" r="1"/>
+    <circle cx="612" cy="644" r="1"/>
+    <circle cx="644" cy="644" r="1"/>
+    <circle cx="676" cy="644" r="1"/>
+    <circle cx="708" cy="644" r="1"/>
+    <circle cx="740" cy="644" r="1"/>
+    <circle cx="772" cy="644" r="1"/>
+    <circle cx="4" cy="676" r="1"/>
+    <circle cx="36" cy="676" r="1"/>
+    <circle cx="68" cy="676" r="1"/>
+    <circle cx="100" cy="676" r="1"/>
+    <circle cx="132" cy="676" r="1"/>
+    <circle cx="164" cy="676" r="1"/>
+    <circle cx="196" cy="676" r="1"/>
+    <circle cx="228" cy="676" r="1"/>
+    <circle cx="260" cy="676" r="1"/>
+    <circle cx="292" cy="676" r="1"/>
+    <circle cx="324" cy="676" r="1"/>
+    <circle cx="356" cy="676" r="1"/>
+    <circle cx="388" cy="676" r="1"/>
+    <circle cx="420" cy="676" r="1"/>
+    <circle cx="452" cy="676" r="1"/>
+    <circle cx="484" cy="676" r="1"/>
+    <circle cx="516" cy="676" r="1"/>
+    <circle cx="548" cy="676" r="1"/>
+    <circle cx="580" cy="676" r="1"/>
+    <circle cx="612" cy="676" r="1"/>
+    <circle cx="644" cy="676" r="1"/>
+    <circle cx="676" cy="676" r="1"/>
+    <circle cx="708" cy="676" r="1"/>
+    <circle cx="740" cy="676" r="1"/>
+    <circle cx="772" cy="676" r="1"/>
+    <circle cx="4" cy="708" r="1"/>
+    <circle cx="36" cy="708" r="1"/>
+    <circle cx="68" cy="708" r="1"/>
+    <circle cx="100" cy="708" r="1"/>
+    <circle cx="132" cy="708" r="1"/>
+    <circle cx="164" cy="708" r="1"/>
+    <circle cx="196" cy="708" r="1"/>
+    <circle cx="228" cy="708" r="1"/>
+    <circle cx="260" cy="708" r="1"/>
+    <circle cx="292" cy="708" r="1"/>
+    <circle cx="324" cy="708" r="1"/>
+    <circle cx="356" cy="708" r="1"/>
+    <circle cx="388" cy="708" r="1"/>
+    <circle cx="420" cy="708" r="1"/>
+    <circle cx="452" cy="708" r="1"/>
+    <circle cx="484" cy="708" r="1"/>
+    <circle cx="516" cy="708" r="1"/>
+    <circle cx="548" cy="708" r="1"/>
+    <circle cx="580" cy="708" r="1"/>
+    <circle cx="612" cy="708" r="1"/>
+    <circle cx="644" cy="708" r="1"/>
+    <circle cx="676" cy="708" r="1"/>
+    <circle cx="708" cy="708" r="1"/>
+    <circle cx="740" cy="708" r="1"/>
+    <circle cx="772" cy="708" r="1"/>
+    <circle cx="4" cy="740" r="1"/>
+    <circle cx="36" cy="740" r="1"/>
+    <circle cx="68" cy="740" r="1"/>
+    <circle cx="100" cy="740" r="1"/>
+    <circle cx="132" cy="740" r="1"/>
+    <circle cx="164" cy="740" r="1"/>
+    <circle cx="196" cy="740" r="1"/>
+    <circle cx="228" cy="740" r="1"/>
+    <circle cx="260" cy="740" r="1"/>
+    <circle cx="292" cy="740" r="1"/>
+    <circle cx="324" cy="740" r="1"/>
+    <circle cx="356" cy="740" r="1"/>
+    <circle cx="388" cy="740" r="1"/>
+    <circle cx="420" cy="740" r="1"/>
+    <circle cx="452" cy="740" r="1"/>
+    <circle cx="484" cy="740" r="1"/>
+    <circle cx="516" cy="740" r="1"/>
+    <circle cx="548" cy="740" r="1"/>
+    <circle cx="580" cy="740" r="1"/>
+    <circle cx="612" cy="740" r="1"/>
+    <circle cx="644" cy="740" r="1"/>
+    <circle cx="676" cy="740" r="1"/>
+    <circle cx="708" cy="740" r="1"/>
+    <circle cx="740" cy="740" r="1"/>
+    <circle cx="772" cy="740" r="1"/>
+    <circle cx="4" cy="772" r="1"/>
+    <circle cx="36" cy="772" r="1"/>
+    <circle cx="68" cy="772" r="1"/>
+    <circle cx="100" cy="772" r="1"/>
+    <circle cx="132" cy="772" r="1"/>
+    <circle cx="164" cy="772" r="1"/>
+    <circle cx="196" cy="772" r="1"/>
+    <circle cx="228" cy="772" r="1"/>
+    <circle cx="260" cy="772" r="1"/>
+    <circle cx="292" cy="772" r="1"/>
+    <circle cx="324" cy="772" r="1"/>
+    <circle cx="356" cy="772" r="1"/>
+    <circle cx="388" cy="772" r="1"/>
+    <circle cx="420" cy="772" r="1"/>
+    <circle cx="452" cy="772" r="1"/>
+    <circle cx="484" cy="772" r="1"/>
+    <circle cx="516" cy="772" r="1"/>
+    <circle cx="548" cy="772" r="1"/>
+    <circle cx="580" cy="772" r="1"/>
+    <circle cx="612" cy="772" r="1"/>
+    <circle cx="644" cy="772" r="1"/>
+    <circle cx="676" cy="772" r="1"/>
+    <circle cx="708" cy="772" r="1"/>
+    <circle cx="740" cy="772" r="1"/>
+    <circle cx="772" cy="772" r="1"/>
+    <circle cx="4" cy="804" r="1"/>
+    <circle cx="36" cy="804" r="1"/>
+    <circle cx="68" cy="804" r="1"/>
+    <circle cx="100" cy="804" r="1"/>
+    <circle cx="132" cy="804" r="1"/>
+    <circle cx="164" cy="804" r="1"/>
+    <circle cx="196" cy="804" r="1"/>
+    <circle cx="228" cy="804" r="1"/>
+    <circle cx="260" cy="804" r="1"/>
+    <circle cx="292" cy="804" r="1"/>
+    <circle cx="324" cy="804" r="1"/>
+    <circle cx="356" cy="804" r="1"/>
+    <circle cx="388" cy="804" r="1"/>
+    <circle cx="420" cy="804" r="1"/>
+    <circle cx="452" cy="804" r="1"/>
+    <circle cx="484" cy="804" r="1"/>
+    <circle cx="516" cy="804" r="1"/>
+    <circle cx="548" cy="804" r="1"/>
+    <circle cx="580" cy="804" r="1"/>
+    <circle cx="612" cy="804" r="1"/>
+    <circle cx="644" cy="804" r="1"/>
+    <circle cx="676" cy="804" r="1"/>
+    <circle cx="708" cy="804" r="1"/>
+    <circle cx="740" cy="804" r="1"/>
+    <circle cx="772" cy="804" r="1"/>
+    <circle cx="4" cy="836" r="1"/>
+    <circle cx="36" cy="836" r="1"/>
+    <circle cx="68" cy="836" r="1"/>
+    <circle cx="100" cy="836" r="1"/>
+    <circle cx="132" cy="836" r="1"/>
+    <circle cx="164" cy="836" r="1"/>
+    <circle cx="196" cy="836" r="1"/>
+    <circle cx="228" cy="836" r="1"/>
+    <circle cx="260" cy="836" r="1"/>
+    <circle cx="292" cy="836" r="1"/>
+    <circle cx="324" cy="836" r="1"/>
+    <circle cx="356" cy="836" r="1"/>
+    <circle cx="388" cy="836" r="1"/>
+    <circle cx="420" cy="836" r="1"/>
+    <circle cx="452" cy="836" r="1"/>
+    <circle cx="484" cy="836" r="1"/>
+    <circle cx="516" cy="836" r="1"/>
+    <circle cx="548" cy="836" r="1"/>
+    <circle cx="580" cy="836" r="1"/>
+    <circle cx="612" cy="836" r="1"/>
+    <circle cx="644" cy="836" r="1"/>
+    <circle cx="676" cy="836" r="1"/>
+    <circle cx="708" cy="836" r="1"/>
+    <circle cx="740" cy="836" r="1"/>
+    <circle cx="772" cy="836" r="1"/>
+    <circle cx="4" cy="868" r="1"/>
+    <circle cx="36" cy="868" r="1"/>
+    <circle cx="68" cy="868" r="1"/>
+    <circle cx="100" cy="868" r="1"/>
+    <circle cx="132" cy="868" r="1"/>
+    <circle cx="164" cy="868" r="1"/>
+    <circle cx="196" cy="868" r="1"/>
+    <circle cx="228" cy="868" r="1"/>
+    <circle cx="260" cy="868" r="1"/>
+    <circle cx="292" cy="868" r="1"/>
+    <circle cx="324" cy="868" r="1"/>
+    <circle cx="356" cy="868" r="1"/>
+    <circle cx="388" cy="868" r="1"/>
+    <circle cx="420" cy="868" r="1"/>
+    <circle cx="452" cy="868" r="1"/>
+    <circle cx="484" cy="868" r="1"/>
+    <circle cx="516" cy="868" r="1"/>
+    <circle cx="548" cy="868" r="1"/>
+    <circle cx="580" cy="868" r="1"/>
+    <circle cx="612" cy="868" r="1"/>
+    <circle cx="644" cy="868" r="1"/>
+    <circle cx="676" cy="868" r="1"/>
+    <circle cx="708" cy="868" r="1"/>
+    <circle cx="740" cy="868" r="1"/>
+    <circle cx="772" cy="868" r="1"/>
+    <circle cx="4" cy="900" r="1"/>
+    <circle cx="36" cy="900" r="1"/>
+    <circle cx="68" cy="900" r="1"/>
+    <circle cx="100" cy="900" r="1"/>
+    <circle cx="132" cy="900" r="1"/>
+    <circle cx="164" cy="900" r="1"/>
+    <circle cx="196" cy="900" r="1"/>
+    <circle cx="228" cy="900" r="1"/>
+    <circle cx="260" cy="900" r="1"/>
+    <circle cx="292" cy="900" r="1"/>
+    <circle cx="324" cy="900" r="1"/>
+    <circle cx="356" cy="900" r="1"/>
+    <circle cx="388" cy="900" r="1"/>
+    <circle cx="420" cy="900" r="1"/>
+    <circle cx="452" cy="900" r="1"/>
+    <circle cx="484" cy="900" r="1"/>
+    <circle cx="516" cy="900" r="1"/>
+    <circle cx="548" cy="900" r="1"/>
+    <circle cx="580" cy="900" r="1"/>
+    <circle cx="612" cy="900" r="1"/>
+    <circle cx="644" cy="900" r="1"/>
+    <circle cx="676" cy="900" r="1"/>
+    <circle cx="708" cy="900" r="1"/>
+    <circle cx="740" cy="900" r="1"/>
+    <circle cx="772" cy="900" r="1"/>
+    <circle cx="4" cy="932" r="1"/>
+    <circle cx="36" cy="932" r="1"/>
+    <circle cx="68" cy="932" r="1"/>
+    <circle cx="100" cy="932" r="1"/>
+    <circle cx="132" cy="932" r="1"/>
+    <circle cx="164" cy="932" r="1"/>
+    <circle cx="196" cy="932" r="1"/>
+    <circle cx="228" cy="932" r="1"/>
+    <circle cx="260" cy="932" r="1"/>
+    <circle cx="292" cy="932" r="1"/>
+    <circle cx="324" cy="932" r="1"/>
+    <circle cx="356" cy="932" r="1"/>
+    <circle cx="388" cy="932" r="1"/>
+    <circle cx="420" cy="932" r="1"/>
+    <circle cx="452" cy="932" r="1"/>
+    <circle cx="484" cy="932" r="1"/>
+    <circle cx="516" cy="932" r="1"/>
+    <circle cx="548" cy="932" r="1"/>
+    <circle cx="580" cy="932" r="1"/>
+    <circle cx="612" cy="932" r="1"/>
+    <circle cx="644" cy="932" r="1"/>
+    <circle cx="676" cy="932" r="1"/>
+    <circle cx="708" cy="932" r="1"/>
+    <circle cx="740" cy="932" r="1"/>
+    <circle cx="772" cy="932" r="1"/>
+    <circle cx="4" cy="964" r="1"/>
+    <circle cx="36" cy="964" r="1"/>
+    <circle cx="68" cy="964" r="1"/>
+    <circle cx="100" cy="964" r="1"/>
+    <circle cx="132" cy="964" r="1"/>
+    <circle cx="164" cy="964" r="1"/>
+    <circle cx="196" cy="964" r="1"/>
+    <circle cx="228" cy="964" r="1"/>
+    <circle cx="260" cy="964" r="1"/>
+    <circle cx="292" cy="964" r="1"/>
+    <circle cx="324" cy="964" r="1"/>
+    <circle cx="356" cy="964" r="1"/>
+    <circle cx="388" cy="964" r="1"/>
+    <circle cx="420" cy="964" r="1"/>
+    <circle cx="452" cy="964" r="1"/>
+    <circle cx="484" cy="964" r="1"/>
+    <circle cx="516" cy="964" r="1"/>
+    <circle cx="548" cy="964" r="1"/>
+    <circle cx="580" cy="964" r="1"/>
+    <circle cx="612" cy="964" r="1"/>
+    <circle cx="644" cy="964" r="1"/>
+    <circle cx="676" cy="964" r="1"/>
+    <circle cx="708" cy="964" r="1"/>
+    <circle cx="740" cy="964" r="1"/>
+    <circle cx="772" cy="964" r="1"/>
+    <circle cx="4" cy="996" r="1"/>
+    <circle cx="36" cy="996" r="1"/>
+    <circle cx="68" cy="996" r="1"/>
+    <circle cx="100" cy="996" r="1"/>
+    <circle cx="132" cy="996" r="1"/>
+    <circle cx="164" cy="996" r="1"/>
+    <circle cx="196" cy="996" r="1"/>
+    <circle cx="228" cy="996" r="1"/>
+    <circle cx="260" cy="996" r="1"/>
+    <circle cx="292" cy="996" r="1"/>
+    <circle cx="324" cy="996" r="1"/>
+    <circle cx="356" cy="996" r="1"/>
+    <circle cx="388" cy="996" r="1"/>
+    <circle cx="420" cy="996" r="1"/>
+    <circle cx="452" cy="996" r="1"/>
+    <circle cx="484" cy="996" r="1"/>
+    <circle cx="516" cy="996" r="1"/>
+    <circle cx="548" cy="996" r="1"/>
+    <circle cx="580" cy="996" r="1"/>
+    <circle cx="612" cy="996" r="1"/>
+    <circle cx="644" cy="996" r="1"/>
+    <circle cx="676" cy="996" r="1"/>
+    <circle cx="708" cy="996" r="1"/>
+    <circle cx="740" cy="996" r="1"/>
+    <circle cx="772" cy="996" r="1"/>
+    <circle cx="4" cy="1028" r="1"/>
+    <circle cx="36" cy="1028" r="1"/>
+    <circle cx="68" cy="1028" r="1"/>
+    <circle cx="100" cy="1028" r="1"/>
+    <circle cx="132" cy="1028" r="1"/>
+    <circle cx="164" cy="1028" r="1"/>
+    <circle cx="196" cy="1028" r="1"/>
+    <circle cx="228" cy="1028" r="1"/>
+    <circle cx="260" cy="1028" r="1"/>
+    <circle cx="292" cy="1028" r="1"/>
+    <circle cx="324" cy="1028" r="1"/>
+    <circle cx="356" cy="1028" r="1"/>
+    <circle cx="388" cy="1028" r="1"/>
+    <circle cx="420" cy="1028" r="1"/>
+    <circle cx="452" cy="1028" r="1"/>
+    <circle cx="484" cy="1028" r="1"/>
+    <circle cx="516" cy="1028" r="1"/>
+    <circle cx="548" cy="1028" r="1"/>
+    <circle cx="580" cy="1028" r="1"/>
+    <circle cx="612" cy="1028" r="1"/>
+    <circle cx="644" cy="1028" r="1"/>
+    <circle cx="676" cy="1028" r="1"/>
+    <circle cx="708" cy="1028" r="1"/>
+    <circle cx="740" cy="1028" r="1"/>
+    <circle cx="772" cy="1028" r="1"/>
+    <circle cx="4" cy="1060" r="1"/>
+    <circle cx="36" cy="1060" r="1"/>
+    <circle cx="68" cy="1060" r="1"/>
+    <circle cx="100" cy="1060" r="1"/>
+    <circle cx="132" cy="1060" r="1"/>
+    <circle cx="164" cy="1060" r="1"/>
+    <circle cx="196" cy="1060" r="1"/>
+    <circle cx="228" cy="1060" r="1"/>
+    <circle cx="260" cy="1060" r="1"/>
+    <circle cx="292" cy="1060" r="1"/>
+    <circle cx="324" cy="1060" r="1"/>
+    <circle cx="356" cy="1060" r="1"/>
+    <circle cx="388" cy="1060" r="1"/>
+    <circle cx="420" cy="1060" r="1"/>
+    <circle cx="452" cy="1060" r="1"/>
+    <circle cx="484" cy="1060" r="1"/>
+    <circle cx="516" cy="1060" r="1"/>
+    <circle cx="548" cy="1060" r="1"/>
+    <circle cx="580" cy="1060" r="1"/>
+    <circle cx="612" cy="1060" r="1"/>
+    <circle cx="644" cy="1060" r="1"/>
+    <circle cx="676" cy="1060" r="1"/>
+    <circle cx="708" cy="1060" r="1"/>
+    <circle cx="740" cy="1060" r="1"/>
+    <circle cx="772" cy="1060" r="1"/>
+    <circle cx="4" cy="1092" r="1"/>
+    <circle cx="36" cy="1092" r="1"/>
+    <circle cx="68" cy="1092" r="1"/>
+    <circle cx="100" cy="1092" r="1"/>
+    <circle cx="132" cy="1092" r="1"/>
+    <circle cx="164" cy="1092" r="1"/>
+    <circle cx="196" cy="1092" r="1"/>
+    <circle cx="228" cy="1092" r="1"/>
+    <circle cx="260" cy="1092" r="1"/>
+    <circle cx="292" cy="1092" r="1"/>
+    <circle cx="324" cy="1092" r="1"/>
+    <circle cx="356" cy="1092" r="1"/>
+    <circle cx="388" cy="1092" r="1"/>
+    <circle cx="420" cy="1092" r="1"/>
+    <circle cx="452" cy="1092" r="1"/>
+    <circle cx="484" cy="1092" r="1"/>
+    <circle cx="516" cy="1092" r="1"/>
+    <circle cx="548" cy="1092" r="1"/>
+    <circle cx="580" cy="1092" r="1"/>
+    <circle cx="612" cy="1092" r="1"/>
+    <circle cx="644" cy="1092" r="1"/>
+    <circle cx="676" cy="1092" r="1"/>
+    <circle cx="708" cy="1092" r="1"/>
+    <circle cx="740" cy="1092" r="1"/>
+    <circle cx="772" cy="1092" r="1"/>
+    <circle cx="4" cy="1124" r="1"/>
+    <circle cx="36" cy="1124" r="1"/>
+    <circle cx="68" cy="1124" r="1"/>
+    <circle cx="100" cy="1124" r="1"/>
+    <circle cx="132" cy="1124" r="1"/>
+    <circle cx="164" cy="1124" r="1"/>
+    <circle cx="196" cy="1124" r="1"/>
+    <circle cx="228" cy="1124" r="1"/>
+    <circle cx="260" cy="1124" r="1"/>
+    <circle cx="292" cy="1124" r="1"/>
+    <circle cx="324" cy="1124" r="1"/>
+    <circle cx="356" cy="1124" r="1"/>
+    <circle cx="388" cy="1124" r="1"/>
+    <circle cx="420" cy="1124" r="1"/>
+    <circle cx="452" cy="1124" r="1"/>
+    <circle cx="484" cy="1124" r="1"/>
+    <circle cx="516" cy="1124" r="1"/>
+    <circle cx="548" cy="1124" r="1"/>
+    <circle cx="580" cy="1124" r="1"/>
+    <circle cx="612" cy="1124" r="1"/>
+    <circle cx="644" cy="1124" r="1"/>
+    <circle cx="676" cy="1124" r="1"/>
+    <circle cx="708" cy="1124" r="1"/>
+    <circle cx="740" cy="1124" r="1"/>
+    <circle cx="772" cy="1124" r="1"/>
+    <circle cx="4" cy="1156" r="1"/>
+    <circle cx="36" cy="1156" r="1"/>
+    <circle cx="68" cy="1156" r="1"/>
+    <circle cx="100" cy="1156" r="1"/>
+    <circle cx="132" cy="1156" r="1"/>
+    <circle cx="164" cy="1156" r="1"/>
+    <circle cx="196" cy="1156" r="1"/>
+    <circle cx="228" cy="1156" r="1"/>
+    <circle cx="260" cy="1156" r="1"/>
+    <circle cx="292" cy="1156" r="1"/>
+    <circle cx="324" cy="1156" r="1"/>
+    <circle cx="356" cy="1156" r="1"/>
+    <circle cx="388" cy="1156" r="1"/>
+    <circle cx="420" cy="1156" r="1"/>
+    <circle cx="452" cy="1156" r="1"/>
+    <circle cx="484" cy="1156" r="1"/>
+    <circle cx="516" cy="1156" r="1"/>
+    <circle cx="548" cy="1156" r="1"/>
+    <circle cx="580" cy="1156" r="1"/>
+    <circle cx="612" cy="1156" r="1"/>
+    <circle cx="644" cy="1156" r="1"/>
+    <circle cx="676" cy="1156" r="1"/>
+    <circle cx="708" cy="1156" r="1"/>
+    <circle cx="740" cy="1156" r="1"/>
+    <circle cx="772" cy="1156" r="1"/>
+    <circle cx="4" cy="1188" r="1"/>
+    <circle cx="36" cy="1188" r="1"/>
+    <circle cx="68" cy="1188" r="1"/>
+    <circle cx="100" cy="1188" r="1"/>
+    <circle cx="132" cy="1188" r="1"/>
+    <circle cx="164" cy="1188" r="1"/>
+    <circle cx="196" cy="1188" r="1"/>
+    <circle cx="228" cy="1188" r="1"/>
+    <circle cx="260" cy="1188" r="1"/>
+    <circle cx="292" cy="1188" r="1"/>
+    <circle cx="324" cy="1188" r="1"/>
+    <circle cx="356" cy="1188" r="1"/>
+    <circle cx="388" cy="1188" r="1"/>
+    <circle cx="420" cy="1188" r="1"/>
+    <circle cx="452" cy="1188" r="1"/>
+    <circle cx="484" cy="1188" r="1"/>
+    <circle cx="516" cy="1188" r="1"/>
+    <circle cx="548" cy="1188" r="1"/>
+    <circle cx="580" cy="1188" r="1"/>
+    <circle cx="612" cy="1188" r="1"/>
+    <circle cx="644" cy="1188" r="1"/>
+    <circle cx="676" cy="1188" r="1"/>
+    <circle cx="708" cy="1188" r="1"/>
+    <circle cx="740" cy="1188" r="1"/>
+    <circle cx="772" cy="1188" r="1"/>
+    <circle cx="4" cy="1220" r="1"/>
+    <circle cx="36" cy="1220" r="1"/>
+    <circle cx="68" cy="1220" r="1"/>
+    <circle cx="100" cy="1220" r="1"/>
+    <circle cx="132" cy="1220" r="1"/>
+    <circle cx="164" cy="1220" r="1"/>
+    <circle cx="196" cy="1220" r="1"/>
+    <circle cx="228" cy="1220" r="1"/>
+    <circle cx="260" cy="1220" r="1"/>
+    <circle cx="292" cy="1220" r="1"/>
+    <circle cx="324" cy="1220" r="1"/>
+    <circle cx="356" cy="1220" r="1"/>
+    <circle cx="388" cy="1220" r="1"/>
+    <circle cx="420" cy="1220" r="1"/>
+    <circle cx="452" cy="1220" r="1"/>
+    <circle cx="484" cy="1220" r="1"/>
+    <circle cx="516" cy="1220" r="1"/>
+    <circle cx="548" cy="1220" r="1"/>
+    <circle cx="580" cy="1220" r="1"/>
+    <circle cx="612" cy="1220" r="1"/>
+    <circle cx="644" cy="1220" r="1"/>
+    <circle cx="676" cy="1220" r="1"/>
+    <circle cx="708" cy="1220" r="1"/>
+    <circle cx="740" cy="1220" r="1"/>
+    <circle cx="772" cy="1220" r="1"/>
+    <circle cx="4" cy="1252" r="1"/>
+    <circle cx="36" cy="1252" r="1"/>
+    <circle cx="68" cy="1252" r="1"/>
+    <circle cx="100" cy="1252" r="1"/>
+    <circle cx="132" cy="1252" r="1"/>
+    <circle cx="164" cy="1252" r="1"/>
+    <circle cx="196" cy="1252" r="1"/>
+    <circle cx="228" cy="1252" r="1"/>
+    <circle cx="260" cy="1252" r="1"/>
+    <circle cx="292" cy="1252" r="1"/>
+    <circle cx="324" cy="1252" r="1"/>
+    <circle cx="356" cy="1252" r="1"/>
+    <circle cx="388" cy="1252" r="1"/>
+    <circle cx="420" cy="1252" r="1"/>
+    <circle cx="452" cy="1252" r="1"/>
+    <circle cx="484" cy="1252" r="1"/>
+    <circle cx="516" cy="1252" r="1"/>
+    <circle cx="548" cy="1252" r="1"/>
+    <circle cx="580" cy="1252" r="1"/>
+    <circle cx="612" cy="1252" r="1"/>
+    <circle cx="644" cy="1252" r="1"/>
+    <circle cx="676" cy="1252" r="1"/>
+    <circle cx="708" cy="1252" r="1"/>
+    <circle cx="740" cy="1252" r="1"/>
+    <circle cx="772" cy="1252" r="1"/>
+    <circle cx="4" cy="1284" r="1"/>
+    <circle cx="36" cy="1284" r="1"/>
+    <circle cx="68" cy="1284" r="1"/>
+    <circle cx="100" cy="1284" r="1"/>
+    <circle cx="132" cy="1284" r="1"/>
+    <circle cx="164" cy="1284" r="1"/>
+    <circle cx="196" cy="1284" r="1"/>
+    <circle cx="228" cy="1284" r="1"/>
+    <circle cx="260" cy="1284" r="1"/>
+    <circle cx="292" cy="1284" r="1"/>
+    <circle cx="324" cy="1284" r="1"/>
+    <circle cx="356" cy="1284" r="1"/>
+    <circle cx="388" cy="1284" r="1"/>
+    <circle cx="420" cy="1284" r="1"/>
+    <circle cx="452" cy="1284" r="1"/>
+    <circle cx="484" cy="1284" r="1"/>
+    <circle cx="516" cy="1284" r="1"/>
+    <circle cx="548" cy="1284" r="1"/>
+    <circle cx="580" cy="1284" r="1"/>
+    <circle cx="612" cy="1284" r="1"/>
+    <circle cx="644" cy="1284" r="1"/>
+    <circle cx="676" cy="1284" r="1"/>
+    <circle cx="708" cy="1284" r="1"/>
+    <circle cx="740" cy="1284" r="1"/>
+    <circle cx="772" cy="1284" r="1"/>
+    <circle cx="4" cy="1316" r="1"/>
+    <circle cx="36" cy="1316" r="1"/>
+    <circle cx="68" cy="1316" r="1"/>
+    <circle cx="100" cy="1316" r="1"/>
+    <circle cx="132" cy="1316" r="1"/>
+    <circle cx="164" cy="1316" r="1"/>
+    <circle cx="196" cy="1316" r="1"/>
+    <circle cx="228" cy="1316" r="1"/>
+    <circle cx="260" cy="1316" r="1"/>
+    <circle cx="292" cy="1316" r="1"/>
+    <circle cx="324" cy="1316" r="1"/>
+    <circle cx="356" cy="1316" r="1"/>
+    <circle cx="388" cy="1316" r="1"/>
+    <circle cx="420" cy="1316" r="1"/>
+    <circle cx="452" cy="1316" r="1"/>
+    <circle cx="484" cy="1316" r="1"/>
+    <circle cx="516" cy="1316" r="1"/>
+    <circle cx="548" cy="1316" r="1"/>
+    <circle cx="580" cy="1316" r="1"/>
+    <circle cx="612" cy="1316" r="1"/>
+    <circle cx="644" cy="1316" r="1"/>
+    <circle cx="676" cy="1316" r="1"/>
+    <circle cx="708" cy="1316" r="1"/>
+    <circle cx="740" cy="1316" r="1"/>
+    <circle cx="772" cy="1316" r="1"/>
+    <circle cx="4" cy="1348" r="1"/>
+    <circle cx="36" cy="1348" r="1"/>
+    <circle cx="68" cy="1348" r="1"/>
+    <circle cx="100" cy="1348" r="1"/>
+    <circle cx="132" cy="1348" r="1"/>
+    <circle cx="164" cy="1348" r="1"/>
+    <circle cx="196" cy="1348" r="1"/>
+    <circle cx="228" cy="1348" r="1"/>
+    <circle cx="260" cy="1348" r="1"/>
+    <circle cx="292" cy="1348" r="1"/>
+    <circle cx="324" cy="1348" r="1"/>
+    <circle cx="356" cy="1348" r="1"/>
+    <circle cx="388" cy="1348" r="1"/>
+    <circle cx="420" cy="1348" r="1"/>
+    <circle cx="452" cy="1348" r="1"/>
+    <circle cx="484" cy="1348" r="1"/>
+    <circle cx="516" cy="1348" r="1"/>
+    <circle cx="548" cy="1348" r="1"/>
+    <circle cx="580" cy="1348" r="1"/>
+    <circle cx="612" cy="1348" r="1"/>
+    <circle cx="644" cy="1348" r="1"/>
+    <circle cx="676" cy="1348" r="1"/>
+    <circle cx="708" cy="1348" r="1"/>
+    <circle cx="740" cy="1348" r="1"/>
+    <circle cx="772" cy="1348" r="1"/>
+    <circle cx="4" cy="1380" r="1"/>
+    <circle cx="36" cy="1380" r="1"/>
+    <circle cx="68" cy="1380" r="1"/>
+    <circle cx="100" cy="1380" r="1"/>
+    <circle cx="132" cy="1380" r="1"/>
+    <circle cx="164" cy="1380" r="1"/>
+    <circle cx="196" cy="1380" r="1"/>
+    <circle cx="228" cy="1380" r="1"/>
+    <circle cx="260" cy="1380" r="1"/>
+    <circle cx="292" cy="1380" r="1"/>
+    <circle cx="324" cy="1380" r="1"/>
+    <circle cx="356" cy="1380" r="1"/>
+    <circle cx="388" cy="1380" r="1"/>
+    <circle cx="420" cy="1380" r="1"/>
+    <circle cx="452" cy="1380" r="1"/>
+    <circle cx="484" cy="1380" r="1"/>
+    <circle cx="516" cy="1380" r="1"/>
+    <circle cx="548" cy="1380" r="1"/>
+    <circle cx="580" cy="1380" r="1"/>
+    <circle cx="612" cy="1380" r="1"/>
+    <circle cx="644" cy="1380" r="1"/>
+    <circle cx="676" cy="1380" r="1"/>
+    <circle cx="708" cy="1380" r="1"/>
+    <circle cx="740" cy="1380" r="1"/>
+    <circle cx="772" cy="1380" r="1"/>
+    <circle cx="4" cy="1412" r="1"/>
+    <circle cx="36" cy="1412" r="1"/>
+    <circle cx="68" cy="1412" r="1"/>
+    <circle cx="100" cy="1412" r="1"/>
+    <circle cx="132" cy="1412" r="1"/>
+    <circle cx="164" cy="1412" r="1"/>
+    <circle cx="196" cy="1412" r="1"/>
+    <circle cx="228" cy="1412" r="1"/>
+    <circle cx="260" cy="1412" r="1"/>
+    <circle cx="292" cy="1412" r="1"/>
+    <circle cx="324" cy="1412" r="1"/>
+    <circle cx="356" cy="1412" r="1"/>
+    <circle cx="388" cy="1412" r="1"/>
+    <circle cx="420" cy="1412" r="1"/>
+    <circle cx="452" cy="1412" r="1"/>
+    <circle cx="484" cy="1412" r="1"/>
+    <circle cx="516" cy="1412" r="1"/>
+    <circle cx="548" cy="1412" r="1"/>
+    <circle cx="580" cy="1412" r="1"/>
+    <circle cx="612" cy="1412" r="1"/>
+    <circle cx="644" cy="1412" r="1"/>
+    <circle cx="676" cy="1412" r="1"/>
+    <circle cx="708" cy="1412" r="1"/>
+    <circle cx="740" cy="1412" r="1"/>
+    <circle cx="772" cy="1412" r="1"/>
+    <circle cx="4" cy="1444" r="1"/>
+    <circle cx="36" cy="1444" r="1"/>
+    <circle cx="68" cy="1444" r="1"/>
+    <circle cx="100" cy="1444" r="1"/>
+    <circle cx="132" cy="1444" r="1"/>
+    <circle cx="164" cy="1444" r="1"/>
+    <circle cx="196" cy="1444" r="1"/>
+    <circle cx="228" cy="1444" r="1"/>
+    <circle cx="260" cy="1444" r="1"/>
+    <circle cx="292" cy="1444" r="1"/>
+    <circle cx="324" cy="1444" r="1"/>
+    <circle cx="356" cy="1444" r="1"/>
+    <circle cx="388" cy="1444" r="1"/>
+    <circle cx="420" cy="1444" r="1"/>
+    <circle cx="452" cy="1444" r="1"/>
+    <circle cx="484" cy="1444" r="1"/>
+    <circle cx="516" cy="1444" r="1"/>
+    <circle cx="548" cy="1444" r="1"/>
+    <circle cx="580" cy="1444" r="1"/>
+    <circle cx="612" cy="1444" r="1"/>
+    <circle cx="644" cy="1444" r="1"/>
+    <circle cx="676" cy="1444" r="1"/>
+    <circle cx="708" cy="1444" r="1"/>
+    <circle cx="740" cy="1444" r="1"/>
+    <circle cx="772" cy="1444" r="1"/>
+    <circle cx="4" cy="1476" r="1"/>
+    <circle cx="36" cy="1476" r="1"/>
+    <circle cx="68" cy="1476" r="1"/>
+    <circle cx="100" cy="1476" r="1"/>
+    <circle cx="132" cy="1476" r="1"/>
+    <circle cx="164" cy="1476" r="1"/>
+    <circle cx="196" cy="1476" r="1"/>
+    <circle cx="228" cy="1476" r="1"/>
+    <circle cx="260" cy="1476" r="1"/>
+    <circle cx="292" cy="1476" r="1"/>
+    <circle cx="324" cy="1476" r="1"/>
+    <circle cx="356" cy="1476" r="1"/>
+    <circle cx="388" cy="1476" r="1"/>
+    <circle cx="420" cy="1476" r="1"/>
+    <circle cx="452" cy="1476" r="1"/>
+    <circle cx="484" cy="1476" r="1"/>
+    <circle cx="516" cy="1476" r="1"/>
+    <circle cx="548" cy="1476" r="1"/>
+    <circle cx="580" cy="1476" r="1"/>
+    <circle cx="612" cy="1476" r="1"/>
+    <circle cx="644" cy="1476" r="1"/>
+    <circle cx="676" cy="1476" r="1"/>
+    <circle cx="708" cy="1476" r="1"/>
+    <circle cx="740" cy="1476" r="1"/>
+    <circle cx="772" cy="1476" r="1"/>
+  </g>
+  <circle cx="700" cy="250" r="230" fill="#14B8A6" opacity="0.08"/>
+  <circle cx="100" cy="1250" r="260" fill="#FACC15" opacity="0.05"/>
+  <circle cx="740" cy="900" r="190" fill="#7C3AED" opacity="0.06"/>
+
+  <rect width="800" height="180" fill="url(#topo)"/>
+  <path d="M0 0 L800 0 L800 80 L0 180 Z" fill="#FFFFFF" opacity="0.04"/>
+  <rect y="176" width="800" height="4" fill="#FACC15" opacity="0.8"/>
+
+  <text x="50" y="80" font-family="Montserrat, Arial, sans-serif" font-size="46" font-weight="800" fill="#FFFFFF">FEIRA DAS PROFISSÕES</text>
+  <text x="50" y="130" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="700" fill="#ECFDF5">CETI PROFESSOR FLORESTAN FERNANDES · 2026</text>
+
+  <g transform="translate(625 88)">
+    <rect width="125" height="30" rx="15" fill="#0B1220" opacity="0.35"/>
+    <circle cx="16" cy="15" r="5" fill="#22C55E"/>
+    <text x="30" y="19" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1" fill="#ECFDF5">CONECTADO</text>
+  </g>
+
+  <text x="50" y="260" font-family="Montserrat, Arial, sans-serif" font-size="38" font-weight="800" fill="#FFFFFF">Tecnologia que</text>
+  <text x="50" y="310" font-family="Montserrat, Arial, sans-serif" font-size="38" font-weight="800" fill="#14B8A6">conecta o futuro.</text>
+  <rect x="50" y="335" width="300" height="5" rx="2.5" fill="url(#linha)"/>
+
+  <text x="50" y="380" font-family="Inter, Arial, sans-serif" font-size="17" fill="#CBD5E1">Bem-vindo! Conheça cinco projetos feitos por</text>
+  <text x="50" y="408" font-family="Inter, Arial, sans-serif" font-size="17" fill="#CBD5E1">alunos do 2º ano de Desenvolvimento de Sistemas</text>
+  <text x="50" y="436" font-family="Inter, Arial, sans-serif" font-size="17" fill="#CBD5E1">em colaboração com o 1º ano de Marketing Digital.</text>
+
+  <g transform="translate(555 190) scale(0.35)">
+<rect x="274" y="268" width="52" height="44" rx="16" fill="#0F766E" stroke="#0B1220" stroke-width="4"/>
+    <rect x="168" y="292" width="264" height="338" rx="76" fill="#14B8A6" stroke="#0B1220" stroke-width="6"/>
+    <path d="M196 315 Q300 372 404 315 L388 286 Q300 332 212 286 Z" fill="#0F766E" stroke="#0B1220" stroke-width="4"/>
+    <path d="M212 536 Q300 574 388 536 L388 596 Q300 626 212 596 Z" fill="#0F766E" opacity="0.55"/>
+    <path d="M274 330 L266 402" stroke="#FACC15" stroke-width="7" stroke-linecap="round"/>
+    <path d="M326 330 L334 402" stroke="#FACC15" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="266" cy="404" r="5" fill="#FACC15"/>
+    <circle cx="334" cy="404" r="5" fill="#FACC15"/>
+
+    <path d="M194 380 H226 V408 H246" stroke="#0B1220" stroke-width="4" fill="none" opacity="0.22"/>
+    <path d="M406 380 H374 V408 H354" stroke="#0B1220" stroke-width="4" fill="none" opacity="0.22"/>
+    <circle cx="246" cy="408" r="4" fill="#FACC15" opacity="0.75"/>
+    <circle cx="354" cy="408" r="4" fill="#FACC15" opacity="0.75"/>
+
+    <circle cx="300" cy="418" r="54" fill="#0B1220" stroke="#FACC15" stroke-width="5"/>
+    <circle cx="300" cy="418" r="44" fill="none" stroke="#14B8A6" stroke-width="2" opacity="0.4"/>
+    <path d="M284 394 V442 M284 394 H318 M284 418 H310" stroke="#14B8A6" stroke-width="11" stroke-linecap="round" fill="none"/>
+    <circle cx="318" cy="394" r="5" fill="#FACC15"/>
+
+    <path d="M222 612 H288 V862 H222 Z" fill="#0B1220" stroke="#1E293B" stroke-width="4"/>
+    <rect x="222" y="612" width="66" height="250" rx="30" fill="#0B1220" stroke="#1E293B" stroke-width="4"/>
+    <rect x="312" y="612" width="66" height="250" rx="30" fill="#0B1220" stroke="#1E293B" stroke-width="4"/>
+    <rect x="226" y="700" width="58" height="54" rx="22" fill="#0F766E" stroke="#0B1220" stroke-width="4"/>
+    <rect x="316" y="700" width="58" height="54" rx="22" fill="#0F766E" stroke="#0B1220" stroke-width="4"/>
+    <path d="M238 727 H272" stroke="#FACC15" stroke-width="4" stroke-linecap="round"/>
+    <path d="M328 727 H362" stroke="#FACC15" stroke-width="4" stroke-linecap="round"/>
+
+    <rect x="190" y="842" width="110" height="60" rx="28" fill="#F7F9FB" stroke="#0B1220" stroke-width="6"/>
+    <rect x="190" y="884" width="110" height="18" rx="9" fill="#14B8A6"/>
+    <path d="M202 866 Q232 850 262 866" stroke="#FACC15" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <rect x="300" y="842" width="110" height="60" rx="28" fill="#F7F9FB" stroke="#0B1220" stroke-width="6"/>
+    <rect x="300" y="884" width="110" height="18" rx="9" fill="#14B8A6"/>
+    <path d="M312 866 Q342 850 372 866" stroke="#FACC15" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+    <path d="M190 352 C150 338 122 312 108 274" stroke="#0B1220" stroke-width="64" stroke-linecap="round" fill="none"/>
+    <path d="M190 352 C150 338 122 312 108 274" stroke="#14B8A6" stroke-width="52" stroke-linecap="round" fill="none"/>
+    <path d="M108 274 C98 258 92 244 88 230" stroke="#0B1220" stroke-width="48" stroke-linecap="round" fill="none"/>
+    <circle cx="108" cy="274" r="27" fill="#0F766E" stroke="#0B1220" stroke-width="4"/>
+    <circle cx="84" cy="212" r="30" fill="#0B1220" stroke="#14B8A6" stroke-width="4"/>
+    <circle cx="64" cy="200" r="12" fill="#0B1220" stroke="#14B8A6" stroke-width="4"/>
+    <path d="M72 226 Q84 234 98 226" stroke="#14B8A6" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M38 190 Q26 172 38 154" stroke="#FACC15" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.85"/>
+    <path d="M56 164 Q50 152 56 140" stroke="#FACC15" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.55"/>
+
+    <path d="M415 352 C452 370 462 414 452 456" stroke="#0B1220" stroke-width="64" stroke-linecap="round" fill="none"/>
+    <path d="M415 352 C452 370 462 414 452 456" stroke="#14B8A6" stroke-width="52" stroke-linecap="round" fill="none"/>
+    <path d="M452 456 C446 482 438 502 430 520" stroke="#0B1220" stroke-width="46" stroke-linecap="round" fill="none"/>
+    <circle cx="452" cy="456" r="27" fill="#0F766E" stroke="#0B1220" stroke-width="4"/>
+    <circle cx="430" cy="540" r="27" fill="#0B1220" stroke="#14B8A6" stroke-width="4"/>
+
+    <rect x="396" y="512" width="76" height="126" rx="14" fill="#0B1220" stroke="#FACC15" stroke-width="4"/>
+    <rect x="404" y="520" width="60" height="102" rx="8" fill="#F7F9FB"/>
+    <rect x="412" y="528" width="14" height="14" rx="2" fill="#0F766E"/>
+    <rect x="442" y="528" width="14" height="14" rx="2" fill="#0F766E"/>
+    <rect x="412" y="558" width="14" height="14" rx="2" fill="#0F766E"/>
+    <rect x="432" y="552" width="8" height="8" rx="1" fill="#0B1220"/>
+    <rect x="444" y="566" width="8" height="8" rx="1" fill="#0B1220"/>
+    <rect x="418" y="574" width="8" height="8" rx="1" fill="#0B1220"/>
+    <rect x="432" y="586" width="14" height="6" rx="2" fill="#14B8A6" opacity="0.75"/>
+    <circle cx="434" cy="628" r="4" fill="#14B8A6"/>
+    <rect x="390" y="540" width="14" height="24" rx="7" fill="#0B1220" stroke="#14B8A6" stroke-width="3"/>
+    <rect x="390" y="570" width="14" height="24" rx="7" fill="#0B1220" stroke="#14B8A6" stroke-width="3"/>
+    <rect x="390" y="600" width="14" height="22" rx="7" fill="#0B1220" stroke="#14B8A6" stroke-width="3"/>
+
+    <rect x="180" y="70" width="240" height="210" rx="76" fill="#0B1220" stroke="#14B8A6" stroke-width="7"/>
+    <rect x="212" y="102" width="176" height="138" rx="42" fill="#0F2A3A" stroke="#0F766E" stroke-width="4"/>
+    <rect x="220" y="110" width="160" height="122" rx="34" fill="none" stroke="#14B8A6" stroke-width="2" opacity="0.35"/>
+    <rect x="246" y="148" width="30" height="36" rx="10" fill="#FFFFFF"/>
+    <rect x="324" y="148" width="30" height="36" rx="10" fill="#FFFFFF"/>
+    <rect x="255" y="157" width="12" height="18" rx="6" fill="#14B8A6"/>
+    <rect x="333" y="157" width="12" height="18" rx="6" fill="#14B8A6"/>
+    <circle cx="261" cy="162" r="3" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="339" cy="162" r="3" fill="#FFFFFF" opacity="0.9"/>
+    <path d="M278 208 Q300 222 322 208" stroke="#14B8A6" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <circle cx="285" cy="258" r="3" fill="#14B8A6" opacity="0.6"/>
+    <circle cx="300" cy="258" r="3" fill="#14B8A6" opacity="0.6"/>
+    <circle cx="315" cy="258" r="3" fill="#14B8A6" opacity="0.6"/>
+    <circle cx="300" cy="86" r="6" fill="#FACC15"/>
+
+    <line x1="300" y1="70" x2="300" y2="38" stroke="#14B8A6" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="300" cy="30" r="14" fill="#FACC15" stroke="#0B1220" stroke-width="4"/>
+    <circle cx="296" cy="26" r="4" fill="#FEF9C3"/>
+
+    <rect x="158" y="142" width="26" height="72" rx="13" fill="#14B8A6" stroke="#0B1220" stroke-width="4"/>
+    <rect x="416" y="142" width="26" height="72" rx="13" fill="#14B8A6" stroke="#0B1220" stroke-width="4"/>
+    <circle cx="171" cy="178" r="5" fill="#FACC15"/>
+    <circle cx="429" cy="178" r="5" fill="#FACC15"/>
+  </g>
+  <text x="660" y="562" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="700" fill="#94A3B8">FLO · o conectado</text>
+  <path d="M690 540 C680 555 670 565 660 575" stroke="#14B8A6" stroke-width="2" stroke-dasharray="3 7" fill="none" opacity="0.6"/>
+
+  <text x="50" y="500" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2" fill="#94A3B8">OS PROJETOS</text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <circle cx="60" cy="540" r="8" fill="#0F766E"/>
+    <text x="85" y="538" font-size="20" font-weight="700" fill="#FFFFFF" font-family="Montserrat, Arial, sans-serif">CDQ</text>
+    <text x="85" y="562" font-size="13" fill="#CBD5E1">Classificados de bairro com moderação</text>
+
+    <circle cx="60" cy="600" r="8" fill="#1E3A8A"/>
+    <text x="85" y="598" font-size="20" font-weight="700" fill="#FFFFFF" font-family="Montserrat, Arial, sans-serif">Bolsa Fácil</text>
+    <text x="85" y="622" font-size="13" fill="#CBD5E1">Educação financeira com dados reais e IA</text>
+
+    <circle cx="60" cy="660" r="8" fill="#16A34A"/>
+    <text x="85" y="658" font-size="20" font-weight="700" fill="#FFFFFF" font-family="Montserrat, Arial, sans-serif">AgroSmart</text>
+    <text x="85" y="682" font-size="13" fill="#CBD5E1">Horta inteligente com irrigação automática</text>
+
+    <circle cx="60" cy="720" r="8" fill="#0891B2"/>
+    <text x="85" y="718" font-size="20" font-weight="700" fill="#FFFFFF" font-family="Montserrat, Arial, sans-serif">Florestan Conecta</text>
+    <text x="85" y="742" font-size="13" fill="#CBD5E1">Guia de turismo e comércio local com IA</text>
+
+    <circle cx="60" cy="780" r="8" fill="#66C0F4"/>
+    <text x="85" y="778" font-size="20" font-weight="700" fill="#FFFFFF" font-family="Montserrat, Arial, sans-serif">Story Games</text>
+    <text x="85" y="802" font-size="13" fill="#CBD5E1">Loja de jogos narrativos inspirada na Steam</text>
+  </g>
+
+  <g transform="translate(470 575) rotate(-2 140 50)">
+    <rect x="8" y="10" width="280" height="100" rx="14" fill="#000000" opacity="0.35"/>
+    <rect width="280" height="100" rx="14" fill="#111C2E" stroke="#14B8A6" stroke-width="2"/>
+    <circle cx="20" cy="18" r="3" fill="#EF4444"/>
+    <circle cx="32" cy="18" r="3" fill="#FACC15"/>
+    <circle cx="44" cy="18" r="3" fill="#22C55E"/>
+    <text x="20" y="48" font-family="monospace" font-size="15" font-weight="700" fill="#14B8A6">&lt;/&gt;</text>
+    <text x="62" y="47" font-family="monospace" font-size="11" fill="#CBD5E1">const futuro =</text>
+    <text x="62" y="66" font-family="monospace" font-size="11" fill="#FACC15">"conectado";</text>
+    <text x="20" y="87" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748B">código que aproxima pessoas</text>
+    <path d="M220 34 H246 V54 H230" stroke="#14B8A6" stroke-width="2" fill="none" opacity="0.55"/>
+    <circle cx="220" cy="34" r="3.5" fill="#FACC15"/>
+    <circle cx="230" cy="54" r="3.5" fill="#14B8A6"/>
+  </g>
+
+  <g transform="translate(500 700) rotate(2 125 50)">
+    <rect x="8" y="10" width="250" height="100" rx="14" fill="#000000" opacity="0.35"/>
+    <rect width="250" height="100" rx="14" fill="#111C2E" stroke="#FACC15" stroke-width="2"/>
+    <text x="18" y="22" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#94A3B8">DADOS</text>
+    <rect x="24" y="62" width="14" height="24" rx="3" fill="#0F766E"/>
+    <rect x="44" y="52" width="14" height="34" rx="3" fill="#14B8A6"/>
+    <rect x="64" y="44" width="14" height="42" rx="3" fill="#FACC15"/>
+    <rect x="84" y="56" width="14" height="30" rx="3" fill="#38BDF8"/>
+    <rect x="104" y="38" width="14" height="48" rx="3" fill="#14B8A6"/>
+    <path d="M24 66 L44 54 L64 46 L84 58 L104 40 L130 34" stroke="#FACC15" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="44" cy="54" r="3" fill="#FFFFFF"/>
+    <circle cx="84" cy="58" r="3" fill="#FFFFFF"/>
+    <circle cx="130" cy="34" r="3" fill="#FACC15"/>
+    <text x="158" y="60" font-family="Inter, Arial, sans-serif" font-size="9" fill="#CBD5E1">tempo real</text>
+    <text x="158" y="74" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748B">+ conexão</text>
+  </g>
+
+  <g transform="translate(470 825) rotate(-1.5 140 45)">
+    <rect x="8" y="10" width="280" height="90" rx="14" fill="#000000" opacity="0.35"/>
+    <rect width="280" height="90" rx="14" fill="#111C2E" stroke="#38BDF8" stroke-width="2"/>
+    <text x="18" y="22" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#94A3B8">CONEXÃO</text>
+    <line x1="28" y1="52" x2="252" y2="52" stroke="#334155" stroke-width="2" stroke-dasharray="4 6"/>
+    <circle cx="28" cy="52" r="6" fill="#14B8A6"/>
+    <circle cx="85" cy="52" r="6" fill="#FACC15"/>
+    <circle cx="142" cy="52" r="6" fill="#38BDF8"/>
+    <circle cx="199" cy="52" r="6" fill="#14B8A6"/>
+    <circle cx="252" cy="52" r="8" fill="#0B1220" stroke="#FACC15" stroke-width="3"/>
+    <path d="M240 38 Q248 30 256 38" stroke="#FACC15" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M234 32 Q248 20 262 32" stroke="#FACC15" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+    <text x="18" y="76" font-family="Inter, Arial, sans-serif" font-size="9" fill="#64748B">dados em tempo real</text>
+  </g>
+
+  <g transform="translate(560 950)">
+    <rect x="4" y="6" width="190" height="38" rx="19" fill="#000000" opacity="0.3"/>
+    <rect width="190" height="38" rx="19" fill="#111C2E" stroke="#334155" stroke-width="1.5"/>
+    <path d="M24 26 a8 8 0 0 1 15 -3 a7 7 0 0 1 12 4 a6 6 0 0 1 -2 11 h-22 a7 7 0 0 1 -3 -12 z" fill="none" stroke="#38BDF8" stroke-width="2"/>
+    <text x="56" y="24" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#E2E8F0">DADOS NA NUVEM</text>
+    <text x="56" y="35" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748B">sincronizando...</text>
+    <circle cx="178" cy="19" r="3" fill="#22C55E"/>
+  </g>
+
+  <g transform="translate(720 685) rotate(-10)">
+    <path d="M0 0 L0 32 L9 24 L15 38 L21 35 L15 21 L27 20 Z" fill="#FACC15" stroke="#0B1220" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+  <path d="M455 555 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4 z" fill="#FACC15" opacity="0.8"/>
+  <path d="M770 820 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 z" fill="#14B8A6" opacity="0.7"/>
+  <path d="M745 920 C760 935 760 945 750 955" stroke="#38BDF8" stroke-width="2" stroke-dasharray="3 7" fill="none" opacity="0.6"/>
+
+  <line x1="50" y1="840" x2="750" y2="840" stroke="#1E293B" stroke-width="1"/>
+
+  <text x="50" y="890" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2" fill="#94A3B8">PROGRAMAÇÃO</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#CBD5E1">
+    <text x="50" y="922" fill="#FACC15">[hora]</text>
+    <text x="130" y="922">Abertura e boas-vindas</text>
+    <text x="50" y="950" fill="#FACC15">[hora]</text>
+    <text x="130" y="950">Demonstrações nos estandes</text>
+    <text x="50" y="978" fill="#FACC15">[hora]</text>
+    <text x="130" y="978">Quiz, perguntas e encerramento</text>
+  </g>
+
+  <rect x="58" y="1038" width="400" height="170" rx="12" fill="#000000" opacity="0.35"/>
+  <g transform="translate(50 1030)">
+    <rect width="400" height="170" rx="12" fill="#111C2E" stroke="#24334A"/>
+    <text x="16" y="22" font-family="Montserrat, Arial, sans-serif" font-size="11" font-weight="700" fill="#94A3B8">MAPA DA FEIRA</text>
+    <text x="16" y="36" font-family="Inter, Arial, sans-serif" font-size="8" fill="#64748B">Pátio (embaixo à esquerda) → biblioteca (em cima à direita)</text>
+
+    <rect x="14" y="46" width="370" height="112" rx="4" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="5 4"/>
+    <text x="20" y="56" font-family="Inter, Arial, sans-serif" font-size="4.5" fill="#64748B">ESCOLA</text>
+
+    <path d="M164 120 L252 100" stroke="#334155" stroke-width="14" stroke-linecap="butt"/>
+    <text x="208" y="132" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="5.5" fill="#CBD5E1">CORREDOR 2 m</text>
+
+    <rect x="14" y="104" width="150" height="54" rx="6" fill="#0F2A3A" stroke="#14B8A6" stroke-width="1.2"/>
+    <text x="22" y="116" font-family="Montserrat, Arial, sans-serif" font-size="6.5" font-weight="700" fill="#8ED3FF">PÁTIO</text>
+
+    <rect x="20" y="120" width="62" height="14" rx="3" fill="#EA580C"/>
+    <text x="51" y="130" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="4.5" font-weight="700" fill="#FFFFFF">COMIDA</text>
+
+    <rect x="86" y="120" width="62" height="14" rx="3" fill="#0F766E"/>
+    <text x="117" y="130" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="4.5" font-weight="700" fill="#FFFFFF">CAVALETE</text>
+
+    <rect x="20" y="138" width="62" height="14" rx="3" fill="#0891B2"/>
+    <text x="51" y="148" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="4.5" font-weight="700" fill="#FFFFFF">TURISMO</text>
+
+    <rect x="86" y="138" width="62" height="14" rx="3" fill="#3B82F6"/>
+    <text x="117" y="148" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="4.5" font-weight="700" fill="#FFFFFF">BOLSA</text>
+
+    <text x="20" y="156" font-family="Inter, Arial, sans-serif" font-size="4.5" fill="#94A3B8">ENTRADA →</text>
+
+    <rect x="170" y="46" width="76" height="40" rx="4" fill="#16A34A"/>
+    <text x="208" y="60" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="5.5" font-weight="700" fill="#FFFFFF">ROBÓTICA</text>
+    <text x="208" y="70" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="5.5" font-weight="700" fill="#FFFFFF">+ HORTA</text>
+    <text x="208" y="80" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="4.5" fill="#DCFCE7">ao lado da porta</text>
+
+    <rect x="252" y="46" width="132" height="74" rx="6" fill="#1E293B" stroke="#7C3AED" stroke-width="1.2"/>
+    <text x="318" y="60" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="6.5" font-weight="700" fill="#C4B5FD">BIBLIOTECA</text>
+
+    <rect x="262" y="66" width="112" height="22" rx="3" fill="#0F766E"/>
+    <text x="318" y="80" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="6.5" font-weight="700" fill="#FFFFFF">CDQ</text>
+
+    <rect x="262" y="92" width="112" height="22" rx="3" fill="#66C0F4"/>
+    <text x="318" y="106" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="5.5" font-weight="700" fill="#0B1220">STORY GAMES</text>
+
+    <rect x="252" y="90" width="5" height="20" rx="2" fill="#FACC15"/>
+  </g>
+
+  <rect x="568" y="1038" width="160" height="160" rx="10" fill="#000000" opacity="0.35"/>
+  <g transform="translate(560 1030)">
+    <rect width="160" height="160" rx="10" fill="#FFFFFF"/>
+    <g fill="#0B1220">
+      <rect x="16" y="16" width="38" height="38"/>
+      <rect x="66" y="16" width="28" height="28"/>
+      <rect x="106" y="16" width="38" height="38"/>
+      <rect x="16" y="66" width="28" height="28"/>
+      <rect x="66" y="66" width="38" height="38"/>
+      <rect x="106" y="66" width="28" height="28"/>
+      <rect x="16" y="106" width="38" height="38"/>
+      <rect x="66" y="106" width="28" height="28"/>
+      <rect x="106" y="106" width="38" height="38"/>
+    </g>
+    <text x="80" y="188" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="10" fill="#94A3B8">PROGRAMAÇÃO</text>
+  </g>
+
+  <rect x="42" y="1222" width="716" height="126" rx="18" fill="#14B8A6" opacity="0.08"/>
+  <rect x="50" y="1230" width="700" height="110" rx="14" fill="#0F766E" opacity="0.12" stroke="#14B8A6" stroke-width="1"/>
+  <text x="70" y="1272" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF">Venha testar os projetos!</text>
+  <text x="70" y="1304" font-family="Inter, Arial, sans-serif" font-size="14" fill="#CBD5E1">Pergunte ao curador de IA, simule uma leitura ou monte seu roteiro.</text>
+
+  <text x="50" y="1390" font-family="Inter, Arial, sans-serif" font-size="14" fill="#94A3B8">Realização: 2º ano de Desenvolvimento de Sistemas</text>
+  <text x="50" y="1414" font-family="Inter, Arial, sans-serif" font-size="14" fill="#94A3B8">+ 1º ano de Marketing Digital</text>
+  <text x="50" y="1458" font-family="Inter, Arial, sans-serif" font-size="12" fill="#64748B">05/12/2026 · 08h às 11h30 · CETI PROFESSOR FLORESTAN FERNANDES</text>
+</svg>

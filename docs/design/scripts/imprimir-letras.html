@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Moldes de letras · Feira Florestan 2026</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #eef2f7;
+        color: #0f172a;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .barra {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: end;
+        gap: 12px;
+        padding: 16px 24px;
+        background: #fff;
+        border-bottom: 1px solid #cbd5e1;
+      }
+      .barra h1 {
+        margin: 0 0 3px;
+        font-size: 20px;
+      }
+      .barra p {
+        margin: 0;
+        font-size: 12px;
+        color: #64748b;
+      }
+      .campo {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-left: auto;
+      }
+      .campo label {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #64748b;
+      }
+      select,
+      button {
+        font: inherit;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        padding: 8px 10px;
+        background: #fff;
+      }
+      button {
+        background: #0f766e;
+        border-color: #0f766e;
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .contagem {
+        padding: 8px 24px;
+        font-size: 12px;
+        color: #64748b;
+      }
+      #moldes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+      }
+      .pagina-letra {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 190mm;
+        min-height: 277mm;
+        padding: 10mm;
+        background: #fff;
+        border: 1px dashed #94a3b8;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .rotulo {
+        margin-bottom: 10mm;
+        font-size: 12pt;
+        color: #334155;
+        text-align: center;
+      }
+      .rotulo .app {
+        font-weight: 800;
+      }
+      .letra {
+        font-family: "Arial Black", "Arial Bold", Arial, sans-serif;
+        font-weight: 900;
+        font-size: 14cm;
+        line-height: 1.08;
+        color: #111;
+        text-align: center;
+      }
+      .rodape {
+        margin-top: 10mm;
+        font-size: 10pt;
+        color: #64748b;
+        text-align: center;
+      }
+      @media print {
+        body {
+          background: #fff;
+        }
+        .barra,
+        .contagem {
+          display: none !important;
+        }
+        #moldes {
+          gap: 0;
+          padding: 0;
+        }
+        .pagina-letra {
+          width: auto;
+          min-height: 0;
+          height: 277mm;
+          padding: 0;
+          border: 0;
+          box-shadow: none;
+          page-break-after: always;
+        }
+        .pagina-letra:last-child {
+          page-break-after: auto;
+        }
+        @page {
+          size: A4 portrait;
+          margin: 10mm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="barra">
+      <div>
+        <h1>Moldes de letras — nomes dos apps</h1>
+        <p>
+          Imprima em A4, 100%, uma letra por folha. Altura da maiúscula ~10 cm
+          (fonte 14 cm). Recorte a letra e use como molde no TNT.
+        </p>
+      </div>
+      <div class="campo">
+        <label for="nome">Nome para imprimir</label>
+        <select id="nome"></select>
+      </div>
+      <button type="button" id="imprimir">Imprimir</button>
+    </header>
+
+    <p class="contagem" id="contagem"></p>
+    <main id="moldes"></main>
+
+    <script src="letras.js"></script>
+    <script>
+      const LETRAS = window.LETRAS || [];
+      const select = document.getElementById("nome");
+      const moldes = document.getElementById("moldes");
+      const contagem = document.getElementById("contagem");
+
+      function escapar(valor) {
+        return String(valor).replace(/[&<>"']/g, (caractere) => {
+          const mapa = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;",
+          };
+          return mapa[caractere];
+        });
+      }
+
+      for (const item of [{ id: "todos", nome: "Todos os nomes" }, ...LETRAS]) {
+        const opcao = document.createElement("option");
+        opcao.value = item.id;
+        opcao.textContent = item.nome;
+        select.appendChild(opcao);
+      }
+      select.value = "cdq";
+
+      function render() {
+        const escolhido = select.value;
+        const itens =
+          escolhido === "todos"
+            ? LETRAS
+            : LETRAS.filter((item) => item.id === escolhido);
+
+        moldes.innerHTML = "";
+        let total = 0;
+
+        for (const item of itens) {
+          const letras = Array.from(item.texto).filter(
+            (letra) => letra !== " ",
+          );
+          for (const letra of letras) {
+            const pagina = document.createElement("section");
+            pagina.className = "pagina-letra";
+            pagina.style.borderTop = `4px solid ${item.cor}`;
+            pagina.innerHTML = `
+              <div class="rotulo">
+                <span class="app" style="color:${item.cor}">${escapar(item.nome)}</span>
+                · letra <strong>${escapar(letra)}</strong> · altura ~10 cm
+              </div>
+              <div class="letra">${escapar(letra)}</div>
+              <div class="rodape">Recorte a letra e use como molde no TNT.</div>
+            `;
+            moldes.appendChild(pagina);
+            total += 1;
+          }
+        }
+
+        contagem.textContent = `${total} ${
+          total === 1 ? "letra" : "letras"
+        } · ${total} ${total === 1 ? "página A4" : "páginas A4"}.`;
+      }
+
+      select.addEventListener("change", render);
+      document
+        .getElementById("imprimir")
+        .addEventListener("click", () => window.print());
+
+      render();
+    </script>
+  </body>
+</html>

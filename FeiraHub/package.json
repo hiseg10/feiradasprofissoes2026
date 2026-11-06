@@ -1,0 +1,16 @@
+{
+  "name": "feira-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bootloader local e gerador de QR codes da Feira das Profissoes Florestan 2026",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "autostart": "node server.js --autostart",
+    "qr": "node gerar-qr-banner.js"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.4",
+    "tree-kill": "^1.2.2"
+  }
+}

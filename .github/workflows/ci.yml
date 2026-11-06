@@ -1,0 +1,175 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  NEXT_TELEMETRY_DISABLED: "1"
+
+jobs:
+  changes:
+    name: Detectar mudanças
+    runs-on: ubuntu-latest
+    outputs:
+      cdq: ${{ steps.filter.outputs.cdq }}
+      bolsa: ${{ steps.filter.outputs.bolsa }}
+      agro: ${{ steps.filter.outputs.agro }}
+      florestan: ${{ steps.filter.outputs.florestan }}
+      story: ${{ steps.filter.outputs.story }}
+      sabor: ${{ steps.filter.outputs.sabor }}
+      hub: ${{ steps.filter.outputs.hub }}
+      launcher: ${{ steps.filter.outputs.launcher }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            cdq:
+              - 'Projeto1-CDQ/**'
+            bolsa:
+              - 'Projeto2-BolsaFacil/**'
+            agro:
+              - 'Projeto3-AgroSmart/**'
+            florestan:
+              - 'Projeto4-FlorestanConecta/**'
+            story:
+              - 'Projeto5-StoryGames/**'
+            sabor:
+              - 'Projeto6-SaborDoFlorestan/**'
+            hub:
+              - 'FeiraHub/**'
+            launcher:
+              - 'FeiraLauncher/**'
+
+  build:
+    name: ${{ matrix.name }}
+    needs: changes
+    if: |
+      needs.changes.outputs.cdq == 'true' ||
+      needs.changes.outputs.bolsa == 'true' ||
+      needs.changes.outputs.agro == 'true' ||
+      needs.changes.outputs.florestan == 'true' ||
+      needs.changes.outputs.story == 'true' ||
+      needs.changes.outputs.sabor == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: CDQ
+            dir: Projeto1-CDQ
+            changed: ${{ needs.changes.outputs.cdq }}
+          - name: Bolsa Fácil
+            dir: Projeto2-BolsaFacil
+            changed: ${{ needs.changes.outputs.bolsa }}
+          - name: AgroSmart
+            dir: Projeto3-AgroSmart
+            changed: ${{ needs.changes.outputs.agro }}
+          - name: Florestan Conecta
+            dir: Projeto4-FlorestanConecta
+            changed: ${{ needs.changes.outputs.florestan }}
+          - name: Story Games
+            dir: Projeto5-StoryGames
+            changed: ${{ needs.changes.outputs.story }}
+          - name: Sabor do Florestan
+            dir: Projeto6-SaborDoFlorestan
+            changed: ${{ needs.changes.outputs.sabor }}
+    steps:
+      - name: Sem mudanças em ${{ matrix.dir }}
+        if: matrix.changed != 'true'
+        run: echo "Nada para validar em ${{ matrix.dir }}."
+
+      - uses: actions/checkout@v4
+        if: matrix.changed == 'true'
+
+      - uses: actions/setup-node@v4
+        if: matrix.changed == 'true'
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: ${{ matrix.dir }}/package-lock.json
+
+      - name: Instalar dependências
+        if: matrix.changed == 'true'
+        working-directory: ${{ matrix.dir }}
+        run: npm ci
+
+      - name: Lint
+        if: matrix.changed == 'true'
+        working-directory: ${{ matrix.dir }}
+        run: npm run lint
+
+      - name: Build
+        if: matrix.changed == 'true'
+        working-directory: ${{ matrix.dir }}
+        run: npm run build
+        env:
+          AUTH_SECRET: ci-only-secret
+          DATABASE_URL: file:./data/ci.db
+          DEV_LOGIN: "1"
+          SEED_DEMO: "0"
+          IA_PROVIDER: gemini
+          CI: "true"
+
+  launcher:
+    name: Lançador
+    needs: changes
+    if: needs.changes.outputs.launcher == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Conferir arquivos
+        run: |
+          test -f FeiraLauncher/index.html
+          test -f FeiraLauncher/styles.css
+          test -f FeiraLauncher/em-breve.html
+          test -f FeiraLauncher/404.html
+          test -f FeiraLauncher/_redirects
+          test -f FeiraLauncher/_headers
+          test -f FeiraLauncher/assets/escudo-escola.png
+      - name: Conferir rotas do lançador
+        run: |
+          for rota in cdq bolsa agro florestan story sabor; do
+            grep -Eq "^/$rota[[:space:]]+" FeiraLauncher/_redirects
+          done
+
+  hub:
+    name: Feira Hub
+    needs: changes
+    if: needs.changes.outputs.hub == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: FeiraHub/package-lock.json
+      - working-directory: FeiraHub
+        run: npm ci
+      - working-directory: FeiraHub
+        run: node --check server.js
+      - working-directory: FeiraHub
+        run: node --check gerar-qr-banner.js
+
+  resumo:
+    name: CI
+    if: always()
+    needs: [changes, build, launcher, hub]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar resultado
+        if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
+        run: exit 1

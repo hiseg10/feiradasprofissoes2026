@@ -1,0 +1,64 @@
+{
+  "hubPort": 4000,
+  "modo": "dev",
+  "faixasPortas": [
+    { "inicio": 3000, "fim": 3005 },
+    { "inicio": 3100, "fim": 3105 }
+  ],
+  "projetos": [
+    {
+      "id": "cdq",
+      "nome": "CDQ",
+      "descricao": "Classificados do Deus Quer",
+      "pasta": "../Projeto1-CDQ",
+      "porta": 3000,
+      "cor": "#0F766E",
+      "marcador": "Classificados do Deus Quer"
+    },
+    {
+      "id": "bolsa-facil",
+      "nome": "Bolsa Fácil",
+      "descricao": "Mercado financeiro educativo",
+      "pasta": "../Projeto2-BolsaFacil",
+      "porta": 3101,
+      "cor": "#1E3A8A",
+      "marcador": "Bolsa Fácil"
+    },
+    {
+      "id": "agrosmart",
+      "nome": "AgroSmart",
+      "descricao": "Horta inteligente e IoT",
+      "pasta": "../Projeto3-AgroSmart",
+      "porta": 3102,
+      "cor": "#16A34A",
+      "marcador": "AgroSmart"
+    },
+    {
+      "id": "florestan-conecta",
+      "nome": "Florestan Conecta",
+      "descricao": "Turismo e comércio local",
+      "pasta": "../Projeto4-FlorestanConecta",
+      "porta": 3103,
+      "cor": "#0891B2",
+      "marcador": "Florestan Conecta"
+    },
+    {
+      "id": "story-games",
+      "nome": "Story Games",
+      "descricao": "Loja de jogos narrativos",
+      "pasta": "../Projeto5-StoryGames",
+      "porta": 3104,
+      "cor": "#66C0F4",
+      "marcador": "Story Games"
+    },
+    {
+      "id": "sabor-do-florestan",
+      "nome": "Sabor do Florestan",
+      "descricao": "Cantina com Pix, cartão e dinheiro",
+      "pasta": "../Projeto6-SaborDoFlorestan",
+      "porta": 3105,
+      "cor": "#EA580C",
+      "marcador": "Sabor do Florestan"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "bridge-serial-agrosmart",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ponte entre o Arduino e a API do AgroSmart",
+  "main": "bridge.js",
+  "scripts": {
+    "start": "node bridge.js",
+    "listar": "node bridge.js --list"
+  },
+  "dependencies": {
+    "@serialport/parser-readline": "^12.0.0",
+    "serialport": "^12.0.0"
+  }
+}

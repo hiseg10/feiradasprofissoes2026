@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cartolinas A4 · Feira Florestan 2026</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #eef2f7;
+        color: #0f172a;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .barra {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: end;
+        gap: 12px;
+        padding: 16px 24px;
+        background: #fff;
+        border-bottom: 1px solid #cbd5e1;
+      }
+      .barra h1 {
+        margin: 0 0 3px;
+        font-size: 20px;
+      }
+      .barra p {
+        margin: 0;
+        max-width: 760px;
+        font-size: 12px;
+        line-height: 1.45;
+        color: #64748b;
+      }
+      .barra button {
+        margin-left: auto;
+        font: inherit;
+        border: 1px solid #0f766e;
+        border-radius: 8px;
+        padding: 8px 14px;
+        background: #0f766e;
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .contagem {
+        padding: 8px 24px;
+        font-size: 12px;
+        color: #64748b;
+      }
+      #folhas {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+      }
+      .folha {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 4mm;
+        width: 194mm;
+        height: 281mm;
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        page-break-after: always;
+      }
+      .cartolina {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px dashed #94a3b8;
+        background: #fff;
+      }
+      .cartolina.vazia {
+        border: 0;
+        box-shadow: none;
+      }
+      .faixa {
+        padding: 4mm;
+        background: var(--cor);
+        color: var(--cor-texto);
+      }
+      .faixa .subtitulo {
+        margin: 0;
+        font-size: 6.5pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.85;
+      }
+      .faixa h2 {
+        margin: 1mm 0 1.5mm;
+        font-size: 14pt;
+        line-height: 1.05;
+        font-weight: 900;
+      }
+      .faixa .frase {
+        margin: 0;
+        font-size: 8pt;
+        font-weight: 700;
+        line-height: 1.25;
+      }
+      .corpo {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 3mm 4mm 4mm;
+      }
+      .bloco {
+        margin-top: 2.2mm;
+      }
+      .bloco .rotulo {
+        margin: 0 0 0.8mm;
+        font-size: 5.5pt;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #64748b;
+      }
+      .bloco .texto {
+        margin: 0;
+        font-size: 6.2pt;
+        line-height: 1.32;
+        color: #334155;
+      }
+      .bloco ul {
+        margin: 0;
+        padding-left: 3.5mm;
+        font-size: 6.2pt;
+        line-height: 1.32;
+        color: #334155;
+      }
+      .bloco li {
+        margin: 0;
+      }
+      .rodape {
+        display: flex;
+        align-items: flex-end;
+        gap: 2mm;
+        margin-top: auto;
+        padding-top: 2mm;
+        border-top: 1px solid #e2e8f0;
+      }
+      .qr {
+        display: flex;
+        width: 18mm;
+        height: 18mm;
+        align-items: center;
+        justify-content: center;
+        padding: 1mm;
+        border: 1px dashed #94a3b8;
+        border-radius: 2mm;
+        color: #64748b;
+        font-size: 5pt;
+        line-height: 1.2;
+        text-align: center;
+      }
+      .equipe {
+        font-size: 5.5pt;
+        line-height: 1.35;
+        color: #475569;
+      }
+      .equipe strong {
+        color: #0f172a;
+      }
+      .equipe span {
+        color: #94a3b8;
+      }
+      @media print {
+        body {
+          background: #fff;
+        }
+        .barra,
+        .contagem {
+          display: none !important;
+        }
+        #folhas {
+          gap: 0;
+          padding: 0;
+        }
+        .folha {
+          box-shadow: none;
+          page-break-after: always;
+        }
+        .folha:last-child {
+          page-break-after: auto;
+        }
+        .cartolina {
+          border: 1px dashed #64748b;
+        }
+        @page {
+          size: A4 portrait;
+          margin: 8mm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="barra">
+      <div>
+        <h1>Cartolinas A4 — dados dos apps</h1>
+        <p>
+          Imprima em A4, 100%, com margens padrão. Ative
+          <strong>“Gráficos de plano de fundo”</strong> no diálogo de impressão
+          para as faixas coloridas aparecerem. Cada folha rende 4 cartolinas;
+          corte nas linhas tracejadas. Versão compacta para protótipo; a medida
+          final (~6 folhas A4 por cartolina) será ajustada após a medição.
+        </p>
+      </div>
+      <button type="button" id="imprimir">Imprimir cartolinas</button>
+    </header>
+
+    <p class="contagem" id="contagem"></p>
+    <main id="folhas"></main>
+
+    <script src="dados.js"></script>
+    <script>
+      const CARTOLINAS = window.CARTOLINAS || [];
+      const folhas = document.getElementById("folhas");
+      const contagem = document.getElementById("contagem");
+
+      function escapar(valor) {
+        return String(valor).replace(/[&<>"']/g, (caractere) => {
+          const mapa = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;",
+          };
+          return mapa[caractere];
+        });
+      }
+
+      function criarCartolina(item) {
+        const article = document.createElement("article");
+        article.className = "cartolina";
+        article.style.setProperty("--cor", item.cor);
+        article.style.setProperty("--cor-texto", item.corTexto || "#FFFFFF");
+
+        const destaques = item.destaques
+          .map((destaque) => `<li>${escapar(destaque)}</li>`)
+          .join("");
+
+        article.innerHTML = `
+          <header class="faixa">
+            <p class="subtitulo">${escapar(item.subtitulo)}</p>
+            <h2>${escapar(item.nome)}</h2>
+            <p class="frase">${escapar(item.frase)}</p>
+          </header>
+          <div class="corpo">
+            <div class="bloco">
+              <p class="rotulo">O problema</p>
+              <p class="texto">${escapar(item.problema)}</p>
+            </div>
+            <div class="bloco">
+              <p class="rotulo">A proposta</p>
+              <p class="texto">${escapar(item.proposta)}</p>
+            </div>
+            <div class="bloco">
+              <p class="rotulo">O que o app faz</p>
+              <ul>${destaques}</ul>
+            </div>
+            <div class="bloco">
+              <p class="rotulo">Tecnologias</p>
+              <p class="texto">${escapar(item.tecnologias)}</p>
+            </div>
+            <div class="rodape">
+              <div class="qr">${escapar(item.qr)}</div>
+              <div class="equipe">
+                <strong>Equipe</strong><br />
+                ${escapar(item.equipe)}<br />
+                <span>Feira Florestan 2026 · 05/12/2026</span>
+              </div>
+            </div>
+          </div>
+        `;
+
+        return article;
+      }
+
+      for (let indice = 0; indice < CARTOLINAS.length; indice += 4) {
+        const folha = document.createElement("section");
+        folha.className = "folha";
+
+        for (let posicao = 0; posicao < 4; posicao += 1) {
+          const item = CARTOLINAS[indice + posicao];
+          if (item) {
+            folha.appendChild(criarCartolina(item));
+          } else {
+            const vazia = document.createElement("div");
+            vazia.className = "cartolina vazia";
+            folha.appendChild(vazia);
+          }
+        }
+
+        folhas.appendChild(folha);
+      }
+
+      const totalFolhas = Math.ceil(CARTOLINAS.length / 4);
+      contagem.textContent = `${CARTOLINAS.length} cartolinas · ${totalFolhas} ${
+        totalFolhas === 1 ? "folha A4" : "folhas A4"
+      } (4 por folha).`;
+
+      document
+        .getElementById("imprimir")
+        .addEventListener("click", () => window.print());
+    </script>
+  </body>
+</html>

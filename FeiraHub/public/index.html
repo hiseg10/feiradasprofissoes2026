@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Feira Hub · Bootloader e QR Codes</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topo">
+      <div class="marca">
+        <span class="logo">FH</span>
+        <div>
+          <h1>Feira Hub</h1>
+          <p>Bootloader e QR codes · Florestan 2026</p>
+        </div>
+      </div>
+      <div class="acoes-topo">
+        <button id="btn-atualizar" class="btn" type="button">Atualizar</button>
+        <button id="btn-iniciar-todos" class="btn primario" type="button">
+          Iniciar todos
+        </button>
+        <button id="btn-parar-todos" class="btn perigo" type="button">
+          Parar todos
+        </button>
+        <button id="btn-imprimir" class="btn" type="button">Imprimir QRs</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="print-cabecalho" class="print-only"></div>
+
+      <section class="card rede" id="rede">
+        <div class="rede-cabecalho">
+          <div>
+            <p class="eyebrow">Rede local</p>
+            <h2>Acesso pelos celulares</h2>
+          </div>
+          <span class="badge">mesma rede Wi-Fi</span>
+        </div>
+        <div id="rede-conteudo" class="rede-conteudo">
+          <p class="carregando">Carregando informações da rede...</p>
+        </div>
+      </section>
+
+      <section class="secao">
+        <div class="secao-cabecalho">
+          <div>
+            <p class="eyebrow">Projetos</p>
+            <h2>Status e QR codes individuais</h2>
+          </div>
+          <p class="dica">Atualiza a cada 5s. Controles só no notebook.</p>
+        </div>
+        <div id="projetos" class="grid">
+          <div class="card carregando">Carregando projetos...</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <p>
+        Feira das Profissões Florestan 2026 · 2º ano de Desenvolvimento de
+        Sistemas + 1º ano de Marketing Digital
+      </p>
+      <p>
+        QR codes gerados localmente. O celular precisa estar na mesma rede Wi-Fi
+        do notebook.
+      </p>
+    </footer>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

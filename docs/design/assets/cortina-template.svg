@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1800" viewBox="0 0 2000 1800">
+  <rect width="2000" height="1800" fill="#F7F9FB"/>
+  <text x="100" y="58" font-family="Montserrat, Arial, sans-serif" font-size="36" font-weight="800" fill="#0B1220">TEMPLATE DE CORTINA — 200 × 180 cm</text>
+  <text x="100" y="96" font-family="Inter, Arial, sans-serif" font-size="20" fill="#64748B">Letras de 10 cm, centralizadas na parte de cima. Substitua "APP" pelo nome do projeto.</text>
+
+  <g transform="translate(100,150)">
+    <rect width="1800" height="1530" rx="16" fill="#CCFBF1" stroke="#14B8A6" stroke-width="3"/>
+    <rect width="1800" height="90" rx="16" fill="#0F766E"/>
+    <text x="900" y="56" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" fill="#FFFFFF">bolsa para varão — 10 cm</text>
+
+    <g opacity="0.10" stroke="#0F766E" stroke-width="1">
+      <line x1="120" y1="0" x2="120" y2="1530"/>
+      <line x1="240" y1="0" x2="240" y2="1530"/>
+      <line x1="360" y1="0" x2="360" y2="1530"/>
+      <line x1="480" y1="0" x2="480" y2="1530"/>
+      <line x1="600" y1="0" x2="600" y2="1530"/>
+      <line x1="720" y1="0" x2="720" y2="1530"/>
+      <line x1="840" y1="0" x2="840" y2="1530"/>
+      <line x1="960" y1="0" x2="960" y2="1530"/>
+      <line x1="1080" y1="0" x2="1080" y2="1530"/>
+      <line x1="1200" y1="0" x2="1200" y2="1530"/>
+      <line x1="1320" y1="0" x2="1320" y2="1530"/>
+      <line x1="1440" y1="0" x2="1440" y2="1530"/>
+      <line x1="1560" y1="0" x2="1560" y2="1530"/>
+      <line x1="1680" y1="0" x2="1680" y2="1530"/>
+    </g>
+
+    <line x1="60" y1="255" x2="1740" y2="255" stroke="#0F766E" stroke-width="2" stroke-dasharray="10 8" opacity="0.5"/>
+    <text x="900" y="200" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" fill="#0F766E">centro das letras a 30 cm do topo</text>
+    <text x="904" y="300" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="130" font-weight="800" fill="#0F766E" opacity="0.25" transform="translate(4,5)">APP</text>
+    <text x="900" y="300" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="130" font-weight="800" fill="#0F766E">APP</text>
+    <text x="900" y="350" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" fill="#0F766E">letras de 10 cm</text>
+
+    <text x="900" y="1490" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" fill="#0F766E">200 cm de largura</text>
+  </g>
+
+  <text x="100" y="1760" font-family="Inter, Arial, sans-serif" font-size="20" fill="#475569">Fonte: Montserrat ExtraBold · bolsa de 10 cm no topo · letras centralizadas.</text>
+</svg>

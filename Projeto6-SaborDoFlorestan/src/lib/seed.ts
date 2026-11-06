@@ -1,0 +1,165 @@
+import type { Categoria } from "./types";
+
+export type ProdutoSeed = {
+  nome: string;
+  descricao: string;
+  categoria: Categoria;
+  precoCentavos: number;
+  estoque: number;
+  emoji: string;
+};
+
+export const PRODUTOS_SEED: ProdutoSeed[] = [
+  {
+    nome: "Coxinha de frango",
+    descricao: "Massa crocante com frango desfiado.",
+    categoria: "Salgados",
+    precoCentavos: 700,
+    estoque: 40,
+    emoji: "🍗",
+  },
+  {
+    nome: "Pastel de carne",
+    descricao: "Frito na hora, recheio caprichado.",
+    categoria: "Salgados",
+    precoCentavos: 800,
+    estoque: 35,
+    emoji: "🥟",
+  },
+  {
+    nome: "Empada de frango",
+    descricao: "Massa quebradiça e recheio cremoso.",
+    categoria: "Salgados",
+    precoCentavos: 750,
+    estoque: 25,
+    emoji: "🥧",
+  },
+  {
+    nome: "Pão de queijo",
+    descricao: "Quentinho, com queijo Minas.",
+    categoria: "Salgados",
+    precoCentavos: 500,
+    estoque: 50,
+    emoji: "🧀",
+  },
+  {
+    nome: "Hot dog completo",
+    descricao: "Salsicha, milho, vinagrete e batata.",
+    categoria: "Salgados",
+    precoCentavos: 1000,
+    estoque: 30,
+    emoji: "🌭",
+  },
+  {
+    nome: "Hambúrguer artesanal",
+    descricao: "Pão brioche, carne e queijo.",
+    categoria: "Salgados",
+    precoCentavos: 1500,
+    estoque: 20,
+    emoji: "🍔",
+  },
+  {
+    nome: "Sanduíche natural",
+    descricao: "Frango, cenoura e maionese leve.",
+    categoria: "Salgados",
+    precoCentavos: 900,
+    estoque: 15,
+    emoji: "🥪",
+  },
+  {
+    nome: "Bolo de pote",
+    descricao: "Massa de chocolate com recheio.",
+    categoria: "Doces",
+    precoCentavos: 800,
+    estoque: 20,
+    emoji: "🍰",
+  },
+  {
+    nome: "Brigadeiro",
+    descricao: "Feito com chocolate e granulado.",
+    categoria: "Doces",
+    precoCentavos: 300,
+    estoque: 60,
+    emoji: "🍫",
+  },
+  {
+    nome: "Brownie",
+    descricao: "Casquinha por fora, úmido por dentro.",
+    categoria: "Doces",
+    precoCentavos: 600,
+    estoque: 20,
+    emoji: "🍪",
+  },
+  {
+    nome: "Pipoca",
+    descricao: "Pipoca fresquinha com manteiga.",
+    categoria: "Doces",
+    precoCentavos: 400,
+    estoque: 40,
+    emoji: "🍿",
+  },
+  {
+    nome: "Algodão doce",
+    descricao: "Feito na hora, cor de rosa.",
+    categoria: "Doces",
+    precoCentavos: 500,
+    estoque: 5,
+    emoji: "🍭",
+  },
+  {
+    nome: "Suco natural",
+    descricao: "Laranja, limão ou maracujá.",
+    categoria: "Bebidas",
+    precoCentavos: 600,
+    estoque: 30,
+    emoji: "🧃",
+  },
+  {
+    nome: "Refrigerante lata",
+    descricao: "Diversos sabores.",
+    categoria: "Bebidas",
+    precoCentavos: 500,
+    estoque: 40,
+    emoji: "🥤",
+  },
+  {
+    nome: "Água mineral",
+    descricao: "Garrafa de 500 ml.",
+    categoria: "Bebidas",
+    precoCentavos: 300,
+    estoque: 50,
+    emoji: "💧",
+  },
+  {
+    nome: "Café",
+    descricao: "Café passado na hora.",
+    categoria: "Bebidas",
+    precoCentavos: 400,
+    estoque: 30,
+    emoji: "☕",
+  },
+  {
+    nome: "Chá gelado",
+    descricao: "Limão e hortelã.",
+    categoria: "Bebidas",
+    precoCentavos: 500,
+    estoque: 20,
+    emoji: "🍹",
+  },
+  {
+    nome: "Combo lanche + bebida",
+    descricao: "Escolha um salgado e uma bebida.",
+    categoria: "Combos",
+    precoCentavos: 1800,
+    estoque: 25,
+    emoji: "🍱",
+  },
+  {
+    nome: "Combo família",
+    descricao: "4 salgados + 4 bebidas.",
+    categoria: "Combos",
+    precoCentavos: 4500,
+    estoque: 10,
+    emoji: "🍽️",
+  },
+];

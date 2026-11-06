@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="594" viewBox="0 0 840 594">
+  <defs>
+    <marker id="seta" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#FACC15" />
+    </marker>
+  </defs>
+
+  <rect width="840" height="594" fill="#F7F9FB" />
+
+  <text x="40" y="54" font-family="Montserrat, Arial, sans-serif" font-size="34" font-weight="800" fill="#0B1220">MAPA DA FEIRA</text>
+  <text x="40" y="80" font-family="Inter, Arial, sans-serif" font-size="15" fill="#64748B">Feira das Profissões Florestan 2026 · 05/12/2026 · 8h às 11h30</text>
+
+  <!-- Área da escola -->
+  <rect x="70" y="95" width="530" height="430" rx="6" fill="none" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 8" />
+  <text x="80" y="112" font-family="Inter, Arial, sans-serif" font-size="9" fill="#94A3B8">CETI PROFESSOR FLORESTAN FERNANDES (esquemático)</text>
+
+  <!-- Corredor de 2 m entre o pátio e a biblioteca -->
+  <path d="M340 345 L420 315" stroke="#334155" stroke-width="38" stroke-linecap="butt" />
+  <path d="M345 342 L412 315" stroke="#FACC15" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#seta)" />
+
+  <!-- Pátio: abaixo à esquerda -->
+  <rect x="70" y="315" width="270" height="210" rx="18" fill="#F0FDFA" stroke="#14B8A6" stroke-width="3" />
+  <text x="94" y="350" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="800" fill="#0F766E">PÁTIO</text>
+  <text x="94" y="370" font-family="Inter, Arial, sans-serif" font-size="11" fill="#0F766E" opacity="0.75">entrada principal</text>
+
+  <rect x="90" y="385" width="110" height="52" rx="10" fill="#EA580C" />
+  <text x="145" y="406" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">SABOR DO</text>
+  <text x="145" y="421" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">FLORESTAN</text>
+  <text x="145" y="434" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#FFEDD5">Comida e lanches</text>
+
+  <rect x="210" y="385" width="120" height="52" rx="10" fill="#0F766E" />
+  <text x="270" y="410" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">CAVALETE</text>
+  <text x="270" y="426" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#FACC15">★ você está aqui</text>
+
+  <rect x="90" y="445" width="110" height="52" rx="10" fill="#0891B2" />
+  <text x="145" y="466" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF">FLORESTAN</text>
+  <text x="145" y="480" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF">CONECTA</text>
+  <text x="145" y="493" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#CFFAFE">Turismo</text>
+
+  <rect x="210" y="445" width="120" height="52" rx="10" fill="#1E3A8A" />
+  <text x="270" y="470" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">BOLSA FÁCIL</text>
+  <text x="270" y="486" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" fill="#DBEAFE">Educação financeira</text>
+
+  <text x="90" y="515" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#0B1220">ENTRADA / SAÍDA →</text>
+
+  <!-- Robótica + horta: ao lado esquerdo da porta da biblioteca -->
+  <rect x="300" y="240" width="100" height="65" rx="10" fill="#16A34A" />
+  <text x="350" y="260" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">ROBÓTICA</text>
+  <text x="350" y="275" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">+ HORTA</text>
+  <text x="350" y="289" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="7" fill="#DCFCE7">ao lado esquerdo</text>
+  <text x="350" y="299" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="7" fill="#DCFCE7">da porta</text>
+
+  <!-- Biblioteca: acima à direita -->
+  <rect x="420" y="95" width="180" height="230" rx="18" fill="#1E293B" stroke="#7C3AED" stroke-width="3" />
+  <text x="510" y="128" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="800" fill="#C4B5FD">BIBLIOTECA</text>
+  <text x="510" y="146" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#A78BFA">quiosques</text>
+
+  <rect x="440" y="165" width="140" height="65" rx="10" fill="#0F766E" />
+  <text x="510" y="202" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">CDQ</text>
+  <text x="510" y="220" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#CCFBF1">Economia local</text>
+
+  <rect x="440" y="245" width="140" height="65" rx="10" fill="#66C0F4" />
+  <text x="510" y="276" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="12" font-weight="800" fill="#0B1220">STORY GAMES</text>
+  <text x="510" y="294" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="9" fill="#0B1220">Jogos narrativos</text>
+
+  <rect x="420" y="300" width="7" height="35" rx="3" fill="#FACC15" />
+  <text x="427" y="296" font-family="Inter, Arial, sans-serif" font-size="8" fill="#FACC15">porta</text>
+
+  <text x="380" y="370" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#CBD5E1">CORREDOR 2 m</text>
+
+  <!-- Legenda -->
+  <g font-family="Inter, Arial, sans-serif" font-size="9" fill="#475569">
+    <rect x="40" y="550" width="10" height="10" rx="3" fill="#14B8A6" />
+    <text x="56" y="559">Pátio</text>
+    <rect x="100" y="550" width="10" height="10" rx="3" fill="#475569" />
+    <text x="116" y="559">Corredor 2 m</text>
+    <rect x="190" y="550" width="10" height="10" rx="3" fill="#7C3AED" />
+    <text x="206" y="559">Biblioteca</text>
+    <rect x="275" y="550" width="10" height="10" rx="3" fill="#EA580C" />
+    <text x="291" y="559">Comida</text>
+    <rect x="345" y="550" width="10" height="10" rx="3" fill="#16A34A" />
+    <text x="361" y="559">Robótica + horta</text>
+    <rect x="460" y="550" width="10" height="10" rx="3" fill="#0F766E" />
+    <text x="476" y="559">CDQ</text>
+    <rect x="515" y="550" width="10" height="10" rx="3" fill="#66C0F4" />
+    <text x="531" y="559">Story Games</text>
+  </g>
+
+  <text x="40" y="582" font-family="Inter, Arial, sans-serif" font-size="10" fill="#64748B">Mapa esquemático, sem escala. Pátio abaixo à esquerda; biblioteca acima à direita; corredor de 2 m entre eles.</text>
+</svg>

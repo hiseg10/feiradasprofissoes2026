@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cartolinas 50 × 66 cm · 6 folhas A4 · Feira Florestan 2026</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #e2e8f0;
+        color: #0f172a;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .barra {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 24px;
+        background: #fff;
+        border-bottom: 1px solid #cbd5e1;
+      }
+      .barra-texto {
+        flex: 1 1 640px;
+      }
+      .barra h1 {
+        margin: 0 0 4px;
+        font-size: 20px;
+      }
+      .barra p {
+        margin: 0;
+        max-width: 980px;
+        font-size: 12px;
+        line-height: 1.5;
+        color: #64748b;
+      }
+      .filtro {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #334155;
+      }
+      .filtro select {
+        font: inherit;
+        padding: 6px 8px;
+        border: 1px solid #94a3b8;
+        border-radius: 6px;
+        background: #fff;
+      }
+      #imprimir {
+        font: inherit;
+        padding: 9px 16px;
+        border: 1px solid #0f766e;
+        border-radius: 8px;
+        background: #0f766e;
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .contagem {
+        margin: 0;
+        padding: 8px 24px;
+        font-size: 12px;
+        color: #64748b;
+      }
+      #cartolinas {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 22px;
+        padding: 16px;
+      }
+      .cartolina {
+        width: 100%;
+        max-width: 920px;
+      }
+      .cabecalho-app {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin: 0 0 8px;
+        padding: 10px 12px;
+        background: #fff;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+      }
+      .cabecalho-app h2 {
+        margin: 0;
+        font-size: 16px;
+      }
+      .cabecalho-app p {
+        margin: 2px 0 0;
+        font-size: 11px;
+        color: #64748b;
+      }
+      .cabecalho-app button {
+        font: inherit;
+        font-size: 12px;
+        padding: 6px 10px;
+        border: 1px solid #0f766e;
+        border-radius: 6px;
+        background: #fff;
+        color: #0f766e;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .previa-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        overflow-x: auto;
+      }
+      .previa {
+        width: 21.465cm;
+        height: 28.35cm;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 2px 12px rgba(15, 23, 42, 0.18);
+      }
+      .mosaico {
+        display: grid;
+        grid-template-columns: 23.85cm 23.85cm;
+        grid-template-rows: 21cm 21cm 21cm;
+        width: 47.7cm;
+        height: 63cm;
+        transform: scale(0.45);
+        transform-origin: top left;
+      }
+      .pagina {
+        position: relative;
+        width: 23.85cm;
+        height: 21cm;
+        overflow: hidden;
+        background: #fff;
+      }
+      .marcador {
+        display: none;
+      }
+      .painel {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 23.85cm;
+        height: 21cm;
+        padding: 1.5cm;
+        overflow: hidden;
+        background: #fff;
+        color: #0f172a;
+        border: 0.2mm solid #cbd5e1;
+      }
+      .topo {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.8cm;
+        margin-bottom: 1.1cm;
+        padding-bottom: 0.55cm;
+        border-bottom: 0.12cm solid var(--cor);
+      }
+      .topo .app {
+        font-size: 10pt;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--cor-acento);
+      }
+      .topo .secao {
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-align: right;
+        color: #64748b;
+      }
+      .hero {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+      .hero-conteudo {
+        position: relative;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .hero-conteudo::after {
+        content: "";
+        position: absolute;
+        right: -4.5cm;
+        bottom: -4.5cm;
+        width: 16cm;
+        height: 16cm;
+        border-radius: 50%;
+        background: var(--cor);
+        opacity: 0.08;
+        pointer-events: none;
+      }
+      .hero-conteudo > * {
+        position: relative;
+        z-index: 1;
+      }
+      .escola {
+        margin: 0 0 0.25cm;
+        font-size: 9pt;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #64748b;
+      }
+      .evento {
+        margin: 0 0 1.4cm;
+        font-size: 9pt;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #94a3b8;
+      }
+      .hero h1 {
+        margin: 0;
+        font-size: 54pt;
+        line-height: 0.94;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        color: #0f172a;
+      }
+      .subtitulo {
+        margin: 0.35cm 0 0;
+        font-size: 16pt;
+        font-weight: 700;
+        color: #334155;
+      }
+      .frase {
+        margin: 0.55cm 0 0;
+        font-size: 19pt;
+        line-height: 1.15;
+        font-weight: 800;
+        color: #0f172a;
+      }
+      .barra-cor {
+        width: 8cm;
+        height: 0.25cm;
+        margin-top: 1cm;
+        background: var(--cor);
+        border-radius: 0.125cm;
+      }
+      .rodape-painel {
+        margin-top: auto;
+        padding-top: 0.55cm;
+        border-top: 0.1cm solid #e2e8f0;
+        font-size: 9pt;
+        color: #64748b;
+      }
+      .painel--visual {
+        background: var(--cor);
+        color: var(--cor-texto);
+        border-color: var(--cor);
+      }
+      .painel--visual .topo {
+        border-bottom-color: var(--cor-texto);
+      }
+      .painel--visual .topo .app,
+      .painel--visual .topo .secao {
+        color: var(--cor-texto);
+      }
+      .visual {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .circulo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 8cm;
+        height: 8cm;
+        border-radius: 50%;
+        background: var(--cor-texto);
+        color: var(--cor);
+        font-size: 36pt;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        box-shadow: 0 0.3cm 0 rgba(0, 0, 0, 0.15);
+      }
+      .frase-visual {
+        max-width: 17cm;
+        margin: 0.7cm 0 0;
+        font-size: 17pt;
+        font-weight: 800;
+        line-height: 1.15;
+      }
+      .ano {
+        margin: 0.45cm 0 0;
+        font-size: 48pt;
+        font-weight: 900;
+        line-height: 1;
+        opacity: 0.9;
+      }
+      .evento-visual {
+        margin: 0.45cm 0 0;
+        font-size: 9pt;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.85;
+      }
+      .conteudo-painel {
+        position: relative;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .texto-grande {
+        max-width: 19cm;
+        margin: 0;
+        font-size: 21pt;
+        line-height: 1.3;
+        font-weight: 600;
+        color: #1e293b;
+      }
+      .numero {
+        position: absolute;
+        right: 0;
+        bottom: -0.6cm;
+        font-size: 104pt;
+        font-weight: 900;
+        line-height: 1;
+        color: var(--cor-acento);
+        opacity: 0.1;
+      }
+      .destaques {
+        display: flex;
+        flex-direction: column;
+        gap: 0.55cm;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .destaques li {
+        position: relative;
+        padding-left: 0.9cm;
+        font-size: 16pt;
+        font-weight: 700;
+        line-height: 1.25;
+        color: #1e293b;
+      }
+      .destaques li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        top: -0.06cm;
+        font-size: 18pt;
+        font-weight: 900;
+        color: var(--cor-acento);
+      }
+      .tech {
+        margin-top: auto;
+        padding-top: 0.7cm;
+        border-top: 0.1cm solid #e2e8f0;
+      }
+      .tech .rotulo {
+        margin: 0 0 0.2cm;
+        font-size: 8pt;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #64748b;
+      }
+      .tech p {
+        margin: 0;
+        font-size: 12pt;
+        line-height: 1.3;
+        color: #334155;
+      }
+      .qr-painel {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 0.45cm;
+      }
+      .qr-topo {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.7cm;
+      }
+      .qr-box {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        width: 7.5cm;
+        height: 7.5cm;
+        padding: 0.55cm;
+        text-align: center;
+        font-size: 9pt;
+        line-height: 1.25;
+        color: #64748b;
+        background: #fff;
+        border: 0.15cm dashed #94a3b8;
+        border-radius: 0.3cm;
+      }
+      .qr-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .qr-info {
+        flex: 1;
+      }
+      .qr-info .titulo {
+        margin: 0 0 0.25cm;
+        font-size: 16pt;
+        font-weight: 900;
+        color: var(--cor-acento);
+      }
+      .qr-info .texto {
+        margin: 0;
+        font-size: 11pt;
+        line-height: 1.3;
+        color: #475569;
+      }
+      .qr-equipe {
+        margin: 0.55cm 0 0;
+        font-size: 11pt;
+        line-height: 1.35;
+        color: #334155;
+      }
+      .qr-equipe strong {
+        color: #0f172a;
+      }
+      .qr-rodape {
+        display: flex;
+        align-items: flex-end;
+        gap: 0.5cm;
+        margin-top: auto;
+        padding-top: 0.5cm;
+        border-top: 0.1cm solid #e2e8f0;
+      }
+      .qr-evento {
+        margin: 0;
+        font-size: 9pt;
+        line-height: 1.35;
+        color: #64748b;
+      }
+      .flo {
+        width: 1.6cm;
+        height: auto;
+        margin-left: auto;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      @media print {
+        @page {
+          size: A4 landscape;
+          margin: 0;
+        }
+        body {
+          background: #fff;
+        }
+        .barra,
+        .contagem,
+        .cabecalho-app {
+          display: none !important;
+        }
+        #cartolinas {
+          display: block;
+          padding: 0;
+        }
+        .cartolina {
+          width: auto;
+          max-width: none;
+          margin: 0;
+          break-before: page;
+        }
+        .cartolina.primeira {
+          break-before: auto;
+        }
+        .previa-wrap {
+          display: block;
+          overflow: visible;
+        }
+        .previa {
+          width: auto;
+          height: auto;
+          overflow: visible;
+          box-shadow: none;
+        }
+        .mosaico {
+          display: block;
+          width: auto;
+          height: auto;
+          transform: none;
+        }
+        .pagina {
+          width: 29.7cm;
+          height: 21cm;
+          page-break-after: always;
+          break-after: page;
+        }
+        .pagina:last-child {
+          page-break-after: auto;
+          break-after: auto;
+        }
+        .marcador {
+          position: absolute;
+          top: 0.55cm;
+          left: 0.55cm;
+          display: block;
+          width: 2.1cm;
+          font-size: 8pt;
+          font-weight: 700;
+          line-height: 1.25;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          color: #64748b;
+        }
+        .marcador small {
+          display: block;
+          font-size: 7pt;
+          font-weight: 400;
+          letter-spacing: 0;
+          text-transform: none;
+          color: #94a3b8;
+        }
+        .pagina::before,
+        .pagina::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          width: 0;
+          height: 21cm;
+          border-left: 0.2mm dashed #94a3b8;
+        }
+        .pagina::before {
+          left: 2.925cm;
+        }
+        .pagina::after {
+          left: 26.775cm;
+        }
+        .painel {
+          position: absolute;
+          top: 0;
+          left: 2.925cm;
+          width: 23.85cm;
+          height: 21cm;
+          border: 0.2mm dashed #64748b;
+        }
+        .painel,
+        .painel * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="barra">
+      <div class="barra-texto">
+        <h1>Cartolinas 50 × 66 cm — 6 folhas A4 por cartolina</h1>
+        <p>
+          Imprima em <strong>A4 paisagem</strong>, <strong>100%</strong>, margens
+          <strong>nenhuma</strong> e ative <strong>gráficos de plano de fundo</strong>.
+          Cada cartolina usa 6 folhas (2 colunas × 3 linhas) e a arte final fica
+          <strong>47,7 × 63 cm</strong>; centralize na cartolina de 50 × 66 cm. Monte
+          na ordem <strong>1–2 / 3–4 / 5–6</strong>, cortando nas linhas tracejadas.
+        </p>
+      </div>
+      <label class="filtro">
+        Cartolina:
+        <select id="filtro"></select>
+      </label>
+      <button type="button" id="imprimir">Imprimir</button>
+    </header>
+
+    <p class="contagem" id="contagem"></p>
+    <main id="cartolinas"></main>
+
+    <script src="dados.js"></script>
+    <script>
+      const CARTOLINAS = window.CARTOLINAS || [];
+      const POSICOES = [
+        "cima/esq.",
+        "cima/dir.",
+        "meio/esq.",
+        "meio/dir.",
+        "baixo/esq.",
+        "baixo/dir.",
+      ];
+
+      const cartolinas = document.getElementById("cartolinas");
+      const filtro = document.getElementById("filtro");
+      const contagem = document.getElementById("contagem");
+
+      function escapar(valor) {
+        return String(valor).replace(/[&<>"']/g, (caractere) => {
+          const mapa = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;",
+          };
+          return mapa[caractere];
+        });
+      }
+
+      function sigla(nome) {
+        const partes = String(nome).split(/\s+/).filter(Boolean);
+        if (partes.length === 1) return partes[0].slice(0, 3).toUpperCase();
+        return partes
+          .slice(0, 2)
+          .map((parte) => parte[0])
+          .join("")
+          .toUpperCase();
+      }
+
+      function corAcento(cor) {
+        const hex = String(cor).replace("#", "");
+        if (hex.length !== 6) return cor;
+        const r = parseInt(hex.slice(0, 2), 16);
+        const g = parseInt(hex.slice(2, 4), 16);
+        const b = parseInt(hex.slice(4, 6), 16);
+        const luminosidade = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+        return luminosidade > 0.65 ? "#0F172A" : cor;
+      }
+
+      function criarTopo(item, secao, visual) {
+        return `
+          <div class="topo">
+            <span class="app">${escapar(item.nome)}</span>
+            <span class="secao">${escapar(secao)}</span>
+          </div>
+        `;
+      }
+
+      function criarPainel(item, indice) {
+        const cor = item.cor;
+        const corTexto = item.corTexto || "#FFFFFF";
+        const acento = corAcento(cor);
+        const estilo = `--cor:${escapar(cor)};--cor-texto:${escapar(
+          corTexto
+        )};--cor-acento:${escapar(acento)};`;
+
+        if (indice === 0) {
+          return `
+            <article class="painel" style="${estilo}">
+              ${criarTopo(item, "Apresentação")}
+              <div class="hero">
+                <div class="hero-conteudo">
+                  <p class="escola">CETI PROFESSOR FLORESTAN FERNANDES</p>
+                  <p class="evento">FEIRA DAS PROFISSÕES · 2026</p>
+                  <h1>${escapar(item.nome)}</h1>
+                  <p class="subtitulo">${escapar(item.subtitulo)}</p>
+                  <p class="frase">“${escapar(item.frase)}”</p>
+                  <div class="barra-cor"></div>
+                </div>
+                <p class="rodape-painel">05/12/2026 · 8h às 11h30 · na escola</p>
+              </div>
+            </article>
+          `;
+        }
+
+        if (indice === 1) {
+          return `
+            <article class="painel painel--visual" style="${estilo}">
+              ${criarTopo(item, "Tecnologia")}
+              <div class="visual">
+                <div class="circulo">${escapar(sigla(item.nome))}</div>
+                <p class="frase-visual">Tecnologia que conecta o futuro.</p>
+                <p class="ano">2026</p>
+                <p class="evento-visual">${escapar(item.subtitulo)}</p>
+              </div>
+            </article>
+          `;
+        }
+
+        if (indice === 2 || indice === 3) {
+          const problema = indice === 2;
+          return `
+            <article class="painel" style="${estilo}">
+              ${criarTopo(item, problema ? "O problema" : "A proposta")}
+              <div class="conteudo-painel">
+                <p class="texto-grande">${escapar(
+                  problema ? item.problema : item.proposta
+                )}</p>
+                <span class="numero">${problema ? "01" : "02"}</span>
+              </div>
+            </article>
+          `;
+        }
+
+        if (indice === 4) {
+          const destaques = item.destaques
+            .map((destaque) => `<li>${escapar(destaque)}</li>`)
+            .join("");
+          return `
+            <article class="painel" style="${estilo}">
+              ${criarTopo(item, "O que o app faz")}
+              <div class="conteudo-painel">
+                <ul class="destaques">${destaques}</ul>
+                <div class="tech">
+                  <p class="rotulo">Tecnologias</p>
+                  <p>${escapar(item.tecnologias)}</p>
+                </div>
+                <span class="numero">03</span>
+              </div>
+            </article>
+          `;
+        }
+
+        const qr = item.qrImagem
+          ? `<img src="${escapar(item.qrImagem)}" alt="QR code do ${escapar(
+              item.nome
+            )}" />`
+          : escapar(item.qr);
+        return `
+          <article class="painel" style="${estilo}">
+            ${criarTopo(item, "Acesse o app")}
+            <div class="qr-painel">
+              <div class="qr-topo">
+                <div class="qr-box">${qr}</div>
+                <div class="qr-info">
+                  <p class="titulo">Aponte a câmera</p>
+                  <p class="texto">Escaneie para abrir o app e testar na hora.</p>
+                  <p class="qr-equipe">
+                    <strong>Equipe</strong><br />
+                    ${escapar(item.equipe)}
+                  </p>
+                </div>
+              </div>
+              <div class="qr-rodape">
+                <p class="qr-evento">
+                  05/12/2026 · 8h às 11h30<br />
+                  CETI Professor Florestan Fernandes
+                </p>
+                <img class="flo" src="../assets/mascote-flo.svg" alt="Flo" />
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      function criarCartolina(item) {
+        const section = document.createElement("section");
+        section.className = "cartolina";
+        section.dataset.id = item.id;
+
+        const paginas = [];
+        for (let indice = 0; indice < 6; indice += 1) {
+          paginas.push(`
+            <div class="pagina">
+              <div class="marcador">
+                ${indice + 1}/6
+                <small>${POSICOES[indice]}</small>
+              </div>
+              ${criarPainel(item, indice)}
+            </div>
+          `);
+        }
+
+        section.innerHTML = `
+          <header class="cabecalho-app">
+            <div>
+              <h2>${escapar(item.nome)}</h2>
+              <p>6 folhas A4 · 2 × 3 · arte 47,7 × 63 cm</p>
+            </div>
+            <button type="button" class="imprimir-um">Imprimir só esta</button>
+          </header>
+          <div class="previa-wrap">
+            <div class="previa">
+              <div class="mosaico">${paginas.join("")}</div>
+            </div>
+          </div>
+        `;
+
+        section
+          .querySelector(".imprimir-um")
+          .addEventListener("click", () => {
+            filtro.value = item.id;
+            atualizarFiltro();
+            setTimeout(() => window.print(), 80);
+          });
+
+        return section;
+      }
+
+      filtro.innerHTML = [
+        `<option value="todos">Todos os 5 apps (30 folhas)</option>`,
+        ...CARTOLINAS.map(
+          (item) =>
+            `<option value="${escapar(item.id)}">${escapar(item.nome)} (6 folhas)</option>`
+        ),
+      ].join("");
+
+      CARTOLINAS.forEach((item) => cartolinas.appendChild(criarCartolina(item)));
+
+      function atualizarFiltro() {
+        const valor = filtro.value;
+        const visiveis = [];
+        document.querySelectorAll(".cartolina").forEach((section) => {
+          const mostrar = valor === "todos" || section.dataset.id === valor;
+          section.hidden = !mostrar;
+          section.classList.remove("primeira");
+          if (mostrar) visiveis.push(section);
+        });
+        if (visiveis.length > 0) visiveis[0].classList.add("primeira");
+        contagem.textContent = `${visiveis.length} ${
+          visiveis.length === 1 ? "cartolina" : "cartolinas"
+        } · ${visiveis.length * 6} folhas A4 (6 por cartolina).`;
+      }
+
+      filtro.addEventListener("change", atualizarFiltro);
+      document
+        .getElementById("imprimir")
+        .addEventListener("click", () => window.print());
+
+      const parametros = new URLSearchParams(window.location.search);
+      const appInicial = parametros.get("app");
+      if (appInicial && CARTOLINAS.some((item) => item.id === appInicial)) {
+        filtro.value = appInicial;
+      }
+
+      atualizarFiltro();
+    </script>
+  </body>
+</html>

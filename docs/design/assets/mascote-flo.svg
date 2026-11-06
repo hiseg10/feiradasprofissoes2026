@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="1000" viewBox="0 0 600 1000" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">Flo, o mascote conectado da Feira Florestan 2026</title>
+  <desc id="descricao">Robô adolescente de 1,60 m, com elmo escuro, tela turquesa, antena amarela, moletom turquesa com emblema de conexão, calça escura e tênis branco. Uma mão acena e a outra segura um celular com QR code.</desc>
+
+  <ellipse cx="300" cy="944" rx="168" ry="28" fill="#000000" opacity="0.32"/>
+  <ellipse cx="300" cy="946" rx="118" ry="18" fill="#000000" opacity="0.24"/>
+
+  <g opacity="0.8">
+    <path d="M300 40 A250 250 0 1 1 299.9 40" fill="none" stroke="#14B8A6" stroke-width="2" stroke-dasharray="8 16" opacity="0.16"/>
+    <circle cx="300" cy="40" r="5" fill="#FACC15" opacity="0.55"/>
+    <circle cx="86" cy="565" r="4" fill="#14B8A6" opacity="0.55"/>
+    <circle cx="508" cy="650" r="5" fill="#FACC15" opacity="0.5"/>
+    <circle cx="118" cy="760" r="3" fill="#38BDF8" opacity="0.5"/>
+    <path d="M470 248 l5 13 13 5 -13 5 -5 13 -5 -13 -13 -5 13 -5 z" fill="#FACC15" opacity="0.7"/>
+    <path d="M138 300 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 z" fill="#14B8A6" opacity="0.6"/>
+  </g>
+
+  <g id="flo">
+    <rect x="274" y="268" width="52" height="44" rx="16" fill="#0F766E" stroke="#0B1220" stroke-width="4"/>
+    <rect x="168" y="292" width="264" height="338" rx="76" fill="#14B8A6" stroke="#0B1220" stroke-width="6"/>
+    <path d="M196 315 Q300 372 404 315 L388 286 Q300 332 212 286 Z" fill="#0F766E" stroke="#0B1220" stroke-width="4"/>
+    <path d="M212 536 Q300 574 388 536 L388 596 Q300 626 212 596 Z" fill="#0F766E" opacity="0.55"/>
+    <path d="M274 330 L266 402" stroke="#FACC15" stroke-width="7" stroke-linecap="round"/>
+    <path d="M326 330 L334 402" stroke="#FACC15" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="266" cy="404" r="5" fill="#FACC15"/>
+    <circle cx="334" cy="404" r="5" fill="#FACC15"/>
+
+    <path d="M194 380 H226 V408 H246" stroke="#0B1220" stroke-width="4" fill="none" opacity="0.22"/>
+    <path d="M406 380 H374 V408 H354" stroke="#0B1220" stroke-width="4" fill="none" opacity="0.22"/>
+    <circle cx="246" cy="408" r="4" fill="#FACC15" opacity="0.75"/>
+    <circle cx="354" cy="408" r="4" fill="#FACC15" opacity="0.75"/>
+
+    <circle cx="300" cy="418" r="54" fill="#0B1220" stroke="#FACC15" stroke-width="5"/>
+    <circle cx="300" cy="418" r="44" fill="none" stroke="#14B8A6" stroke-width="2" opacity="0.4"/>
+    <path d="M284 394 V442 M284 394 H318 M284 418 H310" stroke="#14B8A6" stroke-width="11" stroke-linecap="round" fill="none"/>
+    <circle cx="318" cy="394" r="5" fill="#FACC15"/>
+
+    <path d="M222 612 H288 V862 H222 Z" fill="#0B1220" stroke="#1E293B" stroke-width="4"/>
+    <rect x="222" y="612" width="66" height="250" rx="30" fill="#0B1220" stroke="#1E293B" stroke-width="4"/>
+    <rect x="312" y="612" width="66" height="250" rx="30" fill="#0B1220" stroke="#1E293B" stroke-width="4"/>
+    <rect x="226" y="700" width="58" height="54" rx="22" fill="#0F766E" stroke="#0B1220" stroke-width="4"/>
+    <rect x="316" y="700" width="58" height="54" rx="22" fill="#0F766E" stroke="#0B1220" stroke-width="4"/>
+    <path d="M238 727 H272" stroke="#FACC15" stroke-width="4" stroke-linecap="round"/>
+    <path d="M328 727 H362" stroke="#FACC15" stroke-width="4" stroke-linecap="round"/>
+
+    <rect x="190" y="842" width="110" height="60" rx="28" fill="#F7F9FB" stroke="#0B1220" stroke-width="6"/>
+    <rect x="190" y="884" width="110" height="18" rx="9" fill="#14B8A6"/>
+    <path d="M202 866 Q232 850 262 866" stroke="#FACC15" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <rect x="300" y="842" width="110" height="60" rx="28" fill="#F7F9FB" stroke="#0B1220" stroke-width="6"/>
+    <rect x="300" y="884" width="110" height="18" rx="9" fill="#14B8A6"/>
+    <path d="M312 866 Q342 850 372 866" stroke="#FACC15" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+    <path d="M190 352 C150 338 122 312 108 274" stroke="#0B1220" stroke-width="64" stroke-linecap="round" fill="none"/>
+    <path d="M190 352 C150 338 122 312 108 274" stroke="#14B8A6" stroke-width="52" stroke-linecap="round" fill="none"/>
+    <path d="M108 274 C98 258 92 244 88 230" stroke="#0B1220" stroke-width="48" stroke-linecap="round" fill="none"/>
+    <circle cx="108" cy="274" r="27" fill="#0F766E" stroke="#0B1220" stroke-width="4"/>
+    <circle cx="84" cy="212" r="30" fill="#0B1220" stroke="#14B8A6" stroke-width="4"/>
+    <circle cx="64" cy="200" r="12" fill="#0B1220" stroke="#14B8A6" stroke-width="4"/>
+    <path d="M72 226 Q84 234 98 226" stroke="#14B8A6" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M38 190 Q26 172 38 154" stroke="#FACC15" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.85"/>
+    <path d="M56 164 Q50 152 56 140" stroke="#FACC15" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.55"/>
+
+    <path d="M415 352 C452 370 462 414 452 456" stroke="#0B1220" stroke-width="64" stroke-linecap="round" fill="none"/>
+    <path d="M415 352 C452 370 462 414 452 456" stroke="#14B8A6" stroke-width="52" stroke-linecap="round" fill="none"/>
+    <path d="M452 456 C446 482 438 502 430 520" stroke="#0B1220" stroke-width="46" stroke-linecap="round" fill="none"/>
+    <circle cx="452" cy="456" r="27" fill="#0F766E" stroke="#0B1220" stroke-width="4"/>
+    <circle cx="430" cy="540" r="27" fill="#0B1220" stroke="#14B8A6" stroke-width="4"/>
+
+    <rect x="396" y="512" width="76" height="126" rx="14" fill="#0B1220" stroke="#FACC15" stroke-width="4"/>
+    <rect x="404" y="520" width="60" height="102" rx="8" fill="#F7F9FB"/>
+    <rect x="412" y="528" width="14" height="14" rx="2" fill="#0F766E"/>
+    <rect x="442" y="528" width="14" height="14" rx="2" fill="#0F766E"/>
+    <rect x="412" y="558" width="14" height="14" rx="2" fill="#0F766E"/>
+    <rect x="432" y="552" width="8" height="8" rx="1" fill="#0B1220"/>
+    <rect x="444" y="566" width="8" height="8" rx="1" fill="#0B1220"/>
+    <rect x="418" y="574" width="8" height="8" rx="1" fill="#0B1220"/>
+    <rect x="432" y="586" width="14" height="6" rx="2" fill="#14B8A6" opacity="0.75"/>
+    <circle cx="434" cy="628" r="4" fill="#14B8A6"/>
+    <rect x="390" y="540" width="14" height="24" rx="7" fill="#0B1220" stroke="#14B8A6" stroke-width="3"/>
+    <rect x="390" y="570" width="14" height="24" rx="7" fill="#0B1220" stroke="#14B8A6" stroke-width="3"/>
+    <rect x="390" y="600" width="14" height="22" rx="7" fill="#0B1220" stroke="#14B8A6" stroke-width="3"/>
+
+    <rect x="180" y="70" width="240" height="210" rx="76" fill="#0B1220" stroke="#14B8A6" stroke-width="7"/>
+    <rect x="212" y="102" width="176" height="138" rx="42" fill="#0F2A3A" stroke="#0F766E" stroke-width="4"/>
+    <rect x="220" y="110" width="160" height="122" rx="34" fill="none" stroke="#14B8A6" stroke-width="2" opacity="0.35"/>
+    <rect x="246" y="148" width="30" height="36" rx="10" fill="#FFFFFF"/>
+    <rect x="324" y="148" width="30" height="36" rx="10" fill="#FFFFFF"/>
+    <rect x="255" y="157" width="12" height="18" rx="6" fill="#14B8A6"/>
+    <rect x="333" y="157" width="12" height="18" rx="6" fill="#14B8A6"/>
+    <circle cx="261" cy="162" r="3" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="339" cy="162" r="3" fill="#FFFFFF" opacity="0.9"/>
+    <path d="M278 208 Q300 222 322 208" stroke="#14B8A6" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <circle cx="285" cy="258" r="3" fill="#14B8A6" opacity="0.6"/>
+    <circle cx="300" cy="258" r="3" fill="#14B8A6" opacity="0.6"/>
+    <circle cx="315" cy="258" r="3" fill="#14B8A6" opacity="0.6"/>
+    <circle cx="300" cy="86" r="6" fill="#FACC15"/>
+
+    <line x1="300" y1="70" x2="300" y2="38" stroke="#14B8A6" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="300" cy="30" r="14" fill="#FACC15" stroke="#0B1220" stroke-width="4"/>
+    <circle cx="296" cy="26" r="4" fill="#FEF9C3"/>
+
+    <rect x="158" y="142" width="26" height="72" rx="13" fill="#14B8A6" stroke="#0B1220" stroke-width="4"/>
+    <rect x="416" y="142" width="26" height="72" rx="13" fill="#14B8A6" stroke="#0B1220" stroke-width="4"/>
+    <circle cx="171" cy="178" r="5" fill="#FACC15"/>
+    <circle cx="429" cy="178" r="5" fill="#FACC15"/>
+  </g>
+</svg>

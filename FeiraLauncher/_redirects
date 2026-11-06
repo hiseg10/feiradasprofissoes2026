@@ -1,0 +1,10 @@
+# Lancador fixo da Feira das Profissoes 2026
+# Troque os destinos abaixo no dia da feira. O QR impresso continua o mesmo.
+# Exemplo: /cdq https://cdq.exemplo.com 302
+
+/cdq        /em-breve.html  302
+/bolsa      /em-breve.html  302
+/agro       /em-breve.html  302
+/florestan  /em-breve.html  302
+/story      /em-breve.html  302
+/sabor      /em-breve.html  302
