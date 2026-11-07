@@ -1,13 +1,13 @@
 # Checklist de montagem
 
-**Data da feira: 05/12/2026, das 8h às 11h30.**
+**Data da feira: 05/12/2026, das 8h10 às 11h.**
 
 ## Antes da feira
 
 ### Arquivos e impressão
 
 - [ ] Banner 250 × 110 cm em PDF com sangria e fontes incorporadas
-- [ ] Cavalete 80 × 150 cm aprovado e PDF com sangria enviado à gráfica
+- [ ] Cavalete 100 × 155 cm aprovado e PDF com sangria enviado à gráfica
 - [ ] Mascote Flo: roupa com máscara e/ou standee prontos
 - [ ] Cinco cartolinas A2 impressas
 - [ ] QR codes gerados e testados no celular
@@ -15,7 +15,7 @@
 
 ### Materiais
 
-- [ ] Cavalete estável para pôster de 80 × 150 cm
+- [ ] Cavalete estável para pôster de 100 × 155 cm
 - [ ] Standee do Flo com base estável
 - [ ] Roupa/máscara do Flo testada e guardada
 - [ ] Cinco cortinas de 200 × 180 cm

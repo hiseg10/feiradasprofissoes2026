@@ -2,7 +2,7 @@
 
 Portfólio de projetos dos alunos do **2º ano A e B do curso técnico em Desenvolvimento de Sistemas**, em colaboração com o **1º ano do curso técnico em Marketing Digital**.
 
-**Data da feira: 05/12/2026, das 8h às 11h30.**  
+**Data da feira: 05/12/2026, das 8h10 às 11h.**  
 **Local: CETI Professor Florestan Fernandes (na própria escola).**
 
 ## Projetos

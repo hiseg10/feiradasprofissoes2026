@@ -9,7 +9,7 @@
   <rect width="840" height="594" fill="#F7F9FB" />
 
   <text x="40" y="54" font-family="Montserrat, Arial, sans-serif" font-size="34" font-weight="800" fill="#0B1220">MAPA DA FEIRA</text>
-  <text x="40" y="80" font-family="Inter, Arial, sans-serif" font-size="15" fill="#64748B">Feira das Profissões Florestan 2026 · 05/12/2026 · 8h às 11h30</text>
+  <text x="40" y="80" font-family="Inter, Arial, sans-serif" font-size="15" fill="#64748B">Feira das Profissões Florestan 2026 · 05/12/2026 · 8h10 às 11h</text>
 
   <!-- Área da escola -->
   <rect x="70" y="95" width="530" height="430" rx="6" fill="none" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 8" />

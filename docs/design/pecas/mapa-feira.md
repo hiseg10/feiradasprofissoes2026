@@ -82,7 +82,7 @@ A escola é representada por um quadrado. O **pátio** fica na parte **inferior 
 - O mapa é **esquemático**, não é uma planta em escala.
 - Não invente salas ou saídas que a escola não confirmou.
 - Mantenha os nomes dos apps iguais aos do banner e do cavalete.
-- Data e horário oficiais: **05/12/2026, das 8h às 11h30**.
+- Data e horário oficiais: **05/12/2026, das 8h10 às 11h**.
 
 ## Checklist
 
@@ -92,6 +92,6 @@ A escola é representada por um quadrado. O **pátio** fica na parte **inferior 
 - [ ] Robótica e horta ao lado esquerdo da porta da biblioteca
 - [ ] Cores dos apps conferidas
 - [ ] Nome da escola e local (na escola) no mapa
-- [ ] Data 05/12/2026 e horário 8h às 11h30 no mapa
+- [ ] Data 05/12/2026 e horário 8h10 às 11h no mapa
 - [ ] Impressão legível a 3 metros
 - [ ] Cópias instaladas na entrada, no corredor e na biblioteca

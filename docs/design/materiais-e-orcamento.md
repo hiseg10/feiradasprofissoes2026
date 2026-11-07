@@ -7,7 +7,7 @@ Valores estimados em reais (2026), sujeitos a variação regional. Priorize reap
 | Item | Qtd. | Especificação | Estimativa unitária | Subtotal |
 |---|---|---|---|---|
 | Banner central | 1 | Lona 440 g, 250 × 110 cm, com ilhós | R$ 180 | R$ 180 |
-| Pôster do cavalete | 1 | 80 × 150 cm, lona, couché 250 g sobre foam board/PVC ou adesivo | R$ 90 | R$ 90 |
+| Pôster do cavalete | 1 | 100 × 155 cm, lona, couché 250 g sobre foam board/PVC ou adesivo | R$ 90 | R$ 90 |
 | Cartolinas descritivas | 5 (2 folhas A4) | A4, cartolina 250 g, recortada em 4 quadrantes | R$ 5 | R$ 10 |
 | QR codes impressos | 10 | 6 × 6 cm, papel adesivo | R$ 1 | R$ 10 |
 | Folders por projeto (opcional) | 100 | A4 dobrado em A5, couché 250 g | R$ 1,50 | R$ 150 |
@@ -16,7 +16,7 @@ Valores estimados em reais (2026), sujeitos a variação regional. Priorize reap
 
 | Item | Qtd. | Observação | Estimativa |
 |---|---|---|---|
-| Cavalete | 1 | Madeira ou metal, base larga para pôster de 1,5 m; tentar emprestado | R$ 120 |
+| Cavalete | 1 | Madeira ou metal, base larga para pôster de 1,55 m; tentar emprestado | R$ 120 |
 | Suportes de mesa | 5 | Tripé ou acrílico | R$ 75 |
 | Varões para cortina | 5 | Bastão ou varão tensionado de 2,1 m | R$ 125 |
 | Ilhós e corda | 1 kit | Para o banner | R$ 20 |

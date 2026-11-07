@@ -2,7 +2,7 @@
 
 Documentação visual e de produção do estande da feira no **CETI Professor Florestan Fernandes**.
 
-**Data da feira: 05/12/2026, das 8h às 11h30.**  
+**Data da feira: 05/12/2026, das 8h10 às 11h.**  
 **Local: na própria escola.**
 
 ## Conceito
@@ -18,7 +18,7 @@ Além dos 5 apps, a cantina do 2º ano A é uma atividade de empreendedorismo co
 | Peça | Quantidade | Formato | Onde fica |
 |---|---|---|---|
 | Banner central | 1 | 250 × 110 cm, com escudo da escola e logo da SEDUC-PI | Fundo do estande ou entrada |
-| Cavalete do evento | 1 | Pôster 80 × 150 cm | Entrada do estande |
+| Cavalete do evento | 1 | Pôster 100 × 155 cm | Entrada do estande |
 | Mapa da feira | 1–2 | A3/A2 | Entrada, corredor e biblioteca |
 | Cortina com letras recortadas | 5 (uma por app) | 200 × 180 cm | Atrás de cada mesa |
 | Cartolina descritiva | 5 (uma por app) | A4 recortada em 4 quadrantes (~A6) | Em frente a cada app |
@@ -112,10 +112,15 @@ Resumo do percurso:
 
 ## Impressão em gráfica
 
-- [Cavalete do evento](./pecas/cavalete-evento.md) — pôster 80 × 150 cm, com cards digitais e o mascote Flo.
-- PDF para a gráfica: [`assets/cavalete-evento-sangria.pdf`](./assets/cavalete-evento-sangria.pdf) — 86 × 156 cm, com 3 cm de sangria; corte final 80 × 150 cm.
-- PDF de referência: [`assets/cavalete-evento.pdf`](./assets/cavalete-evento.pdf) — 80 × 150 cm.
-- Os dois PDFs são vetoriais; conferir a prova de cor antes de imprimir.
+- [Banner central](./pecas/banner-central.md) — lona 250 × 110 cm.
+- PDF para a gráfica: [`assets/banner-central-sangria.pdf`](./assets/banner-central-sangria.pdf) — 256 × 116 cm, com 3 cm de sangria; corte final 250 × 110 cm.
+- PDF de referência: [`assets/banner-central.pdf`](./assets/banner-central.pdf) — 250 × 110 cm.
+- Vetorial editável: [`assets/banner-central.svg`](./assets/banner-central.svg).
+- [Cavalete do evento](./pecas/cavalete-evento.md) — pôster 100 × 155 cm, com cards digitais e o mascote Flo.
+- PDF para a gráfica: [`assets/cavalete-evento-sangria.pdf`](./assets/cavalete-evento-sangria.pdf) — 106 × 161 cm, com 3 cm de sangria; corte final 100 × 155 cm.
+- PDF de referência: [`assets/cavalete-evento.pdf`](./assets/cavalete-evento.pdf) — 100 × 155 cm.
+- Vetorial editável: [`assets/cavalete-evento.svg`](./assets/cavalete-evento.svg).
+- Enviar sempre o **SVG + PDF com sangria**. Os PDFs são vetoriais para textos, formas e QR; as logos institucionais são imagens embutidas. Conferir a prova de cor antes de imprimir.
 
 ## Cantina do 2º A — Sabor do Florestan
 

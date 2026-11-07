@@ -1,20 +1,24 @@
 # Assets de design
 
-Arquivos SVG de **referência visual**. Não são arquivos finais de impressão: ajuste textos, QR codes reais, data, local e nomes antes de enviar para a gráfica.
+Arquivos de design e impressão. Os **SVGs** são os fontes vetoriais editáveis; os **PDFs com sangria** são os arquivos recomendados para a gráfica. Envie sempre o SVG + PDF com sangria.
 
 ## Arquivos
 
 | Arquivo | O que é |
 |---|---|
-| `banner-central.svg` | Mockup do banner 250 × 110 cm, com escudo da escola e logo da SEDUC-PI embutidos em base64 |
+| `banner-central.svg` | Banner 250 × 110 cm, fonte vetorial com escudo, SEDUC-PI e 21ª GRE embutidos em base64 |
+| `banner-central.pdf` | PDF de referência 250 × 110 cm, vetorial (textos/formas/QR) com logos raster embutidas |
+| `banner-central-sangria.pdf` | PDF para a gráfica 256 × 116 cm (3 cm de sangria em cada lado; corte final 250 × 110 cm) |
 | `banner-qr.svg` | QR definitivo do banner, gerado por `FeiraHub/gerar-qr-banner.js` |
 | `banner-qr.png` | Prova do QR em PNG (2048 px) |
 | `logos/escudo-escola.jpg` | Escudo oficial da escola (arquivo original, fundo preto) |
 | `logos/escudo-escola.png` | Escudo com fundo transparente, usado no banner |
 | `logos/seduc-pi.png` | Logo da Secretaria da Educação / Governo do Piauí |
-| `cavalete-evento.svg` | Mockup do pôster 80 × 150 cm do cavalete, com cards digitais e o mascote embutido |
-| `cavalete-evento.pdf` | PDF de referência 80 × 150 cm, 1 página, vetorial |
-| `cavalete-evento-sangria.pdf` | PDF para a gráfica 86 × 156 cm (3 cm de sangria em cada lado; corte final 80 × 150 cm), vetorial |
+| `logos/21gre-logo.jpeg` | Logo original da 21ª GRE (JPEG, fundo branco) |
+| `logos/21gre-logo.png` | Logo da 21ª GRE com fundo transparente, usada no banner e no cavalete (574×106 px; verificar resolução para impressão) |
+| `cavalete-evento.svg` | Mockup do pôster 100 × 155 cm do cavalete, com cards digitais e o mascote embutido |
+| `cavalete-evento.pdf` | PDF de referência 100 × 155 cm, 1 página, vetorial |
+| `cavalete-evento-sangria.pdf` | PDF para a gráfica 106 × 161 cm (3 cm de sangria em cada lado; corte final 100 × 155 cm), vetorial |
 | `mascote-flo.svg` | Desenho do mascote Flo, de frente, para referência da fantasia/standee |
 | `cortina-template.svg` | Template da cortina 200 × 180 cm com medidas |
 | `cortina-cdq.svg` | Exemplo preenchido do CDQ |
@@ -34,16 +38,26 @@ O `cavalete-evento.svg` já tem o mascote **embutido como vetor** (o grupo `#flo
 
 ## PDFs prontos
 
-- **Gráfica:** use `cavalete-evento-sangria.pdf` (86 × 156 cm, com 3 cm de sangria). A gráfica corta para **80 × 150 cm**.
-- **Referência/prova:** use `cavalete-evento.pdf` (80 × 150 cm).
-- Os dois PDFs são **vetoriais**: textos, formas e mascote não perdem resolução. O PDF com sangria foi gerado a partir do SVG com o fundo e a faixa superior estendidos.
+**Banner**
+
+- **Gráfica:** `banner-central-sangria.pdf` (256 × 116 cm, com 3 cm de sangria). Corte final **250 × 110 cm**.
+- **Referência/prova:** `banner-central.pdf` (250 × 110 cm).
+- Enviar também o vetorial `banner-central.svg`.
+
+**Cavalete**
+
+- **Gráfica:** `cavalete-evento-sangria.pdf` (106 × 161 cm, com 3 cm de sangria). Corte final **100 × 155 cm**.
+- **Referência/prova:** `cavalete-evento.pdf` (100 × 155 cm).
+- Enviar também o vetorial `cavalete-evento.svg`.
+
+Os PDFs são vetoriais para textos, formas e QR; as logos institucionais estão embutidas como imagens. O PDF com sangria foi gerado a partir do SVG com o fundo e a faixa superior estendidos.
 
 ## Antes de imprimir
 
-1. Trocar os textos entre `[colchetes]`.
-2. Substituir o QR code de exemplo pelo QR real do lançador (`cd FeiraHub; npm run qr -- https://seu-projeto.pages.dev/`) e testar.
-3. Converter textos em curvas ou incorporar as fontes.
-4. Conferir medidas, sangria e margens.
+1. Trocar os textos entre `[colchetes]`, se houver.
+2. Conferir o QR real do lançador no banner e no cavalete.
+3. Conferir medidas, sangria e margens.
+4. Enviar à gráfica o **SVG + PDF com sangria** de cada peça.
 5. Exportar em PDF CMYK quando a gráfica pedir.
 
 ## Fontes
@@ -54,4 +68,4 @@ O `cavalete-evento.svg` já tem o mascote **embutido como vetor** (o grupo `#flo
 
 ## Observação
 
-Os QR codes desenhados nos SVGs são apenas ilustrativos. O QR definitivo do banner é gerado por `FeiraHub/gerar-qr-banner.js` e salvo em `banner-qr.svg`; ele deve apontar para a URL fixa do lançador (`FeiraLauncher/`), nunca para um IP local.
+O banner e o cavalete já usam o QR real do lançador (`FeiraLauncher/`), nunca um IP local. Os QR codes ainda ilustrativos em outros SVGs devem ser substituídos antes de imprimir. O QR do banner é gerado por `FeiraHub/gerar-qr-banner.js` e salvo em `banner-qr.svg`.

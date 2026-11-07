@@ -1,11 +1,11 @@
 # Tarefas pendentes
 
-**Data da feira: 05/12/2026, das 8h às 11h30.**
+**Data da feira: 05/12/2026, das 8h10 às 11h.**
 
 ## Prioridade alta
 
 - [ ] **QR do banner — URL fixa e lançador geral**
-  - Publicar `FeiraLauncher/` no Cloudflare Pages e anotar a URL final (`https://<projeto>.pages.dev`).
+  - [x] Lançador publicado em **https://feira-florestan.pages.dev/** e QR validado.
   - Não alterar a URL depois de imprimir o banner; só atualizar o lançador e os redirects.
   - Trocar os destinos em `FeiraLauncher/_redirects` no dia da feira.
   - Gerar o QR com `cd FeiraHub; npm run qr -- https://<projeto>.pages.dev/`.
@@ -93,8 +93,9 @@
 - [ ] Imprimir os moldes de letras dos nomes dos apps e recortar em TNT.
 - [ ] Testar a altura das letras (~10 cm) e o espaçamento nas cortinas.
 - [ ] Fechar orçamento e fornecedores de impressão.
-- [ ] Produzir banner 250 × 110 cm (com escudo da escola e logo da SEDUC-PI), cavalete 80 × 150 cm, 5 cartolinas, 5 cortinas 200 × 180 cm, 5 folders e o mascote Flo.
-- [ ] **Enviar o cavalete para a gráfica** em PDF com fontes incorporadas e 3 cm de sangria; conferir a prova de cor (turquesa, amarelo e mascote).
+- [ ] Produzir banner 250 × 110 cm (com escudo da escola, SEDUC-PI e 21ª GRE), cavalete 100 × 155 cm, 5 cartolinas, 5 cortinas 200 × 180 cm, 5 folders e o mascote Flo.
+- [ ] **Enviar o banner para a gráfica** em SVG + PDF com sangria (256 × 116 cm); conferir a prova de cor.
+- [ ] **Enviar o cavalete para a gráfica** em SVG + PDF com sangria (106 × 161 cm); conferir a prova de cor (turquesa, amarelo e mascote).
 - [ ] Revisar a montagem com o checklist de `docs/design/checklist-montagem.md`.
 
 ## Responsáveis e prazos

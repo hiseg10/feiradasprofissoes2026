@@ -1,6 +1,6 @@
 # Cronograma de produção
 
-**Data da feira: 05/12/2026, das 8h às 11h30.**
+**Data da feira: 05/12/2026, das 8h10 às 11h.**
 
 Sugestão para 6 semanas antes da feira. Ajuste conforme a data real do evento.
 
@@ -9,7 +9,7 @@ Sugestão para 6 semanas antes da feira. Ajuste conforme a data real do evento.
 - [ ] Reunião DS + Marketing para aprovar conceito e identidade.
 - [ ] Aprovar o mascote Flo (nome, desenho e frase “Conecta aí!”).
 - [ ] Fechar textos do banner, cavalete e cartolinas.
-- [ ] Confirmar o local. Data e horário já definidos: 05/12/2026, das 8h às 11h30.
+- [ ] Confirmar o local. Data e horário já definidos: 05/12/2026, das 8h10 às 11h.
 - [ ] Levantar materiais disponíveis na escola.
 
 ## Semana 5 — Orçamento e arte

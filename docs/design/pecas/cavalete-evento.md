@@ -8,7 +8,7 @@ Receber o visitante na entrada do estande com as informações práticas: o que 
 
 | Item | Valor |
 |---|---|
-| Pôster | **80 × 150 cm (retrato)** |
+| Pôster | **100 × 155 cm (retrato)** |
 | Sangria | 3 cm em todos os lados |
 | Margem de segurança | 8 cm |
 | Impressão | **Gráfica:** lona 440 g, couché 250 g colado em foam board/PVC ou adesivo |
@@ -41,9 +41,9 @@ Receber o visitante na entrada do estande com as informações práticas: o que 
 │   Jogos narrativos          │
 ├──────────────────────────────┤
 │ PROGRAMAÇÃO                 │
-│ [hora] Abertura             │
-│ [hora] Demonstrações        │
-│ [hora] Quiz e perguntas     │
+│ 8:10  Abertura             │
+│ 9:10  Exposições           │
+│ 11:00 Quiz e encerramento  │
 ├──────────────────────────────┤
 │ [MAPA]          [QR CODE]   │
 │ Pátio (embaixo, à esquerda) │
@@ -57,15 +57,25 @@ Receber o visitante na entrada do estande com as informações práticas: o que 
 
 ## Conteúdo
 
-1. **Cabeçalho**: escola **CETI Professor Florestan Fernandes**, nome do evento, ano, tema, data **05/12/2026**, horário **8h às 11h30** e local **na escola**.
+1. **Cabeçalho**: nome do evento **FEIRA DAS PROFISSÕES**, escola **CETI Professor Florestan Fernandes** (sem o ano) e as três logos — escudo, SEDUC-PI e 21ª GRE — centralizadas abaixo do nome da escola.
 2. **Boas-vindas**: duas linhas explicando a feira.
 3. **Cinco projetos**: nome, uma linha e cor de cada um.
-4. **Programação**: três a cinco horários (preencher).
+4. **Programação**: 8:10 abertura, 9:10 exposições e 11:00 encerramento.
 5. **Mapa da feira**: pátio abaixo à esquerda, biblioteca acima à direita e corredor de 2 m entre eles; a robótica e a horta ficam ao lado esquerdo da porta da biblioteca, e o CDQ e o Story Games ficam dentro dela.
 6. **QR code**: programação completa ou link dos projetos.
 7. **Mascote Flo**: personagem no topo direito, com a assinatura “FLO · o conectado”.
 8. **Elementos de tecnologia**: cards de código, dados e conexão; linhas de movimento, brilho e sombras.
 9. **Rodapé**: realização, escola e redes sociais.
+
+## Logos institucionais
+
+- As três logos ficam centralizadas em um painel translúcido abaixo do nome da escola: escudo, SEDUC-PI e 21ª GRE.
+- **Escudo da escola**: `logos/escudo-escola.png`, 8 × 8 cm.
+- **SEDUC-PI**: `logos/seduc-pi.png`, ~23,8 × 8 cm.
+- **21ª GRE — Teresina/Sudeste**: `logos/21gre-logo.png`, ~24,2 × 4,4 cm.
+- Usar as versões PNG com fundo transparente; não distorcer, recortar nem alterar as cores.
+- As logos já estão embutidas em base64 no `cavalete-evento.svg`.
+- O arquivo da 21ª GRE tem 574×106 px (~60 DPI no cavalete); para impressão, preferir a versão vetorial ou uma imagem com pelo menos 150 DPI.
 
 ## Tipografia
 
@@ -110,7 +120,7 @@ Para uma versão animada (telão, redes sociais ou QR code), usar os mesmos elem
 
 ## Materiais e estabilidade
 
-- Preferir cavalete de madeira com base larga e altura compatível com 1,5 m de pôster.
+- Preferir cavalete de madeira com base larga e altura compatível com 1,55 m de pôster.
 - Reforçar a fixação no topo e na base: o pôster é maior e mais pesado que o formato anterior.
 - Se for ao ar livre, usar peso na base e evitar dia de vento forte.
 - Não apoiar o pôster em superfície molhada.
@@ -121,15 +131,15 @@ Para uma versão animada (telão, redes sociais ou QR code), usar os mesmos elem
 1. Fechar textos e programação.
 2. Use o [mapa da feira](./mapa-feira.md) e o [SVG](../assets/mapa-feira.svg); ajuste as posições conforme a escola.
 3. Conferir o mascote e os elementos digitais no [SVG do cavalete](../assets/cavalete-evento.svg).
-4. Enviar para a gráfica o **PDF com sangria** `docs/design/assets/cavalete-evento-sangria.pdf` (86 × 156 cm; corte final 80 × 150 cm). O PDF já é vetorial e tem fontes incorporadas.
+4. Enviar para a gráfica o **PDF com sangria** `docs/design/assets/cavalete-evento-sangria.pdf` (106 × 161 cm; corte final 100 × 155 cm). O PDF já é vetorial e tem fontes incorporadas.
 5. A gráfica imprime em lona, couché 250 g sobre foam board/PVC ou adesivo.
 6. A escola monta no cavalete e testa a inclinação.
 7. Passar um pano seco antes da abertura.
 
 ## Arquivos para a gráfica
 
-- **Com sangria (usar este):** `docs/design/assets/cavalete-evento-sangria.pdf` — **86 × 156 cm**, com **3 cm de sangria** em cada lado. A gráfica corta para **80 × 150 cm**.
-- **Referência/prova:** `docs/design/assets/cavalete-evento.pdf` — 80 × 150 cm.
+- **Com sangria (usar este):** `docs/design/assets/cavalete-evento-sangria.pdf` — **106 × 161 cm**, com **3 cm de sangria** em cada lado. A gráfica corta para **100 × 155 cm**.
+- **Referência/prova:** `docs/design/assets/cavalete-evento.pdf` — 100 × 155 cm.
 - **Editável:** `docs/design/assets/cavalete-evento.svg`.
 - Os PDFs são vetoriais (textos, formas, cards e mascote). Conferir a prova de cor antes de imprimir.
 
@@ -142,9 +152,9 @@ Para uma versão animada (telão, redes sociais ou QR code), usar os mesmos elem
 
 ## Checklist
 
-- [ ] Dimensões 80 × 150 cm conferidas
+- [ ] Dimensões 100 × 155 cm conferidas
 - [ ] Nome da escola e local (na escola) conferidos
-- [ ] Data 05/12/2026 e horário 8h às 11h30 confirmados
+- [ ] Data 05/12/2026 e horário 8h10 às 11h confirmados
 - [ ] Mapa da feira revisado com a escola
 - [ ] Programação confirmada
 - [ ] Cinco projetos na lista
