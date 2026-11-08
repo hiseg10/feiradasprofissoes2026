@@ -393,6 +393,7 @@ export default function Autoatendimento() {
         <Checkout
           itens={itens}
           totalCentavos={totalCentavos}
+          metodos={["pix", "cartao_online"]}
           onFechar={() => setCheckoutAberto(false)}
           onConcluido={concluir}
         />

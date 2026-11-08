@@ -41,6 +41,9 @@ export function rotuloPagamento(
 ): string {
   if (forma === "pix") return "Pix";
   if (forma === "cartao") {
+    if (detalhe === "online") return "Cartão online";
+    if (detalhe === "nfc_credito") return "NFC · crédito";
+    if (detalhe === "nfc_debito") return "NFC · débito";
     if (detalhe === "credito") return "Cartão · crédito";
     if (detalhe === "debito") return "Cartão · débito";
     return "Cartão";

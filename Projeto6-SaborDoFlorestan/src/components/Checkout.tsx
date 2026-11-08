@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import PagamentoOnline from "./PagamentoOnline";
 import { brl } from "@/lib/format";
-import type { FormaPagamento, Pedido, Produto } from "@/lib/types";
+import type { Pedido, Produto } from "@/lib/types";
 
 type Item = {
   produto: Produto;
   quantidade: number;
 };
+
+export type MetodoCheckout = "pix" | "cartao_online" | "nfc" | "dinheiro";
 
 type PixEstado = {
   carregando: boolean;
@@ -16,9 +19,10 @@ type PixEstado = {
   erro: string | null;
 };
 
-const FORMAS: { valor: FormaPagamento; rotulo: string; cor: string }[] = [
+const OPCOES: { valor: MetodoCheckout; rotulo: string; cor: string }[] = [
   { valor: "pix", rotulo: "Pix", cor: "bg-emerald-600" },
-  { valor: "cartao", rotulo: "Cartão", cor: "bg-blue-600" },
+  { valor: "cartao_online", rotulo: "Cartão online", cor: "bg-blue-600" },
+  { valor: "nfc", rotulo: "NFC / maquininha", cor: "bg-indigo-600" },
   { valor: "dinheiro", rotulo: "Dinheiro", cor: "bg-amber-600" },
 ];
 
@@ -26,16 +30,24 @@ export default function Checkout({
   itens,
   totalCentavos,
   pedidoExistente,
+  metodos = ["pix", "cartao_online", "nfc", "dinheiro"],
   onFechar,
   onConcluido,
 }: {
   itens: Item[];
   totalCentavos: number;
   pedidoExistente?: Pedido;
+  metodos?: MetodoCheckout[];
   onFechar: () => void;
   onConcluido: (pedido: Pedido) => void;
 }) {
-  const [forma, setForma] = useState<FormaPagamento>("pix");
+  const mpPublicKey = process.env.NEXT_PUBLIC_MP_PUBLIC_KEY ?? "";
+  const metodosDisponiveis = metodos.filter(
+    (metodo) => metodo !== "cartao_online" || Boolean(mpPublicKey),
+  );
+  const inicial = metodosDisponiveis[0] ?? "pix";
+
+  const [metodo, setMetodo] = useState<MetodoCheckout>(inicial);
   const [detalheCartao, setDetalheCartao] = useState<"debito" | "credito">(
     "debito",
   );
@@ -51,13 +63,13 @@ export default function Checkout({
   const [erro, setErro] = useState<string | null>(null);
   const [copiado, setCopiado] = useState(false);
   const [confirmacao, setConfirmacao] = useState<{
-    forma: FormaPagamento;
+    metodo: MetodoCheckout;
     pix: string | null;
     valor: boolean;
-  }>({ forma: "pix", pix: null, valor: false });
+  }>({ metodo: "pix", pix: null, valor: false });
 
   const pagamentoConferido =
-    confirmacao.forma === forma && confirmacao.pix === pix.qrDataUrl
+    confirmacao.metodo === metodo && confirmacao.pix === pix.qrDataUrl
       ? confirmacao.valor
       : false;
 
@@ -77,7 +89,7 @@ export default function Checkout({
   const falta = Math.max(0, totalCentavos - recebidoCentavos);
 
   useEffect(() => {
-    if (forma !== "pix") return;
+    if (metodo !== "pix") return;
 
     let ativo = true;
     const id = window.setTimeout(() => {
@@ -114,9 +126,7 @@ export default function Checkout({
             qrDataUrl: null,
             payload: null,
             erro:
-              falha instanceof Error
-                ? falha.message
-                : "Falha ao gerar o Pix.",
+              falha instanceof Error ? falha.message : "Falha ao gerar o Pix.",
           });
         }
       });
@@ -125,7 +135,7 @@ export default function Checkout({
       ativo = false;
       window.clearTimeout(id);
     };
-  }, [forma, itensPayload]);
+  }, [metodo, itensPayload]);
 
   async function copiarPix() {
     if (!pix.payload) return;
@@ -138,33 +148,43 @@ export default function Checkout({
     }
   }
 
+  function detalheDoMetodo(): string {
+    if (metodo === "pix") return "pix";
+    if (metodo === "dinheiro") return "dinheiro";
+    if (metodo === "nfc") return `nfc_${detalheCartao}`;
+    return "online";
+  }
+
   const podeConfirmar =
-    forma === "pix"
+    metodo === "pix"
       ? Boolean(pix.qrDataUrl) &&
         !pix.carregando &&
         !enviando &&
         pagamentoConferido
-      : forma === "cartao"
+      : metodo === "nfc"
         ? !enviando && pagamentoConferido
-        : recebidoCentavos >= totalCentavos && !enviando;
+        : metodo === "dinheiro"
+          ? recebidoCentavos >= totalCentavos && !enviando
+          : false;
 
   async function confirmar() {
-    if (!podeConfirmar) return;
+    if (metodo === "cartao_online" || !podeConfirmar) return;
 
     setEnviando(true);
     setErro(null);
 
     try {
+      const detalhe = detalheDoMetodo();
       const resposta = pedidoExistente
         ? await fetch(`/api/pedidos/${pedidoExistente.id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               finalizar: true,
-              formaPagamento: forma,
-              detalhePagamento: forma === "cartao" ? detalheCartao : forma,
+              formaPagamento: metodo === "dinheiro" ? "dinheiro" : metodo === "pix" ? "pix" : "cartao",
+              detalhePagamento: detalhe,
               valorRecebidoCentavos:
-                forma === "dinheiro" ? recebidoCentavos : totalCentavos,
+                metodo === "dinheiro" ? recebidoCentavos : totalCentavos,
             }),
           })
         : await fetch("/api/pedidos", {
@@ -172,10 +192,10 @@ export default function Checkout({
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               itens: itensPayload,
-              formaPagamento: forma,
-              detalhePagamento: forma === "cartao" ? detalheCartao : forma,
+              formaPagamento: metodo === "dinheiro" ? "dinheiro" : metodo === "pix" ? "pix" : "cartao",
+              detalhePagamento: detalhe,
               valorRecebidoCentavos:
-                forma === "dinheiro" ? recebidoCentavos : totalCentavos,
+                metodo === "dinheiro" ? recebidoCentavos : totalCentavos,
               cliente,
               pago: true,
             }),
@@ -199,10 +219,10 @@ export default function Checkout({
   }
 
   const rotuloConfirmar =
-    forma === "pix"
+    metodo === "pix"
       ? "Confirmar Pix recebido"
-      : forma === "cartao"
-        ? "Confirmar cartão"
+      : metodo === "nfc"
+        ? "Confirmar NFC"
         : "Finalizar venda";
 
   return (
@@ -257,27 +277,29 @@ export default function Checkout({
           </div>
         )}
 
-        <div className="mt-4 grid grid-cols-3 gap-2">
-          {FORMAS.map((item) => (
-            <button
-              key={item.valor}
-              type="button"
-              onClick={() => setForma(item.valor)}
-              className={`rounded-xl border px-2 py-3 text-sm font-bold transition ${
-                forma === item.valor
-                  ? "border-brand-600 bg-brand-50 text-brand-800"
-                  : "border-brand-100 bg-white text-amber-900/60 hover:bg-brand-50"
-              }`}
-            >
-              <span
-                className={`mx-auto mb-1 block h-2 w-2 rounded-full ${item.cor}`}
-              />
-              {item.rotulo}
-            </button>
-          ))}
+        <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {OPCOES.filter((opcao) => metodosDisponiveis.includes(opcao.valor)).map(
+            (item) => (
+              <button
+                key={item.valor}
+                type="button"
+                onClick={() => setMetodo(item.valor)}
+                className={`rounded-xl border px-2 py-3 text-xs font-bold transition ${
+                  metodo === item.valor
+                    ? "border-brand-600 bg-brand-50 text-brand-800"
+                    : "border-brand-100 bg-white text-amber-900/60 hover:bg-brand-50"
+                }`}
+              >
+                <span
+                  className={`mx-auto mb-1 block h-2 w-2 rounded-full ${item.cor}`}
+                />
+                {item.rotulo}
+              </button>
+            ),
+          )}
         </div>
 
-        {forma === "pix" ? (
+        {metodo === "pix" ? (
           <div className="mt-4 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-4">
             {pix.carregando ? (
               <p className="text-sm text-emerald-800">Gerando QR code Pix...</p>
@@ -286,7 +308,7 @@ export default function Checkout({
                 <p className="font-semibold">Pix indisponível</p>
                 <p className="mt-1 text-xs">{pix.erro}</p>
                 <p className="mt-2 text-xs">
-                  Use cartão ou dinheiro, ou configure PIX_KEY no .env.local.
+                  Use cartão online ou dinheiro, ou configure PIX_KEY.
                 </p>
               </div>
             ) : pix.qrDataUrl ? (
@@ -313,7 +335,7 @@ export default function Checkout({
                     checked={pagamentoConferido}
                     onChange={(evento) =>
                       setConfirmacao({
-                        forma,
+                        metodo,
                         pix: pix.qrDataUrl,
                         valor: evento.target.checked,
                       })
@@ -325,10 +347,26 @@ export default function Checkout({
               </div>
             ) : null}
           </div>
-        ) : forma === "cartao" ? (
-          <div className="mt-4 rounded-2xl border border-blue-100 bg-blue-50/60 p-4">
-            <p className="text-sm font-semibold text-blue-900">
-              Passe o cartão na maquininha
+        ) : null}
+
+        {metodo === "cartao_online" ? (
+          <PagamentoOnline
+            totalCentavos={totalCentavos}
+            pedidoId={pedidoExistente?.id}
+            itens={itensPayload}
+            cliente={cliente}
+            onAprovado={onConcluido}
+          />
+        ) : null}
+
+        {metodo === "nfc" ? (
+          <div className="mt-4 rounded-2xl border border-indigo-100 bg-indigo-50/60 p-4">
+            <p className="text-sm font-semibold text-indigo-900">
+              Receba por aproximação
+            </p>
+            <p className="mt-1 text-xs text-indigo-900/60">
+              Use o app do Mercado Pago (Point Tap) no celular do caixa. O cliente
+              encosta o celular/cartão e você confirma abaixo.
             </p>
             <div className="mt-3 grid grid-cols-2 gap-2">
               {(["debito", "credito"] as const).map((tipo) => (
@@ -338,35 +376,33 @@ export default function Checkout({
                   onClick={() => setDetalheCartao(tipo)}
                   className={`rounded-xl border px-3 py-2 text-xs font-bold ${
                     detalheCartao === tipo
-                      ? "border-blue-600 bg-white text-blue-800"
-                      : "border-blue-200 bg-white/60 text-blue-900/60"
+                      ? "border-indigo-600 bg-white text-indigo-800"
+                      : "border-indigo-200 bg-white/60 text-indigo-900/60"
                   }`}
                 >
                   {tipo === "debito" ? "Débito" : "Crédito"}
                 </button>
               ))}
             </div>
-            <p className="mt-3 text-xs text-blue-900/60">
-              O app não processa cartão. Passe na maquininha, aguarde a
-              aprovação e confirme abaixo.
-            </p>
-            <label className="mt-3 flex items-start gap-2 text-xs text-blue-900/80">
+            <label className="mt-3 flex items-start gap-2 text-xs text-indigo-900/80">
               <input
                 type="checkbox"
                 checked={pagamentoConferido}
                 onChange={(evento) =>
                   setConfirmacao({
-                    forma,
+                    metodo,
                     pix: pix.qrDataUrl,
                     valor: evento.target.checked,
                   })
                 }
                 className="mt-0.5"
               />
-              <span>Confirmo que a maquininha aprovou o pagamento.</span>
+              <span>Confirmo que o pagamento por aproximação foi aprovado.</span>
             </label>
           </div>
-        ) : (
+        ) : null}
+
+        {metodo === "dinheiro" ? (
           <div className="mt-4 rounded-2xl border border-amber-100 bg-amber-50/60 p-4">
             <label htmlFor="recebido" className="label">
               Valor recebido (R$)
@@ -415,7 +451,7 @@ export default function Checkout({
               </div>
             </div>
           </div>
-        )}
+        ) : null}
 
         {erro ? (
           <p className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">
@@ -432,14 +468,16 @@ export default function Checkout({
           >
             Cancelar
           </button>
-          <button
-            type="button"
-            onClick={() => void confirmar()}
-            className="btn-primary"
-            disabled={!podeConfirmar}
-          >
-            {enviando ? "Registrando..." : rotuloConfirmar}
-          </button>
+          {metodo !== "cartao_online" ? (
+            <button
+              type="button"
+              onClick={() => void confirmar()}
+              className="btn-primary"
+              disabled={!podeConfirmar}
+            >
+              {enviando ? "Registrando..." : rotuloConfirmar}
+            </button>
+          ) : null}
         </div>
       </div>
     </div>
