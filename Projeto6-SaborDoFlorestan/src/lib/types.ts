@@ -33,8 +33,20 @@ export type ItemPedido = {
 
 export type FormaPagamento = "pix" | "cartao" | "dinheiro";
 
+export type Cargo = "caixa" | "atendente" | "garçon" | "operador_cozinha";
+
+export type Equipe = {
+  id: number;
+  nome: string;
+  cargo: Cargo;
+  codigoOperacao: string | null;
+  ativo: number;
+  criadoEm: string;
+  atualizadoEm: string;
+};
+
 export type StatusPedido =
-  | "pago"
+  | "novo"
   | "preparando"
   | "pronto"
   | "entregue"
@@ -50,6 +62,8 @@ export type Pedido = {
   valorRecebidoCentavos: number;
   trocoCentavos: number;
   status: StatusPedido;
+  pago: boolean;
+  equipeId: number | null;
   criadoEm: string;
   atualizadoEm: string;
   itens: ItemPedido[];
@@ -66,3 +80,19 @@ export type Resumo = {
     totalCentavos: number;
   }[];
 };
+
+export type ModoOperacao = "cliente" | "caixa" | "atendente" | "operador";
+
+export type Sessao = {
+  modo: ModoOperacao;
+  operadorId: number | null;
+  operadorNome: string | null;
+  operadorCargo: Cargo | null;
+};
+
+export const MODOS: ModoOperacao[] = [
+  "cliente",
+  "caixa",
+  "atendente",
+  "operador",
+];

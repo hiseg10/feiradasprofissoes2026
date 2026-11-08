@@ -25,11 +25,13 @@ const FORMAS: { valor: FormaPagamento; rotulo: string; cor: string }[] = [
 export default function Checkout({
   itens,
   totalCentavos,
+  pedidoExistente,
   onFechar,
   onConcluido,
 }: {
   itens: Item[];
   totalCentavos: number;
+  pedidoExistente?: Pedido;
   onFechar: () => void;
   onConcluido: (pedido: Pedido) => void;
 }) {
@@ -37,7 +39,7 @@ export default function Checkout({
   const [detalheCartao, setDetalheCartao] = useState<"debito" | "credito">(
     "debito",
   );
-  const [cliente, setCliente] = useState("");
+  const [cliente, setCliente] = useState(pedidoExistente?.cliente ?? "");
   const [valorRecebido, setValorRecebido] = useState("");
   const [pix, setPix] = useState<PixEstado>({
     carregando: false,
@@ -48,6 +50,16 @@ export default function Checkout({
   const [enviando, setEnviando] = useState(false);
   const [erro, setErro] = useState<string | null>(null);
   const [copiado, setCopiado] = useState(false);
+  const [confirmacao, setConfirmacao] = useState<{
+    forma: FormaPagamento;
+    pix: string | null;
+    valor: boolean;
+  }>({ forma: "pix", pix: null, valor: false });
+
+  const pagamentoConferido =
+    confirmacao.forma === forma && confirmacao.pix === pix.qrDataUrl
+      ? confirmacao.valor
+      : false;
 
   const itensPayload = useMemo(
     () =>
@@ -128,9 +140,12 @@ export default function Checkout({
 
   const podeConfirmar =
     forma === "pix"
-      ? Boolean(pix.qrDataUrl) && !pix.carregando && !enviando
+      ? Boolean(pix.qrDataUrl) &&
+        !pix.carregando &&
+        !enviando &&
+        pagamentoConferido
       : forma === "cartao"
-        ? !enviando
+        ? !enviando && pagamentoConferido
         : recebidoCentavos >= totalCentavos && !enviando;
 
   async function confirmar() {
@@ -140,18 +155,31 @@ export default function Checkout({
     setErro(null);
 
     try {
-      const resposta = await fetch("/api/pedidos", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          itens: itensPayload,
-          formaPagamento: forma,
-          detalhePagamento: forma === "cartao" ? detalheCartao : forma,
-          valorRecebidoCentavos:
-            forma === "dinheiro" ? recebidoCentavos : totalCentavos,
-          cliente,
-        }),
-      });
+      const resposta = pedidoExistente
+        ? await fetch(`/api/pedidos/${pedidoExistente.id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              finalizar: true,
+              formaPagamento: forma,
+              detalhePagamento: forma === "cartao" ? detalheCartao : forma,
+              valorRecebidoCentavos:
+                forma === "dinheiro" ? recebidoCentavos : totalCentavos,
+            }),
+          })
+        : await fetch("/api/pedidos", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              itens: itensPayload,
+              formaPagamento: forma,
+              detalhePagamento: forma === "cartao" ? detalheCartao : forma,
+              valorRecebidoCentavos:
+                forma === "dinheiro" ? recebidoCentavos : totalCentavos,
+              cliente,
+              pago: true,
+            }),
+          });
       const dados = (await resposta.json()) as Pedido & { erro?: string };
 
       if (!resposta.ok || dados.erro) {
@@ -187,7 +215,11 @@ export default function Checkout({
       <div className="card max-h-[92vh] w-full max-w-lg overflow-y-auto p-5">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="eyebrow">Fechar venda</p>
+            <p className="eyebrow">
+              {pedidoExistente
+                ? `Cobrar pedido ${pedidoExistente.numero}`
+                : "Fechar venda"}
+            </p>
             <h2 className="text-xl font-black text-ink">{brl(totalCentavos)}</h2>
             <p className="text-xs text-amber-900/60">
               {itens.reduce((total, item) => total + item.quantidade, 0)} itens
@@ -203,19 +235,27 @@ export default function Checkout({
           </button>
         </div>
 
-        <div className="mt-4">
-          <label htmlFor="cliente" className="label">
-            Nome do cliente (opcional)
-          </label>
-          <input
-            id="cliente"
-            className="input"
-            value={cliente}
-            onChange={(evento) => setCliente(evento.target.value)}
-            maxLength={60}
-            placeholder="Ex.: Ana"
-          />
-        </div>
+        {pedidoExistente ? (
+          pedidoExistente.cliente ? (
+            <div className="mt-4 rounded-xl bg-brand-50 px-3 py-2 text-xs text-amber-900/70">
+              Cliente: <strong className="text-ink">{pedidoExistente.cliente}</strong>
+            </div>
+          ) : null
+        ) : (
+          <div className="mt-4">
+            <label htmlFor="cliente" className="label">
+              Nome do cliente (opcional)
+            </label>
+            <input
+              id="cliente"
+              className="input"
+              value={cliente}
+              onChange={(evento) => setCliente(evento.target.value)}
+              maxLength={60}
+              placeholder="Ex.: Ana"
+            />
+          </div>
+        )}
 
         <div className="mt-4 grid grid-cols-3 gap-2">
           {FORMAS.map((item) => (
@@ -267,6 +307,21 @@ export default function Checkout({
                 >
                   {copiado ? "Código copiado!" : "Copiar código Pix"}
                 </button>
+                <label className="mt-3 flex items-start justify-center gap-2 text-xs text-emerald-900/80">
+                  <input
+                    type="checkbox"
+                    checked={pagamentoConferido}
+                    onChange={(evento) =>
+                      setConfirmacao({
+                        forma,
+                        pix: pix.qrDataUrl,
+                        valor: evento.target.checked,
+                      })
+                    }
+                    className="mt-0.5"
+                  />
+                  <span>Confirmo que o Pix foi recebido na conta da cantina.</span>
+                </label>
               </div>
             ) : null}
           </div>
@@ -292,8 +347,24 @@ export default function Checkout({
               ))}
             </div>
             <p className="mt-3 text-xs text-blue-900/60">
-              Confirme a venda na maquininha e depois registre aqui.
+              O app não processa cartão. Passe na maquininha, aguarde a
+              aprovação e confirme abaixo.
             </p>
+            <label className="mt-3 flex items-start gap-2 text-xs text-blue-900/80">
+              <input
+                type="checkbox"
+                checked={pagamentoConferido}
+                onChange={(evento) =>
+                  setConfirmacao({
+                    forma,
+                    pix: pix.qrDataUrl,
+                    valor: evento.target.checked,
+                  })
+                }
+                className="mt-0.5"
+              />
+              <span>Confirmo que a maquininha aprovou o pagamento.</span>
+            </label>
           </div>
         ) : (
           <div className="mt-4 rounded-2xl border border-amber-100 bg-amber-50/60 p-4">

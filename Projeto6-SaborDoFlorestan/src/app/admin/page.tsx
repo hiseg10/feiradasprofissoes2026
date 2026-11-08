@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AdminPanel from "@/components/AdminPanel";
+import AdminWrapper from "@/components/AdminWrapper";
 
 export const metadata: Metadata = {
   title: "Gestão · Sabor do Florestan",
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function AdminPage() {
-  return <AdminPanel />;
+  return <AdminWrapper />;
 }
