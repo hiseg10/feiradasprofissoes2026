@@ -1,10 +1,9 @@
 # Lancador fixo da Feira das Profissoes 2026
-# Troque os destinos abaixo no dia da feira. O QR impresso continua o mesmo.
-# Exemplo: /cdq https://cdq.exemplo.com 302
+# Destinos atuais dos seis apps na Vercel. Troque aqui se precisar; o QR impresso nao muda.
 
-/cdq        /em-breve  302
-/bolsa      /em-breve  302
-/agro       /em-breve  302
-/florestan  /em-breve  302
-/story      /em-breve  302
-/sabor      /em-breve  302
+/cdq        https://feira-cdq.vercel.app        302
+/bolsa      https://feira-bolsa-facil.vercel.app 302
+/agro       https://feira-agrosmart.vercel.app   302
+/florestan  https://feira-florestan-conecta.vercel.app 302
+/story      https://feira-story-games.vercel.app 302
+/sabor      https://feira-sabor.vercel.app       302

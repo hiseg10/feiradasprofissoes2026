@@ -50,6 +50,12 @@ emails2BDs.txt
 emails-2ano-ds.txt
 equipes-2ano-ds.csv
 
+# Credenciais baixadas de provedores
+client_secret_*.json
+*.apps.googleusercontent.com.json
+vercel-recovery-codes-*.txt
+.secrets/
+
 # Backups e artefatos grandes
 *.zip
 *.7z
