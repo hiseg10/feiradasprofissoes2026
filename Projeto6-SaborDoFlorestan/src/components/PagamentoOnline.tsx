@@ -108,6 +108,13 @@ export default function PagamentoOnline({
           initialization: {
             amount: dadosRef.current.totalCentavos / 100,
           },
+          customization: {
+            paymentMethods: {
+              creditCard: "all",
+              debitCard: "all",
+              prepaidCard: "all",
+            },
+          },
           callbacks: {
             onReady: () => {
               if (!cancelado) setPronto(true);
