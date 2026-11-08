@@ -48,6 +48,16 @@ export default function Checkout({
   const [enviando, setEnviando] = useState(false);
   const [erro, setErro] = useState<string | null>(null);
   const [copiado, setCopiado] = useState(false);
+  const [confirmacao, setConfirmacao] = useState<{
+    forma: FormaPagamento;
+    pix: string | null;
+    valor: boolean;
+  }>({ forma: "pix", pix: null, valor: false });
+
+  const pagamentoConferido =
+    confirmacao.forma === forma && confirmacao.pix === pix.qrDataUrl
+      ? confirmacao.valor
+      : false;
 
   const itensPayload = useMemo(
     () =>
@@ -128,9 +138,12 @@ export default function Checkout({
 
   const podeConfirmar =
     forma === "pix"
-      ? Boolean(pix.qrDataUrl) && !pix.carregando && !enviando
+      ? Boolean(pix.qrDataUrl) &&
+        !pix.carregando &&
+        !enviando &&
+        pagamentoConferido
       : forma === "cartao"
-        ? !enviando
+        ? !enviando && pagamentoConferido
         : recebidoCentavos >= totalCentavos && !enviando;
 
   async function confirmar() {
@@ -267,6 +280,21 @@ export default function Checkout({
                 >
                   {copiado ? "Código copiado!" : "Copiar código Pix"}
                 </button>
+                <label className="mt-3 flex items-start justify-center gap-2 text-xs text-emerald-900/80">
+                  <input
+                    type="checkbox"
+                    checked={pagamentoConferido}
+                    onChange={(evento) =>
+                      setConfirmacao({
+                        forma,
+                        pix: pix.qrDataUrl,
+                        valor: evento.target.checked,
+                      })
+                    }
+                    className="mt-0.5"
+                  />
+                  <span>Confirmo que o Pix foi recebido na conta da cantina.</span>
+                </label>
               </div>
             ) : null}
           </div>
@@ -292,8 +320,24 @@ export default function Checkout({
               ))}
             </div>
             <p className="mt-3 text-xs text-blue-900/60">
-              Confirme a venda na maquininha e depois registre aqui.
+              O app não processa cartão. Passe na maquininha, aguarde a
+              aprovação e confirme abaixo.
             </p>
+            <label className="mt-3 flex items-start gap-2 text-xs text-blue-900/80">
+              <input
+                type="checkbox"
+                checked={pagamentoConferido}
+                onChange={(evento) =>
+                  setConfirmacao({
+                    forma,
+                    pix: pix.qrDataUrl,
+                    valor: evento.target.checked,
+                  })
+                }
+                className="mt-0.5"
+              />
+              <span>Confirmo que a maquininha aprovou o pagamento.</span>
+            </label>
           </div>
         ) : (
           <div className="mt-4 rounded-2xl border border-amber-100 bg-amber-50/60 p-4">
