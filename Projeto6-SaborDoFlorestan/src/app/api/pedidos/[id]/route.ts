@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { atualizarStatus } from "@/lib/queries";
+import { atualizarStatus, finalizarPedido } from "@/lib/queries";
 
 export const dynamic = "force-dynamic";
 
@@ -15,8 +15,17 @@ export async function PATCH(
   }
 
   try {
-    const dados = (await request.json()) as { status?: unknown };
-    const pedido = await atualizarStatus(numero, dados.status);
+    const dados = (await request.json()) as {
+      status?: unknown;
+      equipeId?: unknown;
+      finalizar?: unknown;
+      formaPagamento?: unknown;
+      detalhePagamento?: unknown;
+      valorRecebidoCentavos?: unknown;
+    };
+    const pedido = dados.finalizar
+      ? await finalizarPedido(numero, dados)
+      : await atualizarStatus(numero, dados.status, dados.equipeId);
     return NextResponse.json(pedido);
   } catch (erro) {
     return NextResponse.json(

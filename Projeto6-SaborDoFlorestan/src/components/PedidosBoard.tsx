@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { brl, horaCurta, numeroPedido, rotuloPagamento } from "@/lib/format";
-import type { Pedido, StatusPedido } from "@/lib/types";
+import type { Pedido, Produto, StatusPedido } from "@/lib/types";
+import NovoPedido from "@/components/NovoPedido";
 
 const COLUNAS: {
   status: StatusPedido;
@@ -11,7 +12,7 @@ const COLUNAS: {
   fundo: string;
 }[] = [
   {
-    status: "pago",
+    status: "novo",
     titulo: "Novos",
     borda: "border-t-amber-400",
     fundo: "bg-amber-50/40",
@@ -31,16 +32,14 @@ const COLUNAS: {
 ];
 
 function proximoStatus(status: StatusPedido): StatusPedido | null {
-  if (status === "pago") return "preparando";
+  if (status === "novo") return "preparando";
   if (status === "preparando") return "pronto";
-  if (status === "pronto") return "entregue";
   return null;
 }
 
 function rotuloAcao(status: StatusPedido): string {
-  if (status === "pago") return "Iniciar preparo";
+  if (status === "novo") return "Iniciar preparo";
   if (status === "preparando") return "Marcar pronto";
-  if (status === "pronto") return "Entregue";
   return "";
 }
 
@@ -85,7 +84,13 @@ function CartaoPedido({
 
       <div className="mt-2 flex items-center justify-between border-t border-brand-50 pt-2 text-xs">
         <span className="font-semibold text-amber-900/60">
-          {rotuloPagamento(pedido.formaPagamento, pedido.detalhePagamento)}
+          {pedido.pago
+            ? `Pago · ${rotuloPagamento(pedido.formaPagamento, pedido.detalhePagamento)}`
+            : pedido.status === "entregue"
+              ? rotuloPagamento(pedido.formaPagamento, pedido.detalhePagamento)
+              : pedido.status === "pronto"
+                ? "Aguardando caixa"
+                : "Pagar no caixa"}
         </span>
         <span className="font-black text-brand-700">
           {brl(pedido.totalCentavos)}
@@ -114,6 +119,19 @@ export default function PedidosBoard() {
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState<string | null>(null);
   const [ultima, setUltima] = useState<string | null>(null);
+  const [novoPedidoAberto, setNovoPedidoAberto] = useState(false);
+  const [produtos, setProdutos] = useState<Produto[]>([]);
+
+  const carregarProdutos = useCallback(async () => {
+    try {
+      const res = await fetch("/api/produtos", { cache: "no-store" });
+      if (res.ok) {
+        setProdutos((await res.json()) as Produto[]);
+      }
+    } catch {
+      // ignora
+    }
+  }, []);
 
   const carregar = useCallback(async () => {
     try {
@@ -140,6 +158,11 @@ export default function PedidosBoard() {
       window.clearInterval(id);
     };
   }, [carregar]);
+
+  useEffect(() => {
+    const id = window.setTimeout(() => void carregarProdutos(), 0);
+    return () => window.clearTimeout(id);
+  }, [carregarProdutos]);
 
   async function avancar(pedido: Pedido, status: StatusPedido) {
     try {
@@ -171,26 +194,33 @@ export default function PedidosBoard() {
     <main className="mx-auto max-w-7xl px-4 py-6">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="eyebrow">Cozinha e entrega</p>
+          <p className="eyebrow">Fila de pedidos</p>
           <h1 className="text-3xl font-black tracking-tight text-ink">
             Pedidos
           </h1>
           <p className="mt-1 text-sm text-amber-900/60">
-            Acompanhe os pedidos pagos, prepare e marque a entrega.
+            Registre pedidos, prepare os itens e marque quando estiverem prontos.
           </p>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="badge bg-brand-50 text-brand-700">
-            {ativos.length} em aberto
-          </span>
-          <button
-            type="button"
-            onClick={() => void carregar()}
-            className="btn-secondary px-3 py-1.5 text-xs"
-          >
-            Atualizar
-          </button>
-        </div>
+<div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setNovoPedidoAberto(true)}
+              className="btn-primary px-3 py-1.5 text-xs"
+            >
+              + Novo pedido
+            </button>
+            <span className="badge bg-brand-50 text-brand-700">
+              {ativos.length} em aberto
+            </span>
+            <button
+              type="button"
+              onClick={() => void carregar()}
+              className="btn-secondary px-3 py-1.5 text-xs"
+            >
+              Atualizar
+            </button>
+          </div>
       </header>
 
       {erro ? (
@@ -250,33 +280,44 @@ export default function PedidosBoard() {
         </div>
       )}
 
-      {entregues.length ? (
-        <section className="mt-5">
-          <details className="card p-4">
-            <summary className="cursor-pointer text-sm font-bold text-ink">
-              Entregues recentes ({entregues.length})
-            </summary>
-            <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-              {entregues.map((pedido) => (
-                <div
-                  key={pedido.id}
-                  className="flex items-center justify-between gap-2 rounded-xl border border-brand-50 bg-cream px-3 py-2 text-xs"
-                >
-                  <span className="font-bold text-ink">
-                    {numeroPedido(pedido.id)}
-                  </span>
-                  <span className="text-amber-900/50">
-                    {horaCurta(pedido.criadoEm)}
-                  </span>
-                  <span className="font-semibold text-brand-700">
-                    {brl(pedido.totalCentavos)}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </details>
-        </section>
-      ) : null}
+{entregues.length ? (
+          <section className="mt-5">
+            <details className="card p-4">
+              <summary className="cursor-pointer text-sm font-bold text-ink">
+                Entregues recentes ({entregues.length})
+              </summary>
+              <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                {entregues.map((pedido) => (
+                  <div
+                    key={pedido.id}
+                    className="flex items-center justify-between gap-2 rounded-xl border border-brand-50 bg-cream px-3 py-2 text-xs"
+                  >
+                    <span className="font-bold text-ink">
+                      {numeroPedido(pedido.id)}
+                    </span>
+                    <span className="text-amber-900/50">
+                      {horaCurta(pedido.criadoEm)}
+                    </span>
+                    <span className="font-semibold text-brand-700">
+                      {brl(pedido.totalCentavos)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </details>
+          </section>
+        ) : null}
+
+        {novoPedidoAberto ? (
+          <NovoPedido
+            produtos={produtos}
+            onFechar={() => setNovoPedidoAberto(false)}
+            onConcluido={() => {
+              setNovoPedidoAberto(false);
+              void carregar();
+            }}
+          />
+        ) : null}
     </main>
   );
 }

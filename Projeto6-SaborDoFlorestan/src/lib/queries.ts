@@ -1,7 +1,9 @@
 import type { Client } from "@libsql/client";
 import { db } from "./db";
 import type {
+  Cargo,
   Categoria,
+  Equipe,
   FormaPagamento,
   ItemPedido,
   Pedido,
@@ -21,8 +23,10 @@ const CATEGORIAS_VALIDAS: Categoria[] = [
 
 const FORMAS_VALIDAS: FormaPagamento[] = ["pix", "cartao", "dinheiro"];
 
+const CARGOS_VALIDOS: Cargo[] = ["caixa", "atendente", "garçon", "operador_cozinha"];
+
 const STATUS_VALIDOS: StatusPedido[] = [
-  "pago",
+  "novo",
   "preparando",
   "pronto",
   "entregue",
@@ -61,6 +65,18 @@ function mapItem(row: Record<string, unknown>): ItemPedido {
   };
 }
 
+function mapEquipe(row: Record<string, unknown>): Equipe {
+  return {
+    id: inteiro(row.id),
+    nome: texto(row.nome),
+    cargo: (texto(row.cargo) as Cargo) || "caixa",
+    codigoOperacao: texto(row.codigo_operacao) || null,
+    ativo: inteiro(row.ativo),
+    criadoEm: texto(row.criado_em),
+    atualizadoEm: texto(row.atualizado_em),
+  };
+}
+
 function mapPedido(
   row: Record<string, unknown>,
   itens: ItemPedido[],
@@ -82,7 +98,11 @@ function mapPedido(
         : null,
     valorRecebidoCentavos: inteiro(row.valor_recebido_centavos),
     trocoCentavos: inteiro(row.troco_centavos),
-    status: (texto(row.status) as StatusPedido) || "pago",
+    status: (texto(row.status) as StatusPedido) || "novo",
+    pago: inteiro(row.pago) === 1,
+    equipeId: row.equipe_id === null || row.equipe_id === undefined
+      ? null
+      : inteiro(row.equipe_id),
     criadoEm: texto(row.criado_em),
     atualizadoEm: texto(row.atualizado_em),
     itens,
@@ -338,11 +358,18 @@ export async function criarPedido(dados: unknown): Promise<Pedido> {
 
     const agora = new Date().toISOString();
 
+    const equipeId =
+      corpo.equipeId === undefined || corpo.equipeId === null
+        ? null
+        : inteiro(corpo.equipeId);
+
+    const pago = corpo.pago === true || inteiro(corpo.pago) === 1 ? 1 : 0;
+
     const resultado = await tx.execute({
       sql: `INSERT INTO pedidos
               (cliente, total_centavos, forma_pagamento, detalhe_pagamento,
-               valor_recebido_centavos, troco_centavos, status, criado_em, atualizado_em)
-            VALUES (?, ?, ?, ?, ?, ?, 'pago', ?, ?)`,
+               valor_recebido_centavos, troco_centavos, status, pago, criado_em, atualizado_em, equipe_id)
+            VALUES (?, ?, ?, ?, ?, ?, 'novo', ?, ?, ?, ?)`,
       args: [
         cliente,
         totalCentavos,
@@ -350,8 +377,10 @@ export async function criarPedido(dados: unknown): Promise<Pedido> {
         detalhe,
         valorRecebido,
         troco,
+        pago,
         agora,
         agora,
+        equipeId,
       ],
     });
 
@@ -450,6 +479,7 @@ export async function listarPedidos(): Promise<Pedido[]> {
 export async function atualizarStatus(
   id: number,
   status: unknown,
+  equipeId?: unknown,
 ): Promise<Pedido> {
   const statusValido = texto(status) as StatusPedido;
   if (!STATUS_VALIDOS.includes(statusValido)) {
@@ -457,9 +487,102 @@ export async function atualizarStatus(
   }
 
   const client = await db();
+  let equipeIdValido: number | null = null;
+  let atualizarEquipeId = false;
+
+  if (equipeId !== undefined) {
+    if (equipeId === null) {
+      equipeIdValido = null;
+      atualizarEquipeId = true;
+    } else {
+      const idEquipe = inteiro(equipeId);
+      if (idEquipe > 0) {
+        const equipe = await buscarEquipe(idEquipe);
+        if (!equipe || !CARGOS_VALIDOS.includes(equipe.cargo)) {
+          throw new Error("Equipe inválida.");
+        }
+        equipeIdValido = idEquipe;
+        atualizarEquipeId = true;
+      }
+    }
+  }
+
+  const sqlAtualizacao = atualizarEquipeId
+    ? `UPDATE pedidos SET status = ?, equipe_id = ?, atualizado_em = ? WHERE id = ?`
+    : `UPDATE pedidos SET status = ?, atualizado_em = ? WHERE id = ?`;
+  const argsAtualizacao = atualizarEquipeId
+    ? [statusValido, equipeIdValido, new Date().toISOString(), id]
+    : [statusValido, new Date().toISOString(), id];
+
   const resultado = await client.execute({
-    sql: "UPDATE pedidos SET status = ?, atualizado_em = ? WHERE id = ?",
-    args: [statusValido, new Date().toISOString(), id],
+    sql: sqlAtualizacao,
+    args: argsAtualizacao,
+  });
+
+  if (resultado.rowsAffected !== 1) {
+    throw new Error("Pedido não encontrado.");
+  }
+
+  const pedido = await buscarPedido(id);
+  if (!pedido) throw new Error("Pedido não encontrado.");
+  return pedido;
+}
+
+export async function finalizarPedido(
+  id: number,
+  dados: unknown,
+): Promise<Pedido> {
+  const corpo = (dados ?? {}) as Record<string, unknown>;
+  const client = await db();
+  const atual = await buscarPedido(id);
+  if (!atual) throw new Error("Pedido não encontrado.");
+  if (atual.status === "cancelado") throw new Error("Pedido cancelado.");
+  if (atual.status !== "pronto") {
+    throw new Error("O pedido ainda não está pronto para entrega.");
+  }
+
+  const agora = new Date().toISOString();
+
+  if (atual.pago) {
+    const resultado = await client.execute({
+      sql: `UPDATE pedidos SET status = 'entregue', atualizado_em = ? WHERE id = ?`,
+      args: [agora, id],
+    });
+    if (resultado.rowsAffected !== 1) {
+      throw new Error("Pedido não encontrado.");
+    }
+    const pedido = await buscarPedido(id);
+    if (!pedido) throw new Error("Pedido não encontrado.");
+    return pedido;
+  }
+
+  const formaPagamento = texto(corpo.formaPagamento) as FormaPagamento;
+  if (!FORMAS_VALIDAS.includes(formaPagamento)) {
+    throw new Error("Forma de pagamento inválida.");
+  }
+
+  const detalhe =
+    texto(corpo.detalhePagamento).slice(0, 30) ||
+    (formaPagamento === "cartao" ? "cartao" : formaPagamento);
+
+  const total = atual.totalCentavos;
+  let valorRecebido = total;
+  let troco = 0;
+
+  if (formaPagamento === "dinheiro") {
+    valorRecebido = inteiro(corpo.valorRecebidoCentavos);
+    if (valorRecebido < total) {
+      throw new Error("Valor recebido insuficiente.");
+    }
+    troco = valorRecebido - total;
+  }
+
+  const resultado = await client.execute({
+    sql: `UPDATE pedidos
+            SET status = 'entregue', pago = 1, forma_pagamento = ?, detalhe_pagamento = ?,
+                valor_recebido_centavos = ?, troco_centavos = ?, atualizado_em = ?
+          WHERE id = ?`,
+    args: [formaPagamento, detalhe, valorRecebido, troco, agora, id],
   });
 
   if (resultado.rowsAffected !== 1) {
@@ -538,6 +661,112 @@ export async function resetarVendas(): Promise<void> {
     await tx.execute("DELETE FROM pedido_itens");
     await tx.execute("DELETE FROM pedidos");
     await tx.execute("UPDATE produtos SET estoque = 30");
+    await tx.commit();
+  } catch (erro) {
+    await tx.rollback();
+    throw erro;
+  }
+}
+
+export async function listarEquipes(): Promise<Equipe[]> {
+  const client = await db();
+  const { rows } = await client.execute(
+    "SELECT * FROM equipes ORDER BY cargo, nome",
+  );
+  return rows.map((row) => mapEquipe(row as Record<string, unknown>));
+}
+
+export async function buscarEquipe(id: number): Promise<Equipe | null> {
+  const client = await db();
+  const { rows } = await client.execute({
+    sql: "SELECT * FROM equipes WHERE id = ?",
+    args: [id],
+  });
+  if (!rows.length) return null;
+  return mapEquipe(rows[0] as Record<string, unknown>);
+}
+
+type EquipeEntrada = {
+  nome: string;
+  cargo: Cargo;
+  ativo: number;
+  codigoOperacao: string | null;
+};
+
+function validarEquipe(dados: Record<string, unknown>, atual?: Equipe): EquipeEntrada {
+  const nome = texto(dados.nome, atual?.nome ?? "").slice(0, 80);
+  if (!nome) throw new Error("Informe o nome da equipe.");
+
+  const cargo = texto(
+    dados.cargo,
+    atual?.cargo ?? "caixa",
+  ) as Cargo;
+  if (!CARGOS_VALIDOS.includes(cargo)) {
+    throw new Error("Cargo inválido.");
+  }
+
+  const ativo =
+    dados.ativo === undefined
+      ? atual?.ativo ?? 1
+      : inteiro(dados.ativo)
+        ? 1
+        : 0;
+
+  const codigoOperacao =
+    texto(dados.codigoOperacao, atual?.codigoOperacao ?? "") || null;
+
+  return { nome, cargo, ativo, codigoOperacao };
+}
+
+export async function criarEquipe(dados: unknown): Promise<Equipe> {
+  const registro = (dados ?? {}) as Record<string, unknown>;
+  const equipe = validarEquipe(registro);
+  const client = await db();
+
+  const agora = new Date().toISOString();
+  const resultado = await client.execute({
+    sql: `INSERT INTO equipes (nome, cargo, codigo_operacao, ativo, criado_em, atualizado_em)
+          VALUES (?, ?, ?, ?, ?, ?)`,
+    args: [equipe.nome, equipe.cargo, equipe.codigoOperacao, equipe.ativo, agora, agora],
+  });
+
+  const criado = await buscarEquipe(Number(resultado.lastInsertRowid));
+  if (!criado) throw new Error("Não foi possível criar a equipe.");
+  return criado;
+}
+
+export async function atualizarEquipe(
+  id: number,
+  dados: unknown,
+): Promise<Equipe> {
+  const client = await db();
+  const atual = await buscarEquipe(id);
+  if (!atual) throw new Error("Equipe não encontrada.");
+
+  const equipe = validarEquipe((dados ?? {}) as Record<string, unknown>, atual);
+  const agora = new Date().toISOString();
+
+  await client.execute({
+    sql: `UPDATE equipes
+          SET nome = ?, cargo = ?, ativo = ?, atualizado_em = ?
+          WHERE id = ?`,
+    args: [equipe.nome, equipe.cargo, equipe.ativo, agora, id],
+  });
+
+  const atualizado = await buscarEquipe(id);
+  if (!atualizado) throw new Error("Equipe não encontrada.");
+  return atualizado;
+}
+
+export async function removerEquipe(id: number): Promise<void> {
+  const client = await db();
+  const tx = await client.transaction("write");
+
+  try {
+    const equipe = await buscarEquipe(id);
+    if (!equipe) throw new Error("Equipe não encontrada.");
+
+    await tx.execute({ sql: "DELETE FROM equipes WHERE id = ?", args: [id] });
     await tx.commit();
   } catch (erro) {
     await tx.rollback();

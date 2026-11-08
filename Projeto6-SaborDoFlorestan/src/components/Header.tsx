@@ -1,17 +1,31 @@
+"use client";
+
 import Link from "next/link";
+import ModoSelector from "@/components/ModoSelector";
+import { useSession } from "@/components/SessionProvider";
 
 const LINKS = [
-  { href: "/", rotulo: "Caixa" },
   { href: "/pedidos", rotulo: "Pedidos" },
-  { href: "/admin", rotulo: "Gestão" },
+  { href: "/caixa", rotulo: "Caixa" },
   { href: "/cardapio", rotulo: "Cardápio" },
+  { href: "/admin", rotulo: "Gestão" },
+  { href: "/admin/equipes", rotulo: "Equipes" },
 ];
 
 export default function Header() {
+  const { sessao } = useSession();
+  const semCaixa =
+    sessao.modo === "operador" || sessao.modo === "atendente";
+  const links = LINKS.filter((link) => {
+    if (semCaixa && link.href === "/caixa") return false;
+    if (link.href === "/admin/equipes" && sessao.modo !== "caixa") return false;
+    return true;
+  });
+
   return (
     <header className="no-print sticky top-0 z-40 border-b border-brand-100 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3">
-        <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Sabor do Florestan, caixa">
+        <Link href="/pedidos" className="flex shrink-0 items-center gap-2" aria-label="Sabor do Florestan, pedidos">
           <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-600 text-sm font-black text-white">
             SF
           </span>
@@ -25,7 +39,7 @@ export default function Header() {
           </span>
         </Link>
         <nav aria-label="Navegação principal" className="ml-auto flex items-center gap-1 overflow-x-auto">
-          {LINKS.map((link) => (
+          {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -35,9 +49,12 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-        <span className="hidden badge bg-brand-50 text-brand-700 lg:inline-flex">
-          Pix · Cartão · Dinheiro
-        </span>
+        <div className="flex items-center gap-2">
+          <span className="hidden badge bg-brand-50 text-brand-700 lg:inline-flex">
+            Pix · Cartão · Dinheiro
+          </span>
+          <ModoSelector />
+        </div>
       </div>
     </header>
   );

@@ -20,8 +20,8 @@ export default async function CardapioPage() {
         <BotaoImprimir />
       </div>
 
-      <header className="text-center">
-        <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-brand-600 text-lg font-black text-white">
+      <header className="cardapio-header text-center">
+        <span className="cardapio-logo mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-brand-600 text-lg font-black text-white">
           SF
         </span>
         <h1 className="mt-3 text-3xl font-black tracking-tight text-ink">
@@ -35,7 +35,7 @@ export default async function CardapioPage() {
         </p>
       </header>
 
-      <div className="mt-6 space-y-5">
+      <div className="cardapio-lista mt-6 flex flex-col gap-5">
         {CATEGORIAS.map((categoria) => {
           const itens = produtos.filter(
             (produto) => produto.categoria === categoria,
@@ -43,26 +43,26 @@ export default async function CardapioPage() {
           if (!itens.length) return null;
 
           return (
-            <section key={categoria} className="card p-5">
+            <section key={categoria} className="cardapio-categoria card p-5">
               <h2 className="text-lg font-black text-ink">{categoria}</h2>
-              <div className="mt-3 space-y-1">
+              <div className="cardapio-itens mt-3 grid grid-cols-1 gap-1">
                 {itens.map((produto) => (
                   <div
                     key={produto.id}
-                    className="flex items-start justify-between gap-3 border-b border-brand-50 py-2 last:border-0"
+                    className="cardapio-item flex items-start justify-between gap-3 border-b border-brand-50 py-2 last:border-0"
                   >
                     <div className="flex min-w-0 gap-3">
-                      <span className="text-2xl">{produto.emoji}</span>
+                      <span className="cardapio-emoji text-2xl">{produto.emoji}</span>
                       <div>
-                        <p className="text-sm font-bold text-ink">
+                        <p className="cardapio-nome text-sm font-bold text-ink">
                           {produto.nome}
                         </p>
-                        <p className="text-xs text-amber-900/60">
+                        <p className="cardapio-desc text-xs text-amber-900/60">
                           {produto.descricao}
                         </p>
                       </div>
                     </div>
-                    <p className="shrink-0 text-sm font-black text-brand-700">
+                    <p className="cardapio-preco shrink-0 text-sm font-black text-brand-700">
                       {brl(produto.precoCentavos)}
                     </p>
                   </div>
@@ -73,7 +73,7 @@ export default async function CardapioPage() {
         })}
       </div>
 
-      <p className="mt-6 text-center text-xs text-amber-900/50">
+      <p className="cardapio-nota mt-6 text-center text-xs text-amber-900/50">
         Preços em reais. O cardápio pode mudar conforme a disponibilidade.
       </p>
     </main>
