@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "@/components/SessionProvider";
 import type { ModoOperacao } from "@/lib/types";
@@ -14,18 +14,16 @@ export default function RequireOperador({
   modos = ["caixa", "atendente", "operador"],
   children,
 }: RequireOperadorProps) {
-  const { sessao } = useSession();
+  const { sessao, carregado } = useSession();
   const router = useRouter();
-  const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
-    if (!carregando && sessao.modo === "cliente") {
+    if (carregado && sessao.modo === "cliente") {
       router.push("/");
     }
-    setCarregando(false);
-  }, [sessao.modo, router, carregando]);
+  }, [carregado, sessao.modo, router]);
 
-  if (carregando) {
+  if (!carregado) {
     return null;
   }
 

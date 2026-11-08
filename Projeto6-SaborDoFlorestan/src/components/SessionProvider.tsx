@@ -9,7 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import type { Cargo, Equipe, ModoOperacao, Sessao } from "@/lib/types";
+import type { Equipe, ModoOperacao, Sessao } from "@/lib/types";
 
 type SessionContextType = {
   sessao: Sessao;
@@ -33,17 +33,23 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   const [carregado, setCarregado] = useState(false);
 
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem(SESSAO_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw) as Sessao;
-        setSessao(parsed);
+    let cancelado = false;
+    const id = window.setTimeout(() => {
+      try {
+        const raw = localStorage.getItem(SESSAO_KEY);
+        if (raw && !cancelado) {
+          setSessao(JSON.parse(raw) as Sessao);
+        }
+      } catch {
+        // Ignorar erro de parse
+      } finally {
+        if (!cancelado) setCarregado(true);
       }
-    } catch {
-      // Ignorar erro de parse
-    } finally {
-      setCarregado(true);
-    }
+    }, 0);
+    return () => {
+      cancelado = true;
+      window.clearTimeout(id);
+    };
   }, []);
 
   useEffect(() => {
