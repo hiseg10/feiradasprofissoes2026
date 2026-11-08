@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Checkout from "./Checkout";
 import { brl, numeroPedido, rotuloPagamento } from "@/lib/format";
@@ -17,7 +17,9 @@ export default function Pdv({ produtos }: { produtos: Produto[] }) {
   const [categoria, setCategoria] = useState<string>("Todos");
   const [busca, setBusca] = useState("");
   const [checkoutAberto, setCheckoutAberto] = useState(false);
+  const [carrinhoAberto, setCarrinhoAberto] = useState(false);
   const [pedidoConcluido, setPedidoConcluido] = useState<Pedido | null>(null);
+  const produtosRef = useRef<HTMLDivElement | null>(null);
 
   const itens = useMemo<ItemCarrinho[]>(() => {
     return Object.entries(carrinho)
@@ -81,15 +83,122 @@ export default function Pdv({ produtos }: { produtos: Produto[] }) {
     setCarrinho({});
   }
 
+  function selecionarCategoria(item: string) {
+    setCategoria(item);
+    requestAnimationFrame(() => {
+      produtosRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  }
+
+  function abrirCheckout() {
+    setCarrinhoAberto(false);
+    setCheckoutAberto(true);
+  }
+
   function concluir(pedido: Pedido) {
     setPedidoConcluido(pedido);
     setCarrinho({});
     setCheckoutAberto(false);
+    setCarrinhoAberto(false);
     router.refresh();
   }
 
+  const conteudoCarrinho = itens.length ? (
+    <>
+      <div className="mt-3 max-h-[45vh] space-y-2 overflow-y-auto pr-1">
+        {itens.map(({ produto, quantidade }) => (
+          <div
+            key={produto.id}
+            className="rounded-xl border border-brand-100 bg-cream p-2"
+          >
+            <div className="flex items-start gap-2">
+              <span className="text-xl">{produto.emoji}</span>
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-xs font-bold text-ink">
+                  {produto.nome}
+                </p>
+                <p className="text-[10px] text-amber-900/60">
+                  {brl(produto.precoCentavos)} cada
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => remover(produto)}
+                className="text-xs font-bold text-red-500"
+                aria-label={`Remover ${produto.nome}`}
+              >
+                ×
+              </button>
+            </div>
+            <div className="mt-2 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => diminuir(produto)}
+                  className="flex h-6 w-6 items-center justify-center rounded-md border border-brand-200 bg-white text-sm font-bold text-brand-700"
+                  aria-label={`Diminuir ${produto.nome}`}
+                >
+                  −
+                </button>
+                <span className="text-xs font-bold text-ink">{quantidade}</span>
+                <button
+                  type="button"
+                  onClick={() => adicionar(produto)}
+                  disabled={quantidade >= produto.estoque}
+                  className="flex h-6 w-6 items-center justify-center rounded-md border border-brand-200 bg-white text-sm font-bold text-brand-700 disabled:opacity-40"
+                  aria-label={`Aumentar ${produto.nome}`}
+                >
+                  +
+                </button>
+              </div>
+              <span className="text-xs font-bold text-brand-700">
+                {brl(produto.precoCentavos * quantidade)}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-3 border-t border-brand-100 pt-3">
+        <div className="flex justify-between text-sm">
+          <span className="text-amber-900/60">Subtotal</span>
+          <span className="font-bold text-ink">{brl(totalCentavos)}</span>
+        </div>
+        <div className="mt-1 flex justify-between text-base font-black">
+          <span className="text-ink">Total</span>
+          <span className="text-brand-700">{brl(totalCentavos)}</span>
+        </div>
+        <button
+          type="button"
+          onClick={abrirCheckout}
+          className="btn-primary mt-3 w-full"
+        >
+          Cobrar {brl(totalCentavos)}
+        </button>
+        <button
+          type="button"
+          onClick={limpar}
+          className="mt-2 w-full text-center text-xs font-semibold text-amber-900/50 hover:text-red-600"
+        >
+          Limpar carrinho
+        </button>
+      </div>
+    </>
+  ) : (
+    <div className="py-8 text-center">
+      <p className="text-3xl">🛒</p>
+      <p className="mt-2 text-sm font-semibold text-ink">Carrinho vazio</p>
+      <p className="mt-1 text-xs text-amber-900/60">
+        Toque nos produtos para começar.
+      </p>
+    </div>
+  );
+
   return (
-    <main className="mx-auto max-w-7xl px-4 py-6">
+    <main className="mx-auto max-w-7xl px-4 pb-24 pt-6 lg:pb-6">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="eyebrow">Caixa</p>
@@ -105,7 +214,7 @@ export default function Pdv({ produtos }: { produtos: Produto[] }) {
 
       <div className="mt-5 grid gap-5 lg:grid-cols-[1fr_360px]">
         <section>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="sticky top-16 z-30 -mx-4 flex flex-col gap-3 bg-cream/95 px-4 py-2 backdrop-blur sm:static sm:mx-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none">
             <input
               className="input flex-1"
               placeholder="Buscar no cardápio..."
@@ -118,7 +227,7 @@ export default function Pdv({ produtos }: { produtos: Produto[] }) {
                 <button
                   key={item}
                   type="button"
-                  onClick={() => setCategoria(item)}
+                  onClick={() => selecionarCategoria(item)}
                   className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-semibold transition ${
                     categoria === item
                       ? "bg-brand-600 text-white"
@@ -131,6 +240,7 @@ export default function Pdv({ produtos }: { produtos: Produto[] }) {
             </div>
           </div>
 
+          <div ref={produtosRef} className="scroll-mt-48">
           {produtosFiltrados.length ? (
             <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {produtosFiltrados.map((produto) => {
@@ -219,112 +329,69 @@ export default function Pdv({ produtos }: { produtos: Produto[] }) {
               </p>
             </div>
           )}
+          </div>
         </section>
 
-        <aside className="card h-fit p-4 lg:sticky lg:top-24">
+        <aside className="card hidden h-fit p-4 lg:sticky lg:top-24 lg:block">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-bold text-ink">Carrinho</h2>
             <span className="badge bg-brand-50 text-brand-700">
               {totalItens} {totalItens === 1 ? "item" : "itens"}
             </span>
           </div>
-
-          {itens.length ? (
-            <>
-              <div className="mt-3 max-h-[45vh] space-y-2 overflow-y-auto pr-1">
-                {itens.map(({ produto, quantidade }) => (
-                  <div
-                    key={produto.id}
-                    className="rounded-xl border border-brand-100 bg-cream p-2"
-                  >
-                    <div className="flex items-start gap-2">
-                      <span className="text-xl">{produto.emoji}</span>
-                      <div className="min-w-0 flex-1">
-                        <p className="truncate text-xs font-bold text-ink">
-                          {produto.nome}
-                        </p>
-                        <p className="text-[10px] text-amber-900/60">
-                          {brl(produto.precoCentavos)} cada
-                        </p>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => remover(produto)}
-                        className="text-xs font-bold text-red-500"
-                        aria-label={`Remover ${produto.nome}`}
-                      >
-                        ×
-                      </button>
-                    </div>
-                    <div className="mt-2 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <button
-                          type="button"
-                          onClick={() => diminuir(produto)}
-                          className="flex h-6 w-6 items-center justify-center rounded-md border border-brand-200 bg-white text-sm font-bold text-brand-700"
-                          aria-label={`Diminuir ${produto.nome}`}
-                        >
-                          −
-                        </button>
-                        <span className="text-xs font-bold text-ink">
-                          {quantidade}
-                        </span>
-                        <button
-                          type="button"
-                          onClick={() => adicionar(produto)}
-                          disabled={quantidade >= produto.estoque}
-                          className="flex h-6 w-6 items-center justify-center rounded-md border border-brand-200 bg-white text-sm font-bold text-brand-700 disabled:opacity-40"
-                          aria-label={`Aumentar ${produto.nome}`}
-                        >
-                          +
-                        </button>
-                      </div>
-                      <span className="text-xs font-bold text-brand-700">
-                        {brl(produto.precoCentavos * quantidade)}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-3 border-t border-brand-100 pt-3">
-                <div className="flex justify-between text-sm">
-                  <span className="text-amber-900/60">Subtotal</span>
-                  <span className="font-bold text-ink">{brl(totalCentavos)}</span>
-                </div>
-                <div className="mt-1 flex justify-between text-base font-black">
-                  <span className="text-ink">Total</span>
-                  <span className="text-brand-700">{brl(totalCentavos)}</span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setCheckoutAberto(true)}
-                  className="btn-primary mt-3 w-full"
-                >
-                  Cobrar {brl(totalCentavos)}
-                </button>
-                <button
-                  type="button"
-                  onClick={limpar}
-                  className="mt-2 w-full text-center text-xs font-semibold text-amber-900/50 hover:text-red-600"
-                >
-                  Limpar carrinho
-                </button>
-              </div>
-            </>
-          ) : (
-            <div className="py-8 text-center">
-              <p className="text-3xl">🛒</p>
-              <p className="mt-2 text-sm font-semibold text-ink">
-                Carrinho vazio
-              </p>
-              <p className="mt-1 text-xs text-amber-900/60">
-                Toque nos produtos ao lado para começar.
-              </p>
-            </div>
-          )}
+          {conteudoCarrinho}
         </aside>
       </div>
+
+      {carrinhoAberto ? (
+        <div
+          className="fixed inset-0 z-50 flex items-end justify-center bg-ink/60 p-4 lg:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Carrinho"
+          onClick={() => setCarrinhoAberto(false)}
+        >
+          <div
+            className="card max-h-[85vh] w-full max-w-lg overflow-y-auto p-4"
+            onClick={(evento) => evento.stopPropagation()}
+          >
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <h2 className="text-sm font-bold text-ink">Carrinho</h2>
+                <span className="badge bg-brand-50 text-brand-700">
+                  {totalItens} {totalItens === 1 ? "item" : "itens"}
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setCarrinhoAberto(false)}
+                className="text-xs font-bold text-amber-900/60"
+              >
+                Fechar
+              </button>
+            </div>
+            {conteudoCarrinho}
+          </div>
+        </div>
+      ) : null}
+
+      {!checkoutAberto && !pedidoConcluido ? (
+        <button
+          type="button"
+          onClick={() => setCarrinhoAberto(true)}
+          className="fixed bottom-4 left-4 right-4 z-40 flex items-center justify-between rounded-2xl bg-brand-600 px-4 py-3 text-white shadow-lg lg:hidden"
+          aria-label="Abrir carrinho"
+          aria-expanded={carrinhoAberto}
+        >
+          <span className="flex items-center gap-2 text-sm font-bold">
+            🛒 Carrinho
+            <span className="rounded-full bg-white/20 px-2 py-0.5 text-xs">
+              {totalItens}
+            </span>
+          </span>
+          <span className="text-sm font-black">{brl(totalCentavos)}</span>
+        </button>
+      ) : null}
 
       {checkoutAberto ? (
         <Checkout
