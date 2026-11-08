@@ -29,6 +29,16 @@ declare global {
 
 let carregandoSdk: Promise<void> | null = null;
 
+function descreverErro(error: unknown): string {
+  if (error instanceof Error) return error.message;
+  if (typeof error === "string") return error;
+  try {
+    return JSON.stringify(error);
+  } catch {
+    return "erro desconhecido";
+  }
+}
+
 function carregarSdk(): Promise<void> {
   if (typeof window === "undefined") return Promise.resolve();
   if (window.MercadoPago) return Promise.resolve();
@@ -61,6 +71,7 @@ export default function PagamentoOnline({
   onAprovado: (pedido: Pedido) => void;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const controllerRef = useRef<{ unmount?: () => void } | null>(null);
   const dadosRef = useRef({ totalCentavos, pedidoId, itens, cliente });
   const aprovadoRef = useRef(onAprovado);
 
@@ -93,28 +104,27 @@ export default function PagamentoOnline({
         const mp = new window.MercadoPago(publicKey, { locale: "pt-BR" });
         const bricks = mp.bricks();
 
-        await bricks.create("payment", "mp-payment-brick", {
+        const controller = await bricks.create("payment", "mp-payment-brick", {
           initialization: {
             amount: dadosRef.current.totalCentavos / 100,
-            payer: {},
-          },
-          customization: {
-            paymentMethods: {
-              creditCard: "all",
-              debitCard: "all",
-              bankTransfer: "none",
-              ticket: "none",
-              atm: "none",
-            },
           },
           callbacks: {
             onReady: () => {
               if (!cancelado) setPronto(true);
             },
-            onError: () => {
-              if (!cancelado) setErro("Erro no formulário de pagamento.");
+            onError: (error: unknown) => {
+              console.error("Mercado Pago Brick:", error);
+              if (!cancelado) {
+                setErro(
+                  `Erro no formulário de pagamento: ${descreverErro(error)}`,
+                );
+              }
             },
-            onSubmit: async (formData: unknown) => {
+            onSubmit: async ({
+              formData,
+            }: {
+              formData: unknown;
+            }) => {
               setProcessando(true);
               setErro(null);
               try {
@@ -149,6 +159,9 @@ export default function PagamentoOnline({
             },
           },
         });
+
+        controllerRef.current =
+          controller as { unmount?: () => void } | null;
       } catch (falha) {
         if (!cancelado) {
           setErro(
@@ -162,6 +175,8 @@ export default function PagamentoOnline({
 
     return () => {
       cancelado = true;
+      controllerRef.current?.unmount?.();
+      controllerRef.current = null;
     };
   }, [publicKey]);
 
