@@ -5,6 +5,8 @@
 ## Conteúdo
 
 - [Tarefas pendentes](./TAREFAS.md) — o que ainda falta fazer, com prioridades e responsáveis.
+- [Git: do commit ao deploy](./git-fluxo-de-trabalho.md) — tutorial do fluxo de branches, PR, CI e merge.
+- [Configuração de pagamentos](./configuracao-pagamentos.md) — Pix, cartão/maquininha, dinheiro e o que é necessário para Google Pay.
 - [Design da feira](./design/README.md) — identidade visual, peças, medidas, materiais e montagem.
 - [Identidade visual](./design/identidade-visual.md) — paleta, tipografia e regras de uso.
 - [Banner central](./design/pecas/banner-central.md)
