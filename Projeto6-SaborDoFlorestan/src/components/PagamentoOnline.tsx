@@ -29,6 +29,16 @@ declare global {
 
 let carregandoSdk: Promise<void> | null = null;
 
+function descreverErro(error: unknown): string {
+  if (error instanceof Error) return error.message;
+  if (typeof error === "string") return error;
+  try {
+    return JSON.stringify(error);
+  } catch {
+    return "erro desconhecido";
+  }
+}
+
 function carregarSdk(): Promise<void> {
   if (typeof window === "undefined") return Promise.resolve();
   if (window.MercadoPago) return Promise.resolve();
@@ -105,7 +115,9 @@ export default function PagamentoOnline({
             onError: (error: unknown) => {
               console.error("Mercado Pago Brick:", error);
               if (!cancelado) {
-                setErro("Erro no formulário de pagamento. Veja o console.");
+                setErro(
+                  `Erro no formulário de pagamento: ${descreverErro(error)}`,
+                );
               }
             },
             onSubmit: async ({
