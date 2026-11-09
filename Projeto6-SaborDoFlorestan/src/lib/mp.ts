@@ -34,16 +34,33 @@ export function mpConfigurado(): boolean {
 }
 
 export function infoMp() {
-  const token = tokenAtivo();
-  const publicKey = publicKeyAtiva();
+  const tokenTest = process.env.MP_ACCESS_TOKEN_TEST?.trim();
+  const tokenProd = process.env.MP_ACCESS_TOKEN?.trim();
+  const pubTest = process.env.NEXT_PUBLIC_MP_PUBLIC_KEY_TEST?.trim();
+  const pubProd = process.env.NEXT_PUBLIC_MP_PUBLIC_KEY?.trim();
+
   return {
     vercelEnv: process.env.VERCEL_ENV ?? process.env.NODE_ENV ?? null,
-    temAccessToken: Boolean(token),
-    accessTokenPrefixo: token ? token.slice(0, 8) : null,
-    accessTokenTamanho: token?.length ?? 0,
-    temPublicKey: Boolean(publicKey),
-    publicKeyPrefixo: publicKey ? publicKey.slice(0, 8) : null,
-    publicKeyTamanho: publicKey?.length ?? 0,
+    usandoTokenDeTeste: Boolean(tokenTest),
+    tokenTeste: {
+      prefixo: tokenTest ? tokenTest.slice(0, 8) : null,
+      tamanho: tokenTest?.length ?? 0,
+    },
+    tokenProducao: {
+      prefixo: tokenProd ? tokenProd.slice(0, 8) : null,
+      tamanho: tokenProd?.length ?? 0,
+    },
+    tokensIguais: Boolean(tokenTest && tokenProd && tokenTest === tokenProd),
+    usandoPublicKeyDeTeste: Boolean(pubTest),
+    publicKeyTeste: {
+      prefixo: pubTest ? pubTest.slice(0, 8) : null,
+      tamanho: pubTest?.length ?? 0,
+    },
+    publicKeyProducao: {
+      prefixo: pubProd ? pubProd.slice(0, 8) : null,
+      tamanho: pubProd?.length ?? 0,
+    },
+    publicKeysIguais: Boolean(pubTest && pubProd && pubTest === pubProd),
   };
 }
 
