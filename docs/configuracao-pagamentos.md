@@ -143,34 +143,34 @@ diferentes. Para aceitar Google Pay é obrigatório contratar um gateway/PSP.
 Esse fluxo exige backend (rotas de API) e cadastro no gateway; não é possível
 apenas com HTML/JS no cliente.
 
-### Ponto de atenção: app nativo × site
+### Resultado do teste real (Payment Brick do Mercado Pago)
 
-Gateways como Stripe, Adyen, Mercado Pago e PagBank costumam oferecer Google Pay
-por meio do **SDK do próprio gateway** — não é preciso implementar a tokenização
-do Google manualmente. Porém isso varia por:
+No teste do Sabor do Florestan com a conta `SaborFlorestan2026`, o Payment Brick
+exibiu apenas:
 
-- **canal**: SDK de app nativo (Android/Flutter/React Native) é diferente do SDK
-  **web** (o nosso caso, site aberto no Chrome do celular);
-- **país e produto**: o Google Pay precisa estar habilitado para o Brasil no
-  produto de checkout usado.
+- **Cartão de crédito**
+- **Cartão de Débito Virtual CAIXA**
 
-Na documentação pública do checkout **web** do Mercado Pago (Bricks/Checkout
-API), os meios listados são cartão, Pix, boleto e débito virtual Caixa — o
-**Google Pay não aparece**. Antes de escolher o Mercado Pago para esse fim,
-confirme no painel/suporte se o Google Pay está disponível para **site no
-Brasil**. Se não estiver, use um gateway que documente Google Pay para web
-(ex.: Stripe) ou deixe o Google Pay de fora.
+O **Google Pay não apareceu**. Ou seja: no checkout **web** do Mercado Pago, o
+Google Pay não está disponível para esta conta/produto. Não é um problema do
+código — é o conjunto de meios que o MP retorna.
+
+Importante: o Google Pay **continua disponível no presencial**, via **Point
+Tap**: o celular do caixa (app do MP) aceita Google Pay/Samsung Pay/Apple Pay
+por aproximação. Então o cliente pode pagar com Google Pay na feira, só não pela
+página do site.
 
 > O Google **não cobra taxa** do lojista pelo Google Pay. A taxa é a normal do
 > gateway sobre a transação de cartão.
 
 ### Opções para a feira
 
-- **Sem gateway:** manter Pix + cartão na maquininha + dinheiro. É o caminho mais
-  simples e sem custo de integração.
-- **Com gateway (Google Pay de verdade):** escolher um gateway que suporte
-  Google Pay **para web no Brasil**, criar conta, pegar as chaves de **teste** e
-  implementar o fluxo acima. Leva tempo e depende de aprovação da conta.
+- **Recomendado (só Mercado Pago):** Pix + cartão online + Point Tap (NFC) +
+  dinheiro. Sem Google Pay no site; Google Pay aceito no presencial via Point
+  Tap.
+- **Google Pay também no site:** precisa de um **segundo gateway** que suporte
+  Google Pay para web no Brasil (ex.: Stripe), com conta e credenciais próprias.
+  Isso adiciona mais uma integração e conciliação de valores.
 - **Somente Android:** se o objetivo for só Android, o Google Pay também pode ser
   oferecido pelo SDK do gateway no app; mas o nosso caso é site.
 
