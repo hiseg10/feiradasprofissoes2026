@@ -41,7 +41,10 @@ export default function Checkout({
   onFechar: () => void;
   onConcluido: (pedido: Pedido) => void;
 }) {
-  const mpPublicKey = process.env.NEXT_PUBLIC_MP_PUBLIC_KEY ?? "";
+  const mpPublicKey =
+    process.env.NEXT_PUBLIC_MP_PUBLIC_KEY_TEST ??
+    process.env.NEXT_PUBLIC_MP_PUBLIC_KEY ??
+    "";
   const metodosDisponiveis = metodos.filter(
     (metodo) => metodo !== "cartao_online" || Boolean(mpPublicKey),
   );

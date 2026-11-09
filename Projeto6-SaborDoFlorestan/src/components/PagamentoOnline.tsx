@@ -79,7 +79,10 @@ export default function PagamentoOnline({
   const [processando, setProcessando] = useState(false);
   const [pronto, setPronto] = useState(false);
 
-  const publicKey = process.env.NEXT_PUBLIC_MP_PUBLIC_KEY ?? "";
+  const publicKey =
+    process.env.NEXT_PUBLIC_MP_PUBLIC_KEY_TEST ??
+    process.env.NEXT_PUBLIC_MP_PUBLIC_KEY ??
+    "";
 
   useEffect(() => {
     dadosRef.current = { totalCentavos, pedidoId, itens, cliente };
