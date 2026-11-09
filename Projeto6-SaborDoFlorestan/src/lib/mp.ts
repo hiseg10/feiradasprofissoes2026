@@ -13,8 +13,38 @@ export type MpFormData = {
   };
 };
 
+export function tokenAtivo(): string | undefined {
+  return (
+    process.env.MP_ACCESS_TOKEN_TEST?.trim() ||
+    process.env.MP_ACCESS_TOKEN?.trim() ||
+    undefined
+  );
+}
+
+export function publicKeyAtiva(): string {
+  return (
+    process.env.NEXT_PUBLIC_MP_PUBLIC_KEY_TEST?.trim() ||
+    process.env.NEXT_PUBLIC_MP_PUBLIC_KEY?.trim() ||
+    ""
+  );
+}
+
 export function mpConfigurado(): boolean {
-  return Boolean(process.env.MP_ACCESS_TOKEN?.trim());
+  return Boolean(tokenAtivo());
+}
+
+export function infoMp() {
+  const token = tokenAtivo();
+  const publicKey = publicKeyAtiva();
+  return {
+    vercelEnv: process.env.VERCEL_ENV ?? process.env.NODE_ENV ?? null,
+    temAccessToken: Boolean(token),
+    accessTokenPrefixo: token ? token.slice(0, 8) : null,
+    accessTokenTamanho: token?.length ?? 0,
+    temPublicKey: Boolean(publicKey),
+    publicKeyPrefixo: publicKey ? publicKey.slice(0, 8) : null,
+    publicKeyTamanho: publicKey?.length ?? 0,
+  };
 }
 
 export async function criarPagamentoMP(opcoes: {
@@ -22,7 +52,7 @@ export async function criarPagamentoMP(opcoes: {
   valorCentavos: number;
   descricao: string;
 }): Promise<{ aprovado: boolean; status: string; detalhe: string }> {
-  const token = process.env.MP_ACCESS_TOKEN?.trim();
+  const token = tokenAtivo();
   if (!token) {
     throw new Error("Mercado Pago não configurado (MP_ACCESS_TOKEN).");
   }
@@ -62,7 +92,10 @@ export async function criarPagamentoMP(opcoes: {
   };
 
   if (!resposta.ok) {
-    throw new Error(dados.message ?? "Falha ao processar o pagamento.");
+    console.error("Mercado Pago /v1/payments", resposta.status, dados);
+    throw new Error(
+      `Mercado Pago ${resposta.status}: ${dados.message ?? "falha ao cobrar"}`,
+    );
   }
 
   const status = dados.status ?? "unknown";
