@@ -41,14 +41,26 @@ export default function Checkout({
   onFechar: () => void;
   onConcluido: (pedido: Pedido) => void;
 }) {
-  const mpPublicKey =
-    process.env.NEXT_PUBLIC_MP_PUBLIC_KEY_TEST ??
-    process.env.NEXT_PUBLIC_MP_PUBLIC_KEY ??
-    "";
+  const [mpPublicKey, setMpPublicKey] = useState("");
   const metodosDisponiveis = metodos.filter(
     (metodo) => metodo !== "cartao_online" || Boolean(mpPublicKey),
   );
   const inicial = metodosDisponiveis[0] ?? "pix";
+
+  useEffect(() => {
+    let ativo = true;
+    fetch("/api/mp/config", { cache: "no-store" })
+      .then((resposta) => resposta.json())
+      .then((dados: { publicKey?: string }) => {
+        if (ativo) setMpPublicKey(dados.publicKey ?? "");
+      })
+      .catch(() => {
+        // sem Mercado Pago configurado
+      });
+    return () => {
+      ativo = false;
+    };
+  }, []);
 
   const [metodo, setMetodo] = useState<MetodoCheckout>(inicial);
   const [detalheCartao, setDetalheCartao] = useState<"debito" | "credito">(
@@ -358,6 +370,7 @@ export default function Checkout({
             pedidoId={pedidoExistente?.id}
             itens={itensPayload}
             cliente={cliente}
+            publicKey={mpPublicKey}
             onAprovado={onConcluido}
           />
         ) : null}

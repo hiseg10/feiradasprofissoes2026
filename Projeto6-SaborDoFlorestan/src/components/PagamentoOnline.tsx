@@ -62,12 +62,14 @@ export default function PagamentoOnline({
   pedidoId,
   itens,
   cliente,
+  publicKey,
   onAprovado,
 }: {
   totalCentavos: number;
   pedidoId?: number;
   itens: ItemPayload[];
   cliente?: string;
+  publicKey: string;
   onAprovado: (pedido: Pedido) => void;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -78,11 +80,6 @@ export default function PagamentoOnline({
   const [erro, setErro] = useState<string | null>(null);
   const [processando, setProcessando] = useState(false);
   const [pronto, setPronto] = useState(false);
-
-  const publicKey =
-    process.env.NEXT_PUBLIC_MP_PUBLIC_KEY_TEST ??
-    process.env.NEXT_PUBLIC_MP_PUBLIC_KEY ??
-    "";
 
   useEffect(() => {
     dadosRef.current = { totalCentavos, pedidoId, itens, cliente };
@@ -194,7 +191,7 @@ export default function PagamentoOnline({
     erro ??
     (publicKey
       ? null
-      : "Pagamento online indisponível: configure NEXT_PUBLIC_MP_PUBLIC_KEY.");
+      : "Pagamento online indisponível: Mercado Pago não configurado.");
 
   return (
     <div className="mt-4 rounded-2xl border border-blue-100 bg-blue-50/60 p-4">
