@@ -2,19 +2,19 @@
 
 ## Problema
 
-Moradores e visitantes não conhecem o comércio, o artesanato e os espaços culturais do bairro. A informação está espalhada em grupos de WhatsApp e redes sociais, sem endereço, horário ou curadoria. Pequenos empreendedores têm pouca vitrine.
+Moradores e visitantes do bairro **Deus Quer**, em **Teresina – PI**, não conhecem o comércio, os serviços e os espaços culturais da própria região. A informação está espalhada em grupos de WhatsApp e redes sociais, sem endereço, horário ou curadoria. Pequenos empreendedores têm pouca vitrine.
 
 ## Proposta de valor
 
-**"Descubra o que Florestan tem de melhor."**
+**"Descubra o que o Deus Quer tem de melhor."**
 
-Um guia digital que reúne comércio, artesanato, turismo e serviços, com busca, categorias, QR codes e um guia de IA que monta roteiros curtos usando apenas os pontos cadastrados.
+Um guia digital que reúne comércio, serviços, cultura e lazer do bairro, com busca, categorias, QR codes, mapa e um guia de IA que monta roteiros curtos usando apenas os pontos cadastrados.
 
 ## Público-alvo
 
-- Moradores do bairro
+- Moradores do bairro Deus Quer
 - Visitantes da Feira das Profissões
-- Pequenos comerciantes e artesãos
+- Pequenos comerciantes e prestadores de serviço
 - Famílias e estudantes
 
 ## Personas
@@ -26,7 +26,7 @@ Quer um lugar diferente para encontrar amigos no fim de semana. Usa o celular o 
 Produz peças de cerâmica, mas não tem site nem redes sociais. Quer aparecer no guia e receber visitas.
 
 ### 3. Família Ferreira, visitantes
-Vieram à feira e querem passar a tarde no bairro. Precisam de opções para comer, um parque para as crianças e um café para terminar o passeio.
+Vieram à feira e querem passar a tarde no bairro Deus Quer, em Teresina. Precisam de opções para comer, uma praça para as crianças e um lugar tranquilo para terminar o passeio.
 
 ## Funcionalidades prioritárias
 
@@ -51,7 +51,7 @@ Vieram à feira e querem passar a tarde no bairro. Precisam de opções para com
 - **Cores**: azul-petróleo, verde-água e amarelo âmbar
 - **Tipografia**: sans-serif amigável e legível
 - **Símbolo**: alfinete de mapa com uma folha ou um "F" estilizado
-- **Slogan**: "Descubra o que Florestan tem de melhor."
+- **Slogan**: "Descubra o que o Deus Quer tem de melhor."
 
 ## Roteiro do pitch (3 minutos)
 

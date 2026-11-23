@@ -3,7 +3,7 @@ import ChatGuia from "@/components/ChatGuia";
 
 export const metadata: Metadata = {
   title: "Guia IA · Florestan Conecta",
-  description: "Peça um roteiro e receba sugestões de lugares do bairro.",
+  description: "Peça um roteiro e receba sugestões de lugares do bairro Deus Quer, em Teresina – PI.",
 };
 
 export default function GuiaPage() {
@@ -15,8 +15,9 @@ export default function GuiaPage() {
           Seu passeio começa com uma pergunta
         </h1>
         <p className="mt-3 text-sm leading-relaxed text-slate-600">
-          O guia usa apenas os pontos cadastrados no projeto. Ele não inventa lugares e sempre
-          lembra de confirmar horários. Experimente pedir um roteiro de 2 horas.
+          O guia cobre apenas o bairro Deus Quer, em Teresina – PI, e usa os pontos cadastrados no
+          projeto. Ele não inventa lugares e sempre lembra de confirmar horários. Experimente pedir
+          um roteiro de 2 horas pelo bairro.
         </p>
       </header>
 

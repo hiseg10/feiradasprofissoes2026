@@ -1,4 +1,4 @@
-import { PONTOS } from "./conteudo";
+import { PONTOS, type Ponto } from "./conteudo";
 
 export type MensagemIA = {
   papel: "user" | "assistant";
@@ -12,12 +12,13 @@ export type RespostaIA = {
   usadoFallback: boolean;
 };
 
-const SISTEMA = `Você é o guia do Florestan Conecta, um projeto escolar de turismo e comércio local.
+const SISTEMA = `Você é o guia do Florestan Conecta, um projeto escolar de turismo e comércio local do bairro Deus Quer, em Teresina – PI.
 Regras:
 - Responda em português do Brasil, com tom acolhedor e linguagem simples.
+- Cubra apenas o bairro Deus Quer e seu entorno imediato. Não sugira lugares de outras cidades ou de bairros distantes; se o visitante pedir algo fora, explique que o guia é local.
 - Use apenas os pontos cadastrados no contexto. Não invente estabelecimentos, endereços ou horários.
 - Se o visitante pedir algo que não está na lista, diga com gentileza que ainda não está no guia e sugira uma alternativa próxima da lista.
-- Monte roteiros curtos (2 a 4 horas) quando pedirem, explicando o deslocamento a pé.
+- Monte roteiros curtos (2 a 4 horas) pelo bairro quando pedirem, explicando o deslocamento a pé.
 - Sempre lembre que horários e contatos podem mudar e devem ser confirmados.
 - Respostas curtas: no máximo 3 parágrafos ou uma lista curta.`;
 
@@ -143,8 +144,11 @@ function respostaLocal(historico: MensagemIA[]): RespostaIA {
   const pergunta = [...historico].reverse().find((m) => m.papel === "user")?.texto ?? "";
   const texto = pergunta.toLowerCase();
   const partes: string[] = [
-    "Estou sem conexão com a IA agora, então vou usar o guia local. Horários e contatos podem mudar; confirme antes de sair.",
+    "Estou sem conexão com a IA agora, então vou usar o guia local do Deus Quer. Horários e contatos podem mudar; confirme antes de sair.",
   ];
+
+  const listar = (pontos: Ponto[]): string =>
+    pontos.map((ponto) => `- ${resumePonto(ponto)}`).join("\n");
 
   if (texto.includes("roteiro") || texto.includes("itiner") || texto.includes("tarde") || texto.includes("horas")) {
     const destaques = PONTOS.filter((ponto) => ponto.destaque).slice(0, 4);
@@ -154,39 +158,34 @@ function respostaLocal(historico: MensagemIA[]): RespostaIA {
     );
   } else if (texto.includes("comer") || texto.includes("comida") || texto.includes("café") || texto.includes("lanche")) {
     partes.push(
-      "Opções para comer:\n" +
-        PONTOS.filter((ponto) => ponto.categoria === "Comer")
-          .map((ponto) => `- ${resumePonto(ponto)}`)
-          .join("\n"),
+      "Opções para comer e lanchar no bairro:\n" +
+        listar(PONTOS.filter((ponto) => ponto.categoria === "Comer")),
     );
   } else if (texto.includes("artesanato") || texto.includes("presente") || texto.includes("lembrança")) {
     partes.push(
-      "Artesanato local:\n" +
-        PONTOS.filter((ponto) => ponto.categoria === "Artesanato")
-          .map((ponto) => `- ${resumePonto(ponto)}`)
-          .join("\n"),
+      "Ainda não há artesãos cadastrados no guia do Deus Quer. Enquanto isso, vale conhecer a Praça do Deus Quer e o Conjunto Recanto dos Pássaros, que são pontos de encontro da comunidade.",
     );
   } else if (texto.includes("criança") || texto.includes("familia") || texto.includes("família") || texto.includes("parque")) {
     partes.push(
       "Para ir com crianças:\n" +
-        PONTOS.filter((ponto) => ponto.tags.some((tag) => ["parquinho", "família", "praça"].includes(tag)))
-          .map((ponto) => `- ${resumePonto(ponto)}`)
-          .join("\n"),
+        listar(
+          PONTOS.filter((ponto) =>
+            ponto.tags.some((tag) => ["família", "praça", "lazer", "esporte"].includes(tag)),
+          ),
+        ),
     );
   } else if (texto.includes("foto") || texto.includes("instagram")) {
     partes.push(
-      "Lugares com boa luz para fotos:\n" +
-        PONTOS.filter((ponto) => ponto.tags.some((tag) => ["foto", "praça", "museu"].includes(tag)))
-          .map((ponto) => `- ${resumePonto(ponto)}`)
-          .join("\n"),
+      "Lugares para fotos no bairro:\n" +
+        listar(PONTOS.filter((ponto) => ponto.tags.some((tag) => ["praça", "conjunto", "cultura"].includes(tag)))),
     );
   } else {
     partes.push(
-      "Posso montar um roteiro, indicar onde comer, sugerir artesanato local ou opções para ir com crianças. O que você prefere?",
+      "Posso montar um roteiro, indicar onde comer e lanchar, sugerir espaços de lazer e opções para ir com crianças. O que você prefere?",
     );
   }
 
-  partes.push("Veja todos os pontos na página inicial do Florestan Conecta.");
+  partes.push("Veja todos os pontos do bairro na página inicial do Florestan Conecta.");
 
   return {
     resposta: partes.join("\n\n"),

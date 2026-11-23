@@ -1,13 +1,13 @@
 # Florestan Conecta
 
-Guia digital de turismo, comércio e cultura local, com roteiros sugeridos por IA. Projeto da **Feira das Profissões Florestan 2026**, desenvolvido pelo **2º ano do curso técnico em Desenvolvimento de Sistemas** em colaboração com o **1º ano de Marketing Digital**.
+Guia digital do bairro **Deus Quer**, em **Teresina – PI**: comércio, serviços, cultura e lazer, com roteiros sugeridos por IA. Projeto da **Feira das Profissões Florestan 2026**, desenvolvido pelo **2º ano do curso técnico em Desenvolvimento de Sistemas** em colaboração com o **1º ano de Marketing Digital**.
 
 ## O que o projeto faz
 
 - **Explorar pontos**: busca por texto e filtro por categoria (Comer, Artesanato, Turismo, Serviços e Agro).
 - **Página de cada ponto**: descrição, endereço, horário, telefone, dica e tags.
 - **QR code** por ponto para divulgação no estande e no comércio.
-- **Mapa**: link direto para o Google Maps com o endereço.
+- **Mapa**: mapa do bairro na página inicial e link direto para o Google Maps em cada ponto.
 - **Guia com IA**: chat que monta roteiros curtos usando apenas os pontos cadastrados.
 - **Modo local**: sem chave de IA, o guia responde com sugestões baseadas na lista.
 
@@ -57,7 +57,7 @@ Resposta:
 
 ```json
 {
-  "resposta": "Sugiro começar pelo Café do Bairro...",
+  "resposta": "Sugiro começar pela Praça do Deus Quer...",
   "provedor": "gemini",
   "modelo": "gemini-2.5-flash",
   "usadoFallback": false
@@ -79,19 +79,22 @@ src/
     ia.ts                 camada plugável de IA e fallback local
 ```
 
-## Dados de demonstração
+## Dados do bairro
 
-Os pontos em `src/lib/conteudo.ts` são **fictícios** e servem de modelo. Antes da feira:
+Os pontos em `src/lib/conteudo.ts` são locais públicos do bairro **Deus Quer**, em Teresina – PI, mapeados no OpenStreetMap. O projeto não inventa telefones nem horários: cada ponto pede confirmação nos canais oficiais. Antes da feira:
 
-1. Convidem os comerciantes reais do bairro.
-2. Peçam autorização para divulgar nome, endereço e telefone.
-3. Substituam os dados e confiram horários.
-4. Tirem fotos (com autorização) e troquem os emojis/gradientes por imagens, se quiserem.
+1. Convidem os comerciantes e equipamentos públicos para completar os dados.
+2. Peçam autorização para divulgar nome, endereço, telefone e fotos.
+3. Confirmem horários de funcionamento e programação.
+4. Preencham as categorias **Artesanato** e **Agro**, reservadas para parceiros locais.
+
+Dados geográficos: © colaboradores do OpenStreetMap, licença ODbL.
 
 ## Backlog para os alunos
 
 ### Sprint 1 — Base
-- [ ] Substituir os dados fictícios por parceiros reais
+- [x] Mapear os pontos do bairro Deus Quer
+- [ ] Completar os dados com parceiros reais e contatos confirmados
 - [ ] Revisar os textos com a squad de Marketing
 - [ ] Criar página "Sobre o projeto"
 - [ ] Melhorar acessibilidade e contraste
@@ -100,7 +103,7 @@ Os pontos em `src/lib/conteudo.ts` são **fictícios** e servem de modelo. Antes
 - [ ] Adicionar filtro por "aberto agora"
 - [ ] Criar ordenação por destaque e proximidade
 - [ ] Adicionar página de categorias
-- [ ] Integrar mapa incorporado (Leaflet ou OpenStreetMap)
+- [x] Integrar mapa do bairro na página inicial
 
 ### Sprint 3 — IA e QR
 - [ ] Melhorar o prompt do guia com tempo disponível e perfil do visitante
@@ -137,5 +140,6 @@ Os pontos em `src/lib/conteudo.ts` são **fictícios** e servem de modelo. Antes
 
 - Confirme horários e contatos antes de divulgar.
 - Respeite a LGPD: peça autorização para divulgar telefone e fotos.
-- O guia de IA não inventa lugares: ele usa a lista cadastrada.
+- O guia de IA não inventa lugares: ele usa a lista cadastrada e cobre apenas o bairro Deus Quer.
 - O QR code usa um serviço externo; se a internet falhar, mostre o link impresso como plano B.
+- O mapa incorporado usa o OpenStreetMap; o link "Abrir no mapa" de cada ponto prioriza as coordenadas no Google Maps.

@@ -10,15 +10,15 @@ type Meta = {
 };
 
 const SUGESTOES = [
-  "Monte um roteiro de 2 horas para mim",
-  "Onde comer algo típico?",
-  "Quero conhecer o artesanato local",
+  "Monte um roteiro de 2 horas pelo Deus Quer",
+  "Onde comer e lanchar no bairro?",
   "O que fazer com crianças?",
-  "Qual lugar tem a melhor luz para fotos?",
+  "Quais espaços de lazer existem?",
+  "Como chegar à Praça do Deus Quer?",
 ];
 
 const MENSAGEM_INICIAL =
-  "Olá! Eu sou o guia do Florestan Conecta. Posso montar um roteiro, indicar onde comer, sugerir artesanato e pontos para fotos. O que você quer conhecer primeiro?";
+  "Olá! Eu sou o guia do Florestan Conecta, no bairro Deus Quer, em Teresina – PI. Posso montar um roteiro, indicar onde comer e lanchar, sugerir espaços de lazer e opções para ir com crianças. O que você quer conhecer primeiro?";
 
 export default function ChatGuia() {
   const [mensagens, setMensagens] = useState<MensagemIA[]>([
@@ -98,7 +98,7 @@ export default function ChatGuia() {
           </span>
           <div>
             <p className="text-sm font-bold text-slate-900">Guia Florestan Conecta</p>
-            <p className="text-xs text-slate-500">Roteiros e dicas do bairro</p>
+            <p className="text-xs text-slate-500">Roteiros e dicas do bairro Deus Quer</p>
           </div>
           {meta ? (
             <span className="ml-auto rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-500">

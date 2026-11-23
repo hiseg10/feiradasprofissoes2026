@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import QRCodePonto from "@/components/QRCodePonto";
-import { buscarPonto, CORES_CATEGORIA, PONTOS } from "@/lib/conteudo";
+import { buscarPonto, CORES_CATEGORIA, linkMapaPonto, PONTOS } from "@/lib/conteudo";
 
 export function generateStaticParams() {
   return PONTOS.map((ponto) => ({ slug: ponto.slug }));
@@ -32,8 +32,7 @@ export default async function PontoPage({
   if (!ponto) notFound();
 
   const cores = CORES_CATEGORIA[ponto.categoria];
-  const consultaMapa = encodeURIComponent(`${ponto.nome} ${ponto.endereco}`);
-  const linkMapa = `https://www.google.com/maps/search/?api=1&query=${consultaMapa}`;
+  const linkMapa = linkMapaPonto(ponto);
   const outros = PONTOS.filter((item) => item.slug !== ponto.slug).slice(0, 3);
 
   return (
