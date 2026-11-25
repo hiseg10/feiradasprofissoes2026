@@ -340,7 +340,9 @@ main {
   color: #fca5a5;
 }
 
-.badge.iniciando {
+.badge.iniciando,
+.badge.sem-resposta,
+.badge.porta-ocupada {
   background: rgba(250, 204, 21, 0.12);
   color: #fde68a;
 }

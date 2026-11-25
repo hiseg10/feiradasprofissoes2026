@@ -1,6 +1,7 @@
 {
   "hubPort": 4000,
   "modo": "dev",
+  "portasReserva": 8,
   "faixasPortas": [
     { "inicio": 3000, "fim": 3005 },
     { "inicio": 3100, "fim": 3105 }
