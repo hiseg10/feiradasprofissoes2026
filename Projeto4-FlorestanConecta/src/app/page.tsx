@@ -142,6 +142,24 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="border-t border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-10 sm:flex-row sm:items-center sm:justify-between">
+          <div className="max-w-2xl">
+            <p className="eyebrow">Para o comércio local</p>
+            <h2 className="mt-1 text-2xl font-black tracking-tight text-slate-900">
+              Tem um ponto no {BAIRRO}? Divulgue para a vizinhança.
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">
+              Monte legenda, cartaz com QR code e links prontos para Instagram, WhatsApp, Facebook,
+              Google Maps e outros sites especializados.
+            </p>
+          </div>
+          <Link href="/divulgar" className="btn-primary shrink-0">
+            Abrir kit de divulgação
+          </Link>
+        </div>
+      </section>
+
       <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-slate-900 text-white">
         <div className="mx-auto max-w-6xl px-4 py-12 text-center">
           <h2 className="text-2xl font-black tracking-tight sm:text-3xl">

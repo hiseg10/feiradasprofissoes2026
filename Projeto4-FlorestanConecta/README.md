@@ -9,6 +9,7 @@ Guia digital do bairro **Deus Quer**, em **Teresina – PI**: comércio, serviç
 - **QR code** por ponto para divulgação no estande e no comércio.
 - **Mapa**: mapa do bairro na página inicial e link direto para o Google Maps em cada ponto.
 - **Guia com IA**: chat que monta roteiros curtos usando apenas os pontos cadastrados.
+- **Kit de divulgação**: legenda, cartaz com QR code e links para redes sociais e sites especializados.
 - **Modo local**: sem chave de IA, o guia responde com sugestões baseadas na lista.
 
 ## Stack
@@ -70,12 +71,14 @@ Resposta:
 src/
   app/
     api/ia/guia/          rota do guia com IA
+    divulgar/             kit de divulgação do parceiro
     guia/                 página do chat
     pontos/[slug]/        detalhe de cada ponto
     page.tsx              landing + explorar
-  components/             Header, Explorar, ChatGuia, QRCodePonto
+  components/             Header, Explorar, ChatGuia, QRCodePonto, DivulgarKit
   lib/
     conteudo.ts           pontos, categorias, cores e contexto da IA
+    divulgacao.ts         legendas, hashtags, links e sugestões de sites
     ia.ts                 camada plugável de IA e fallback local
 ```
 
@@ -89,6 +92,18 @@ Os pontos em `src/lib/conteudo.ts` são locais públicos do bairro **Deus Quer**
 4. Preencham as categorias **Artesanato** e **Agro**, reservadas para parceiros locais.
 
 Dados geográficos: © colaboradores do OpenStreetMap, licença ODbL.
+
+## Kit de divulgação
+
+A página `/divulgar` foi pensada para a squad de Marketing e para os parceiros do bairro:
+
+- escolha um ponto e receba legendas prontas para Instagram, WhatsApp, Facebook/X e Google;
+- copie a bio do Instagram e o status do WhatsApp;
+- publique com links marcados com UTM para acompanhar a origem;
+- acesse Google Maps, Google Business Profile, OpenStreetMap, iFood e TripAdvisor;
+- imprima ou salve em PDF um cartaz com QR code para o balcão ou a vitrine.
+
+Cada página de ponto também tem o atalho "Abrir kit de divulgação".
 
 ## Backlog para os alunos
 
@@ -112,6 +127,7 @@ Dados geográficos: © colaboradores do OpenStreetMap, licença ODbL.
 - [ ] Adicionar botão "copiar roteiro" e "compartilhar no WhatsApp"
 
 ### Sprint 4 — Feira
+- [x] Kit de divulgação com legendas, cartaz e links para redes sociais
 - [ ] Modo quiosque no estande
 - [ ] QR codes impressos para cada parceiro
 - [ ] Roteiro de demonstração de 3 minutos

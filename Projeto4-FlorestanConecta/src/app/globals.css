@@ -37,6 +37,17 @@
   }
 }
 
+.cartao-impressao {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@media print {
+  @page {
+    margin: 12mm;
+  }
+}
+
 @layer components {
   .card {
     @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
