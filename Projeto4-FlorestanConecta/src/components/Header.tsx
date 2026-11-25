@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur print:hidden">
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3">
         <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Florestan Conecta, página inicial">
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-teal-600 text-base font-black text-white">
@@ -27,6 +27,12 @@ export default function Header() {
             className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-teal-50 hover:text-teal-700"
           >
             Guia IA
+          </Link>
+          <Link
+            href="/divulgar"
+            className="ml-1 rounded-lg bg-teal-600 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-teal-700"
+          >
+            Divulgar
           </Link>
         </nav>
       </div>

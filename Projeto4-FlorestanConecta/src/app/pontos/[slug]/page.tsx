@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import QRCodePonto from "@/components/QRCodePonto";
 import { buscarPonto, CORES_CATEGORIA, linkMapaPonto, PONTOS } from "@/lib/conteudo";
+import { SITE_URL } from "@/lib/divulgacao";
 
 export function generateStaticParams() {
   return PONTOS.map((ponto) => ({ slug: ponto.slug }));
@@ -15,9 +16,27 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const ponto = buscarPonto(slug);
+  if (!ponto) return { title: "Ponto não encontrado" };
+
+  const titulo = `${ponto.nome} · Florestan Conecta`;
+  const url = `${SITE_URL}/pontos/${ponto.slug}`;
+
   return {
-    title: ponto ? `${ponto.nome} · Florestan Conecta` : "Ponto não encontrado",
-    description: ponto?.descricao,
+    title: titulo,
+    description: ponto.descricao,
+    openGraph: {
+      title: titulo,
+      description: ponto.descricao,
+      url,
+      siteName: "Florestan Conecta",
+      locale: "pt_BR",
+      type: "article",
+    },
+    twitter: {
+      card: "summary",
+      title: titulo,
+      description: ponto.descricao,
+    },
   };
 }
 
@@ -100,6 +119,21 @@ export default async function PontoPage({
 
         <div className="space-y-4">
           <QRCodePonto nome={ponto.nome} />
+
+          <div className="card p-5">
+            <p className="eyebrow">Para o parceiro</p>
+            <h2 className="mt-1 text-sm font-bold text-slate-900">Divulgue este ponto</h2>
+            <p className="mt-1 text-xs leading-relaxed text-slate-500">
+              Gere legenda, cartaz com QR code e links para redes sociais e sites especializados.
+            </p>
+            <Link
+              href={`/divulgar?ponto=${ponto.slug}`}
+              className="btn-secondary mt-3 px-3 py-2 text-xs"
+            >
+              Abrir kit de divulgação
+            </Link>
+          </div>
+
           <div className="card p-5">
             <h2 className="text-sm font-bold text-slate-900">Outros pontos</h2>
             <div className="mt-3 space-y-2">
