@@ -11,6 +11,9 @@ export default function Header() {
           <span className="hidden text-sm font-black tracking-tight text-slate-900 sm:block">
             Florestan Conecta
           </span>
+          <span className="hidden text-xs font-medium text-slate-500 md:block">
+            Deus Quer · Teresina – PI
+          </span>
         </Link>
         <nav aria-label="Navegação principal" className="ml-auto flex items-center gap-1">
           <Link

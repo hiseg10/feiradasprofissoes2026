@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
-  CATEGORIAS,
   CORES_CATEGORIA,
+  categoriasComPontos,
   type Categoria,
   type Ponto,
 } from "@/lib/conteudo";
@@ -12,6 +12,7 @@ import {
 export default function Explorar({ pontos }: { pontos: Ponto[] }) {
   const [busca, setBusca] = useState("");
   const [categoria, setCategoria] = useState<Categoria | "Todos">("Todos");
+  const categorias = useMemo(() => categoriasComPontos(pontos), [pontos]);
 
   const filtrados = useMemo(() => {
     const termo = busca.trim().toLowerCase();
@@ -36,7 +37,7 @@ export default function Explorar({ pontos }: { pontos: Ponto[] }) {
             className="input pl-8"
             value={busca}
             onChange={(evento) => setBusca(evento.target.value)}
-            placeholder="Busque por café, artesanato, praça..."
+            placeholder="Busque por praça, lanche, escola..."
             aria-label="Buscar pontos"
           />
         </div>
@@ -57,7 +58,7 @@ export default function Explorar({ pontos }: { pontos: Ponto[] }) {
         >
           Todos
         </button>
-        {CATEGORIAS.map((item) => (
+        {categorias.map((item) => (
           <button
             key={item}
             type="button"
