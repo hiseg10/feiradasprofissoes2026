@@ -64,9 +64,9 @@
 - [ ] Testar o **Feira Hub** no notebook da feira (`FeiraHub\start-hub.bat`, porta 4000).
 - [ ] Escanear os QR codes com um celular na mesma rede Wi-Fi.
 - [ ] Liberar o Node.js no firewall do Windows para redes privadas.
-- [ ] Antes da feira, fechar servidores antigos na porta 3000 (ex.: Story Games) e conferir se as portas 3101–3104 estão livres.
-- [ ] Se o hub mostrar "porta ocupada", identificar o processo com `netstat -ano | findstr :PORTA` e encerrar.
-- [ ] Testar os botões "Iniciar todos" e "Parar todos".
+- [ ] Antes da feira, conferir se as portas 3101–3105 estão livres; use "Limpar portas" no hub para encerrar processos travados.
+- [ ] Se o hub mostrar "porta ocupada", conferir o PID exibido no cartão e usar "Liberar porta" ou "Iniciar na porta N".
+- [ ] Testar os botões "Iniciar todos", "Parar todos" e "Limpar portas".
 - [ ] Se o CDQ for acessado pelo celular com login Google, cadastrar `http://SEU-IP:3000/api/auth/google/callback` nas URIs autorizadas do Google Cloud Console.
 
 ### Cantina — Sabor do Florestan
