@@ -141,7 +141,7 @@ FeiraHub\start-hub.bat
 
 Acesse `http://localhost:4000`. Para o celular abrir os projetos, ele precisa estar na **mesma rede Wi-Fi** do notebook. Na primeira vez, libere o Node.js no firewall do Windows para redes privadas.
 
-O hub valida o conteúdo de cada porta, então não confunde o projeto com outro serviço. Se uma porta estiver ocupada, o cartão mostra o aviso; se o projeto estiver rodando em outra porta, o QR usa a porta real.
+O hub valida o conteúdo de cada porta, então não confunde o projeto com outro serviço. Se uma porta estiver ocupada, o cartão mostra o processo (PID), sugere uma porta livre e permite encerrar processos travados; se o projeto estiver rodando em outra porta, o QR usa a porta real.
 
 ## Regras de segurança e LGPD
 
